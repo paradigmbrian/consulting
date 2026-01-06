@@ -1,0 +1,88 @@
+.who-is-for {
+  padding: var(--spacing-xl) var(--spacing-sm);
+  background-color: var(--color-bg);
+}
+
+.section-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.who-is-for .section-title {
+  text-align: left;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+  background: transparent;
+}
+
+.who-is-for-content {
+  margin-left: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.who-is-for-list {
+  margin-bottom: 0;
+}
+
+.who-is-for-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.who-is-for-list li {
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-md);
+  position: relative;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+}
+
+.who-is-for-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--spacing-lg) 0;
+}
+
+.who-is-not-for-list {
+  margin-left: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.who-is-not-for-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.who-is-not-for-list li {
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-md);
+  position: relative;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+}
+
+.who-is-not-for-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .who-is-for {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+}
