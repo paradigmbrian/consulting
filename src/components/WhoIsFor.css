@@ -1,23 +1,37 @@
 .who-is-for {
-  padding: var(--spacing-xl) var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-sm);
   background-color: var(--color-bg);
 }
 
 .section-content {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
+  text-align: center;
 }
 
 .who-is-for .section-title {
-  text-align: left;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   color: var(--color-text);
   background: transparent;
 }
 
-.who-is-for-content {
-  margin-left: var(--spacing-md);
+.who-is-for-intro {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
   margin-bottom: var(--spacing-md);
+}
+
+.who-is-for-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.who-is-for-content {
+  margin: 0 auto var(--spacing-md);
+  max-width: 600px;
 }
 
 .who-is-for-list {
@@ -54,8 +68,8 @@
 }
 
 .who-is-not-for-list {
-  margin-left: var(--spacing-md);
-  margin-top: var(--spacing-sm);
+  margin: var(--spacing-sm) auto 0;
+  max-width: 600px;
 }
 
 .who-is-not-for-list ul {

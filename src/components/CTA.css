@@ -1,5 +1,5 @@
 .cta {
-  padding: var(--spacing-xl) var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-sm);
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
 }
@@ -26,10 +26,17 @@
 
 .cta-title {
   color: white;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .cta-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  color: white;
+  font-weight: 600;
+}
+
+.cta-description {
   font-size: 1.125rem;
   margin-bottom: var(--spacing-lg);
   color: rgba(255, 255, 255, 0.95);

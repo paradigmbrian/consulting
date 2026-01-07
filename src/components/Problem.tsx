@@ -54,6 +54,13 @@ const Problem = () => {
                       Choose tools they don't understand and can't change
                     </span>
                   </li>
+                  <li>
+                    <HiExclamationCircle className="problem-warning-icon" />
+                    <span>
+                      Make technical decisions without understanding long-term
+                      implications
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>

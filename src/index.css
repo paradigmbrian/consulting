@@ -15,14 +15,14 @@
   --color-bg-dark: #0f172a;
   --color-border: #e2e8f0;
   --color-success: #10b981;
-  --max-width: 1200px;
+  --max-width: 1400px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 6rem;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
@@ -35,7 +35,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-text);
@@ -79,12 +84,34 @@ button {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 var(--spacing-sm);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .container {
-    padding: 0 var(--spacing-sm);
+    padding: 0 var(--spacing-md);
   }
 }
 
+@media (min-width: 1400px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+.section-title {
+  text-align: center;
+}
+
+.section-content {
+  text-align: center;
+}
+
+.section-intro,
+.problem-intro,
+.who-is-for-intro,
+.why-intro,
+.who-is-for-subtitle,
+.why-focus {
+  text-align: center;
+}

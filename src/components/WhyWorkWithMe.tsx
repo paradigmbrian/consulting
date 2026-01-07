@@ -6,27 +6,27 @@ const WhyWorkWithMe = () => {
     <section className="why-work-with-me">
       <div className="container">
         <div className="section-content">
-          <h2 className="section-title">Why Work With Me</h2>
+          <h2 className="section-title">Why Work With Us</h2>
           <p className="why-intro">
-            I specialize in helping founders who don't want to make these
+            We specialize in helping founders who don't want to make these
             decisions alone.
           </p>
           <p className="why-focus">
-            My focus is not writing code — it's explaining tradeoffs clearly so
+            Out focus is not writing code — it's explaining tradeoffs clearly so
             you can:
           </p>
           <ul className="why-benefits">
             <li>
               <FaRocket className="why-icon" />
-              <span>move faster with confidence</span>
+              <span>Move faster with confidence</span>
             </li>
             <li>
               <FaShieldAlt className="why-icon" />
-              <span>avoid expensive rework</span>
+              <span>Avoid expensive rework</span>
             </li>
             <li>
               <FaComments className="why-icon" />
-              <span>speak credibly with developers and investors</span>
+              <span>Speak credibly with developers and investors</span>
             </li>
           </ul>
           <p className="why-tagline">

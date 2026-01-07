@@ -1,7 +1,15 @@
-import { HiLightBulb } from 'react-icons/hi'
-import './Hero.css'
+import { HiLightBulb } from "react-icons/hi";
+import { FaCalendarAlt } from "react-icons/fa";
+import "./Hero.css";
 
 const Hero = () => {
+  const scrollToOffer = () => {
+    const offerSection = document.getElementById("offer");
+    if (offerSection) {
+      offerSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="container">
@@ -9,19 +17,35 @@ const Hero = () => {
           <div className="hero-icon">
             <HiLightBulb />
           </div>
-          <p className="hero-brand">Paradigm Shift — Early-Stage Tech Consulting</p>
+          <p className="hero-brand">
+            Paradigm Shift — Early-Stage Tech Consulting
+          </p>
           <h1 className="hero-title">
-            Technical Strategy for Non-Technical Founders Building B2C SaaS
+            Technical Clarity for
+            <br />
+            Non-Technical Founders
           </h1>
           <p className="hero-subtitle">
-            Make the right technology decisions before you write a single line of code — 
-            and avoid wasting time and money rebuilding later.
+            Choose the right technical path — before costly mistakes are made
           </p>
+          <div className="hero-cta-buttons">
+            <a
+              href="https://calendly.com/brian-paradigmshiftdev/30min"
+              className="btn btn-primary btn-large"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaCalendarAlt className="btn-icon" />
+              Book a 30-minute founder call →
+            </a>
+            <button className="btn btn-secondary" onClick={scrollToOffer}>
+              See what's included
+            </button>
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
-
+export default Hero;

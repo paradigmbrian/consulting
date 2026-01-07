@@ -1,5 +1,5 @@
 .problem {
-  padding: var(--spacing-xl) var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-sm);
   background-color: var(--color-bg-light);
 }
 
@@ -7,14 +7,13 @@
   font-size: 1.125rem;
   color: var(--color-text-light);
   line-height: 1.7;
-  margin-bottom: var(--spacing-lg);
-  text-align: left;
+  margin-bottom: var(--spacing-md);
 }
 
 .problem-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   align-items: stretch;
 }
 
@@ -28,12 +27,12 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
 }
 
 .problem-list li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-md);
   background-color: var(--color-bg);
@@ -53,7 +52,6 @@
   flex-shrink: 0;
   color: var(--color-primary);
   font-size: 1.5rem;
-  margin-top: 0.125rem;
   transition: transform 0.3s ease;
 }
 
@@ -65,6 +63,7 @@
   font-size: 1.125rem;
   line-height: 1.7;
   color: var(--color-text-light);
+  text-align: center;
 }
 
 .problem-consequences {
@@ -89,19 +88,21 @@
   margin-bottom: var(--spacing-sm);
   color: var(--color-text);
   font-weight: 600;
+  text-align: center;
 }
 
 .problem-consequence-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: left;
 }
 
 .problem-consequence-list li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-xs) 0;
   font-size: 1.125rem;
   line-height: 1.7;
   color: var(--color-text-light);
@@ -111,11 +112,11 @@
   flex-shrink: 0;
   color: #f59e0b;
   font-size: 1.5rem;
-  margin-top: 0.125rem;
 }
 
 .problem-consequence-list li span {
   flex: 1;
+  text-align: left;
 }
 
 .problem-cost {
@@ -132,7 +133,7 @@
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
   text-align: center;
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
   width: 100%;
 }
 

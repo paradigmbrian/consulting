@@ -1,11 +1,11 @@
-import Hero from './components/Hero'
-import WhoIsFor from './components/WhoIsFor'
-import Problem from './components/Problem'
-import Offer from './components/Offer'
-import HowItWorks from './components/HowItWorks'
-import WhyWorkWithMe from './components/WhyWorkWithMe'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import Hero from "./components/Hero";
+import WhoIsFor from "./components/WhoIsFor";
+import Problem from "./components/Problem";
+import Offer from "./components/Offer";
+import HowItWorks from "./components/HowItWorks";
+import WhyWorkWithMe from "./components/WhyWorkWithMe";
+import CTA from "./components/CTA";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,8 +19,7 @@ function App() {
       <CTA />
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;
