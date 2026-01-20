@@ -1,6 +1,6 @@
 .hero {
   padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-md);
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, #1E5A8A 0%, #2777B4 50%, #3A8BC8 100%);
   color: white;
   text-align: center;
   position: relative;
