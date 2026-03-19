@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Balance — Earn Your Screen Time</title>
+    <meta name="description" content="Lock distracting apps behind a fitness paywall. Earn screen time through physical activity. You earned it.">
+    <meta property="og:title" content="Active Balance — Earn Your Screen Time">
+    <meta property="og:description" content="Turn physical activity into screen time credits. Move more, unlock more. Coming soon to iOS.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           VARIABLES
+           ============================================ */
+        :root {
+            --bg-dark: #0B1A12;
+            --bg-dark-card: rgba(255,255,255,0.04);
+            --bg-light: #F6F3ED;
+            --bg-light-alt: #EDE8DF;
+            --green: #00D98B;
+            --green-light: #7DFFC4;
+            --green-dark: #00A86B;
+            --green-glow: rgba(0,217,139,0.25);
+            --gold: #F0B94D;
+            --gold-light: #FFD98A;
+            --text-on-dark: #E6E2DA;
+            --text-on-dark-muted: #8A867E;
+            --text-on-light: #1A2B23;
+            --text-on-light-muted: #5C6B62;
+            --border-dark: rgba(255,255,255,0.08);
+            --border-light: rgba(0,0,0,0.08);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 40px;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Figtree', system-ui, sans-serif;
+            color: var(--text-on-dark);
+            background: var(--bg-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button, input { font-family: inherit; border: none; outline: none; }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        .syne { font-family: 'Syne', sans-serif; }
+
+        h1, h2, h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+        .eyebrow {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--green);
+        }
+
+        /* ============================================
+           LAYOUT
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* ============================================
+           GRAIN OVERLAY
+           ============================================ */
+        .grain {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(11,26,18,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 var(--border-dark);
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-dot {
+            width: 10px; height: 10px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--green-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-on-dark-muted);
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--green);
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+
+        .nav-links a:hover { color: var(--text-on-dark); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-light);
+            box-shadow: 0 0 30px var(--green-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--green);
+            border: 1.5px solid var(--green);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(0,217,139,0.08);
+        }
+
+        .btn-sm { padding: 10px 22px; font-size: 0.85rem; }
+
+        .nav-cta { display: none; }
+
+        @media (min-width: 768px) {
+            .nav-cta { display: inline-flex; }
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 22px; height: 2px;
+            background: var(--text-on-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn { display: none; }
+        }
+
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: rgba(11,26,18,0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-dark);
+            }
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%; right: -15%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(0,217,139,0.12) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(240,185,77,0.06) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (min-width: 960px) {
+            .hero .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .hero-text { max-width: 560px; }
+
+        .hero-text .eyebrow {
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-text .eyebrow::before {
+            content: '';
+            width: 24px; height: 1px;
+            background: var(--green);
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--text-on-dark-muted);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        .hero-tagline {
+            font-family: 'Syne', sans-serif;
+            font-style: italic;
+            font-weight: 500;
+            color: var(--gold);
+            font-size: 1rem;
+            margin-top: 16px;
+        }
+
+        /* Waitlist Form */
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            max-width: 460px;
+        }
+
+        .waitlist-form input[type="email"] {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.06);
+            border: 1.5px solid var(--border-dark);
+            color: var(--text-on-dark);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+
+        .waitlist-form input[type="email"]::placeholder {
+            color: var(--text-on-dark-muted);
+        }
+
+        .waitlist-form input[type="email"]:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(0,217,139,0.15);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .waitlist-form .btn { flex-shrink: 0; }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--text-on-dark-muted);
+            margin-top: 12px;
+        }
+
+        .form-success {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: rgba(0,217,139,0.1);
+            border: 1px solid rgba(0,217,139,0.2);
+            border-radius: var(--radius-sm);
+            color: var(--green-light);
+            font-weight: 500;
+        }
+
+        .form-success.show {
+            display: flex;
+            animation: fadeSlideUp 0.5s ease;
+        }
+
+        .form-success svg {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            .waitlist-form {
+                flex-direction: column;
+            }
+            .waitlist-form .btn { width: 100%; }
+        }
+
+        /* Phone Mockup */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .phone {
+            width: 280px;
+            height: 580px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 48px;
+            padding: 10px;
+            position: relative;
+            box-shadow:
+                0 40px 80px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(255,255,255,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            animation: phoneFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes phoneFloat {
+            0%, 100% { transform: translateY(0) rotate(2deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0B1A12 0%, #0F221A 100%);
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dynamic-island {
+            width: 96px; height: 28px;
+            background: #000;
+            border-radius: 20px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px 0;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .phone-app-content {
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .phone-greeting {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .phone-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .progress-ring-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+        }
+
+        .progress-ring {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-bg {
+            fill: none;
+            stroke: rgba(255,255,255,0.06);
+            stroke-width: 10;
+        }
+
+        .progress-ring-fill {
+            fill: none;
+            stroke: url(#ringGrad);
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 408;
+            stroke-dashoffset: 408;
+            transition: stroke-dashoffset 2s ease;
+        }
+
+        .progress-ring-fill.animate {
+            stroke-dashoffset: 122;
+        }
+
+        .progress-ring-text {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .progress-ring-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .progress-ring-label {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2px;
+        }
+
+        .phone-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .phone-metric {
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 8px 10px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .phone-metric-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .phone-metric-label {
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .phone-unlock-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--green);
+            color: var(--bg-dark);
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Decorative glow behind phone */
+        .phone-glow {
+            position: absolute;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(0,217,139,0.15) 0%, transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        /* ============================================
+           PROBLEM / STATS
+           ============================================ */
+        .problem {
+            background: var(--bg-light);
+            color: var(--text-on-light);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .problem-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .stat-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 36px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-number.screen { color: #C44D4D; }
+        .stat-number.exercise { color: var(--green-dark); }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-on-light-muted);
+            font-weight: 500;
+        }
+
+        .problem-text h2 {
+            color: var(--text-on-light);
+            margin-bottom: 20px;
+        }
+
+        .problem-text p {
+            color: var(--text-on-light-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .problem-text .highlight {
+            color: var(--text-on-light);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           HOW IT WORKS
+           ============================================ */
+        .how-it-works {
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            margin-bottom: 16px;
+        }
+
+        .how-it-works .section-sub {
+            color: var(--text-on-dark-muted);
+            font-size: 1.1rem;
+            margin-bottom: 72px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .steps {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+            }
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 72px; height: 72px;
+            border-radius: 22px;
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover .step-icon {
+            border-color: var(--green);
+            box-shadow: 0 0 24px var(--green-glow);
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-on-dark-muted);
+            line-height: 1.6;
+        }
+
+        /* Connector line between steps (desktop) */
+        @media (min-width: 768px) {
+            .step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 36px;
+                right: -12px;
+                width: calc(100% - 72px);
+                height: 1px;
+                background: linear-gradient(90deg, var(--border-dark), var(--green), var(--border-dark));
+                opacity: 0.4;
+                transform: translateX(calc(50% + 36px));
+            }
+        }
+
+        /* ============================================
+           FEATURES (BENTO)
+           ============================================ */
+        .features {
+            background: var(--bg-light);
+            color: var(--text-on-light);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--text-on-light);
+        }
+
+        .features .section-sub {
+            text-align: center;
+            color: var(--text-on-light-muted);
+            font-size: 1.1rem;
+            margin-bottom: 64px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .bento {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto auto;
+            }
+        }
+
+        .bento-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bento-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+            transform: translateY(-4px);
+        }
+
+        .bento-large {
+            grid-column: 1;
+        }
+
+        @media (min-width: 768px) {
+            .bento-large { grid-column: span 2; }
+        }
+
+        .bento-card-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .bento-card-icon.green {
+            background: rgba(0,168,107,0.1);
+        }
+
+        .bento-card-icon.gold {
+            background: rgba(240,185,77,0.12);
+        }
+
+        .bento-card-icon.blue {
+            background: rgba(56,132,244,0.1);
+        }
+
+        .bento-card-icon.purple {
+            background: rgba(155,89,255,0.1);
+        }
+
+        .bento-card h3 {
+            color: var(--text-on-light);
+            margin-bottom: 10px;
+        }
+
+        .bento-card p {
+            color: var(--text-on-light-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .bento-card .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-top: 16px;
+        }
+
+        .tag-pro {
+            background: rgba(240,185,77,0.12);
+            color: #C4922B;
+        }
+
+        /* Time banking visual — mini bar chart */
+        .bank-visual {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            margin-top: 24px;
+            height: 80px;
+        }
+
+        .bank-bar {
+            flex: 1;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            min-height: 12px;
+        }
+
+        .bank-bar .bar-earned {
+            background: var(--green);
+            border-radius: 6px 6px 0 0;
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            opacity: 0.85;
+        }
+
+        .bank-bar .bar-rollover {
+            background: var(--green-dark);
+            border-radius: 6px 6px 0 0;
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            opacity: 0.4;
+        }
+
+        .bank-bar-label {
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.55rem;
+            color: var(--text-on-light-muted);
+        }
+
+        /* Watch mockup */
+        .watch-mockup {
+            width: 120px;
+            height: 148px;
+            background: linear-gradient(145deg, #3a3a3a, #252525);
+            border-radius: 34px;
+            padding: 14px 10px;
+            margin: 24px auto 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .watch-mockup::before {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 36px;
+            width: 6px; height: 28px;
+            background: linear-gradient(180deg, #444, #333);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .watch-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 26px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .watch-balance {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .watch-label {
+            font-size: 0.45rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2px;
+        }
+
+        .watch-ring {
+            width: 50px; height: 50px;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top-color: var(--green);
+            border-right-color: var(--green);
+            border-radius: 50%;
+            margin-bottom: 6px;
+            transform: rotate(45deg);
+        }
+
+        /* ============================================
+           PRICING
+           ============================================ */
+        .pricing {
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .pricing h2 {
+            margin-bottom: 12px;
+        }
+
+        .pricing .section-sub {
+            color: var(--text-on-dark-muted);
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .pricing-card {
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            text-align: left;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--green);
+            box-shadow: 0 0 40px rgba(0,217,139,0.1);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px; right: 24px;
+            background: var(--green);
+            color: var(--bg-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .pricing-tier {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-on-dark-muted);
+        }
+
+        .pricing-annual {
+            font-size: 0.8rem;
+            color: var(--text-on-dark-muted);
+            margin-bottom: 28px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            font-size: 0.9rem;
+            color: var(--text-on-dark-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .pricing-features li svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .pricing-features li.included {
+            color: var(--text-on-dark);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* ============================================
+           FINAL CTA
+           ============================================ */
+        .final-cta {
+            background: var(--bg-light);
+            text-align: center;
+            color: var(--text-on-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(0,168,107,0.06) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .final-cta h2 {
+            color: var(--text-on-light);
+            margin-bottom: 16px;
+        }
+
+        .final-cta .section-sub {
+            color: var(--text-on-light-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .waitlist-form {
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .final-cta .waitlist-form input[type="email"] {
+            background: white;
+            border-color: var(--border-light);
+            color: var(--text-on-light);
+        }
+
+        .final-cta .waitlist-form input[type="email"]::placeholder {
+            color: var(--text-on-light-muted);
+        }
+
+        .final-cta .waitlist-form input[type="email"]:focus {
+            border-color: var(--green-dark);
+            box-shadow: 0 0 0 3px rgba(0,168,107,0.12);
+            background: white;
+        }
+
+        .final-cta .hero-tagline {
+            color: var(--green-dark);
+            margin-top: 24px;
+        }
+
+        .final-cta .form-note {
+            color: var(--text-on-light-muted);
+        }
+
+        .final-cta .form-success {
+            background: rgba(0,168,107,0.08);
+            border-color: rgba(0,168,107,0.2);
+            color: var(--green-dark);
+            justify-content: center;
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: var(--bg-dark);
+            padding: 48px 0;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-on-dark-muted);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-on-dark);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-on-dark-muted);
+        }
+
+        /* ============================================
+           SCROLL ANIMATIONS
+           ============================================ */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .animate-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.1s; }
+        .stagger-3 { transition-delay: 0.15s; }
+        .stagger-4 { transition-delay: 0.2s; }
+        .stagger-5 { transition-delay: 0.25s; }
+        .stagger-6 { transition-delay: 0.3s; }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================
+           RESPONSIVE TWEAKS
+           ============================================ */
+        @media (max-width: 767px) {
+            section { padding: 80px 0; }
+
+            .phone {
+                width: 240px;
+                height: 500px;
+                border-radius: 40px;
+            }
+
+            .phone-screen { border-radius: 33px; }
+
+            .progress-ring-container {
+                width: 130px; height: 130px;
+            }
+
+            .progress-ring-number { font-size: 1.8rem; }
+
+            .bento-card { padding: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .hero { padding: 120px 0 60px; }
+            .phone { width: 220px; height: 460px; border-radius: 36px; }
+            .phone-screen { border-radius: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav>
+    <div class="container">
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-dot"></span>
+            Active Balance
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+        </ul>
+        <a href="#waitlist" class="btn btn-primary btn-sm nav-cta">Join Waitlist</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero" id="waitlist">
+    <div class="container">
+        <div class="hero-text">
+            <p class="eyebrow">Coming soon to iOS</p>
+            <h1>Earn Your<br><span>Screen Time</span></h1>
+            <p class="hero-sub">
+                Active Balance turns your daily movement into screen time credits.
+                Walk, run, work out — then unlock the apps you love.
+                No guilt trips. Just balance.
+            </p>
+            <form class="waitlist-form" id="heroForm">
+                <input type="email" placeholder="you@email.com" required aria-label="Email address">
+                <button type="submit" class="btn btn-primary">Join Waitlist</button>
+            </form>
+            <p class="form-note">Free to join. No spam, ever.</p>
+            <div class="form-success" id="heroSuccess">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="currentColor" opacity="0.2"/><path d="M6 10.5L8.5 13L14 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>You're on the list! We'll be in touch soon.</span>
+            </div>
+            <p class="hero-tagline">You earned it.</p>
+        </div>
+        <div class="hero-visual">
+            <div class="phone-glow"></div>
+            <div class="phone">
+                <div class="phone-screen">
+                    <div class="dynamic-island"></div>
+                    <div class="phone-status-bar">
+                        <span>9:41</span>
+                        <span>&#9679;&#9679;&#9679;&#9679;</span>
+                    </div>
+                    <div class="phone-app-content">
+                        <p class="phone-greeting">Today</p>
+                        <p class="phone-title">Your Balance</p>
+                        <div class="progress-ring-container">
+                            <svg class="progress-ring" viewBox="0 0 200 200">
+                                <defs>
+                                    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#00D98B"/>
+                                        <stop offset="100%" stop-color="#7DFFC4"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle class="progress-ring-bg" cx="100" cy="100" r="65"/>
+                                <circle class="progress-ring-fill" cx="100" cy="100" r="65"/>
+                            </svg>
+                            <div class="progress-ring-text">
+                                <div class="progress-ring-number" id="balanceNumber">0m</div>
+                                <div class="progress-ring-label">banked</div>
+                            </div>
+                        </div>
+                        <div class="phone-metrics">
+                            <div class="phone-metric">
+                                <div class="phone-metric-value">8,240</div>
+                                <div class="phone-metric-label">steps</div>
+                            </div>
+                            <div class="phone-metric">
+                                <div class="phone-metric-value">22m</div>
+                                <div class="phone-metric-label">exercise</div>
+                            </div>
+                            <div class="phone-metric">
+                                <div class="phone-metric-value">340</div>
+                                <div class="phone-metric-label">cals</div>
+                            </div>
+                        </div>
+                        <div class="phone-unlock-btn">Unlock Apps</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     PROBLEM / STATS
+     ============================================ -->
+<section class="problem">
+    <div class="container">
+        <div class="problem-grid">
+            <div class="stat-cards">
+                <div class="stat-card animate-in">
+                    <div class="stat-number screen" id="statScreen">7h 4m</div>
+                    <div class="stat-label">Average daily screen time for US adults</div>
+                </div>
+                <div class="stat-card animate-in stagger-2">
+                    <div class="stat-number exercise" id="statExercise">17 min</div>
+                    <div class="stat-label">Average daily exercise for US adults</div>
+                </div>
+            </div>
+            <div class="problem-text animate-in stagger-3">
+                <p class="eyebrow" style="color: var(--green-dark); margin-bottom: 16px;">The problem is real</p>
+                <h2>We scroll more<br>than we sleep.</h2>
+                <p>
+                    Screen time apps punish you with restrictions.
+                    Fitness apps ignore your phone entirely.
+                    <span class="highlight">Nothing connects the two — until now.</span>
+                </p>
+                <p style="margin-top: 16px;">
+                    Active Balance creates a direct link between moving your body
+                    and using your screen. Earn access through activity.
+                    It's not restriction — it's reward.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     HOW IT WORKS
+     ============================================ -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <p class="eyebrow animate-in" style="margin-bottom: 12px;">How it works</p>
+        <h2 class="animate-in stagger-1">Four steps to balance</h2>
+        <p class="section-sub animate-in stagger-2">Simple by design. No complex setup, no tracking fatigue.</p>
+        <div class="steps">
+            <div class="step animate-in stagger-1">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                </div>
+                <p class="step-number">Step 1</p>
+                <h3>Choose</h3>
+                <p>Pick which apps to restrict. Social media, games — you decide.</p>
+            </div>
+            <div class="step animate-in stagger-2">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="2.5"/><path d="M12 7.5v4l3 5M12 11.5l-3 5"/><path d="M8 21h8"/><path d="M17 11l2-2m-14 2l-2-2"/></svg>
+                </div>
+                <p class="step-number">Step 2</p>
+                <h3>Move</h3>
+                <p>Walk, run, cycle, train. Steps, exercise minutes, and calories all count.</p>
+            </div>
+            <div class="step animate-in stagger-3">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                </div>
+                <p class="step-number">Step 3</p>
+                <h3>Earn</h3>
+                <p>Activity converts to screen time credits. More movement, more minutes.</p>
+            </div>
+            <div class="step animate-in stagger-4">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 11V7a3 3 0 0 1 6 0v4"/><circle cx="12" cy="16.5" r="1.5"/></svg>
+                </div>
+                <p class="step-number">Step 4</p>
+                <h3>Unlock</h3>
+                <p>Spend credits to open your apps. Guilt-free — you earned it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FEATURES (BENTO)
+     ============================================ -->
+<section class="features" id="features">
+    <div class="container">
+        <p class="eyebrow animate-in" style="color: var(--green-dark); margin-bottom: 12px;">Features</p>
+        <h2 class="animate-in stagger-1">Built different</h2>
+        <p class="section-sub animate-in stagger-2">Not another screen time nag. A system that actually works.</p>
+
+        <div class="bento">
+            <!-- Time Banking — Large card -->
+            <div class="bento-card bento-large animate-in stagger-1">
+                <div class="bento-card-icon green">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A86B" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 7v5l3 3"/><path d="M3 12h2m14 0h2"/></svg>
+                </div>
+                <h3>Time Banking</h3>
+                <p>Your minutes carry over day to day. Bank today, spend tomorrow. Credits decay slowly — use them or lose them, but on your schedule, not ours.</p>
+                <span class="tag tag-pro">Pro</span>
+                <div class="bank-visual" aria-hidden="true">
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:30%"></div>
+                        <div class="bar-earned" style="height:65%"></div>
+                        <span class="bank-bar-label">Mon</span>
+                    </div>
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:45%"></div>
+                        <div class="bar-earned" style="height:80%"></div>
+                        <span class="bank-bar-label">Tue</span>
+                    </div>
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:55%"></div>
+                        <div class="bar-earned" style="height:45%"></div>
+                        <span class="bank-bar-label">Wed</span>
+                    </div>
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:35%"></div>
+                        <div class="bar-earned" style="height:90%"></div>
+                        <span class="bank-bar-label">Thu</span>
+                    </div>
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:60%"></div>
+                        <div class="bar-earned" style="height:70%"></div>
+                        <span class="bank-bar-label">Fri</span>
+                    </div>
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:50%"></div>
+                        <div class="bar-earned" style="height:55%"></div>
+                        <span class="bank-bar-label">Sat</span>
+                    </div>
+                    <div class="bank-bar" style="height:100%">
+                        <div class="bar-rollover" style="height:40%"></div>
+                        <div class="bar-earned" style="height:95%"></div>
+                        <span class="bank-bar-label">Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workout Mode -->
+            <div class="bento-card animate-in stagger-2">
+                <div class="bento-card-icon gold">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4922B" stroke-width="2" stroke-linecap="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+                </div>
+                <h3>Workout Mode</h3>
+                <p>Start exercising and apps unlock instantly. Your Apple Watch verifies real activity. Stop for 10 minutes? They lock again.</p>
+                <span class="tag tag-pro">Pro + Watch</span>
+            </div>
+
+            <!-- Apple Watch -->
+            <div class="bento-card animate-in stagger-3">
+                <div class="bento-card-icon blue">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3884F4" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="4"/><path d="M12 17h.01"/></svg>
+                </div>
+                <h3>Apple Watch</h3>
+                <p>Your balance on your wrist, always. Complications show credits. Start workouts right from your Watch.</p>
+                <div class="watch-mockup" aria-hidden="true">
+                    <div class="watch-screen">
+                        <div class="watch-ring"></div>
+                        <div class="watch-balance">47m</div>
+                        <div class="watch-label">banked</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smart Shield -->
+            <div class="bento-card animate-in stagger-4">
+                <div class="bento-card-icon purple">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9B59FF" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Smart Shield</h3>
+                <p>Not a punishment. A reminder. See your current balance and how close you are to earning more right on the lock screen.</p>
+            </div>
+
+            <!-- Multi-Metric -->
+            <div class="bento-card animate-in stagger-5">
+                <div class="bento-card-icon green">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A86B" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3>Multi-Metric Goals</h3>
+                <p>Steps alone too easy? Combine steps + exercise minutes + calories. Set the bar wherever you want it.</p>
+                <span class="tag tag-pro">Pro</span>
+            </div>
+
+            <!-- Streaks -->
+            <div class="bento-card animate-in stagger-6">
+                <div class="bento-card-icon gold">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4922B" stroke-width="2" stroke-linecap="round"><path d="M12 2L8.5 8.5 2 9.3l4.7 4.6L5.7 20 12 16.8 18.3 20l-1-6.1L22 9.3l-6.5-.8z"/></svg>
+                </div>
+                <h3>Streaks</h3>
+                <p>Hit your goal every day and watch your streak grow. Consecutive days build momentum that keeps you moving.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     PRICING
+     ============================================ -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <p class="eyebrow animate-in" style="margin-bottom: 12px;">Pricing</p>
+        <h2 class="animate-in stagger-1">Start free. Upgrade when you're ready.</h2>
+        <p class="section-sub animate-in stagger-2">No tricks. No ads. Just a tool that respects your time.</p>
+
+        <div class="pricing-grid">
+            <!-- Free Tier -->
+            <div class="pricing-card animate-in stagger-1">
+                <p class="pricing-tier">Free</p>
+                <p class="pricing-price">$0</p>
+                <p class="pricing-annual">Free forever</p>
+                <ul class="pricing-features">
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,168,107,0.15)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00A86B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Steps tracking
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,168,107,0.15)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00A86B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Up to 3 blocked apps
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,168,107,0.15)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00A86B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Preset goals
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,168,107,0.15)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00A86B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Today's dashboard
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(255,255,255,0.05)"/><path d="M5.5 5.5l5 5m0-5l-5 5" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        No time rollover
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(255,255,255,0.05)"/><path d="M5.5 5.5l5 5m0-5l-5 5" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        No Watch support
+                    </li>
+                </ul>
+                <a href="#waitlist" class="btn btn-ghost">Join Waitlist</a>
+            </div>
+
+            <!-- Pro Tier -->
+            <div class="pricing-card featured animate-in stagger-2">
+                <span class="pricing-badge">7-day free trial</span>
+                <p class="pricing-tier">Pro</p>
+                <p class="pricing-price">$3.99 <span>/ mo</span></p>
+                <p class="pricing-annual">or $29.99/year (save 37%)</p>
+                <ul class="pricing-features">
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,217,139,0.2)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00D98B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        All metrics (steps, exercise, calories)
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,217,139,0.2)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00D98B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Unlimited blocked apps
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,217,139,0.2)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00D98B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Time rollover (bank your credits)
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,217,139,0.2)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00D98B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Workout Mode (live access)
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,217,139,0.2)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00D98B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Apple Watch companion
+                    </li>
+                    <li class="included">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="rgba(0,217,139,0.2)"/><path d="M5 8.5L7 10.5L11 6.5" stroke="#00D98B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Weekly trends &amp; custom goals
+                    </li>
+                </ul>
+                <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="final-cta" id="final-cta">
+    <div class="container" style="position: relative; z-index: 1;">
+        <p class="eyebrow animate-in" style="color: var(--green-dark); margin-bottom: 12px;">Early Access</p>
+        <h2 class="animate-in stagger-1">Ready to earn your<br>screen time?</h2>
+        <p class="section-sub animate-in stagger-2">
+            Join the waitlist and be among the first to try Active Balance when it launches on iOS.
+        </p>
+        <form class="waitlist-form animate-in stagger-3" id="ctaForm">
+            <input type="email" placeholder="you@email.com" required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Get Early Access</button>
+        </form>
+        <p class="form-note animate-in stagger-4">No spam. Unsubscribe anytime.</p>
+        <div class="form-success" id="ctaSuccess">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="currentColor" opacity="0.2"/><path d="M6 10.5L8.5 13L14 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>You're on the list! We'll be in touch soon.</span>
+        </div>
+        <p class="hero-tagline animate-in stagger-5">You earned it.</p>
+    </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="nav-logo-dot"></span>
+                Active Balance
+            </div>
+            <ul class="footer-links">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 Active Balance. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT
+     ============================================ -->
+<script>
+(function() {
+    'use strict';
+
+    /* --- Nav scroll effect --- */
+    const nav = document.querySelector('nav');
+    let lastScroll = 0;
+
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        nav.classList.toggle('scrolled', scrollY > 40);
+        lastScroll = scrollY;
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    /* --- Mobile menu --- */
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('open');
+        });
+    });
+
+    /* --- Scroll animations --- */
+    const animateEls = document.querySelectorAll('.animate-in');
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    animateEls.forEach(function(el) { observer.observe(el); });
+
+    /* --- Progress ring animation --- */
+    const ring = document.querySelector('.progress-ring-fill');
+    const balanceNum = document.getElementById('balanceNumber');
+    let ringAnimated = false;
+
+    const ringObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !ringAnimated) {
+            ringAnimated = true;
+            ring.classList.add('animate');
+
+            // Count up the balance number
+            let current = 0;
+            const target = 47;
+            const duration = 1800;
+            const startTime = performance.now();
+
+            function countUp(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const eased = 1 - Math.pow(1 - progress, 3);
+                current = Math.round(eased * target);
+                balanceNum.textContent = current + 'm';
+                if (progress < 1) {
+                    requestAnimationFrame(countUp);
+                }
+            }
+            requestAnimationFrame(countUp);
+        }
+    }, { threshold: 0.3 });
+
+    ringObserver.observe(document.querySelector('.progress-ring-container'));
+
+    /* --- Waitlist form handling --- */
+    function handleForm(formId, successId) {
+        const form = document.getElementById(formId);
+        const success = document.getElementById(successId);
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = form.querySelector('input[type="email"]').value;
+
+            // Store email in localStorage as a simple persistence layer
+            const emails = JSON.parse(localStorage.getItem('ab_waitlist') || '[]');
+            if (!emails.includes(email)) {
+                emails.push(email);
+                localStorage.setItem('ab_waitlist', JSON.stringify(emails));
+            }
+
+            form.style.display = 'none';
+            form.nextElementSibling.style.display = 'none'; // hide form-note
+            success.classList.add('show');
+        });
+    }
+
+    handleForm('heroForm', 'heroSuccess');
+    handleForm('ctaForm', 'ctaSuccess');
+
+})();
+</script>
+
+</body>
+</html>
