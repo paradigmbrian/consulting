@@ -1,0 +1,364 @@
+.wb-step {
+  color: var(--demo-text);
+}
+
+.wb-heading {
+  font-size: 1.15rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.wb-sub {
+  color: var(--demo-muted);
+  margin: 0 0 var(--spacing-md);
+  max-width: 60ch;
+}
+
+.wb-mono {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}
+
+.wb-note {
+  color: var(--demo-muted);
+  font-size: 0.8rem;
+  margin-top: var(--spacing-sm);
+}
+
+/* Import */
+.wb-source {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  margin-bottom: var(--spacing-md);
+}
+.wb-source-icon {
+  font-size: 1.4rem;
+  color: var(--demo-accent-bright);
+}
+.wb-source-name {
+  font-weight: 600;
+  margin: 0;
+}
+.wb-source-meta {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.wb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.wb-table th,
+.wb-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--demo-border);
+}
+.wb-table th {
+  color: var(--demo-muted);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Reveal wrapper (segments/offer after AI completes) */
+.wb-reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-top: var(--spacing-md);
+}
+.wb-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Segments */
+.wb-segments {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+}
+.wb-segment {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-left: 3px solid var(--demo-accent-bright);
+  border-radius: 0.6rem;
+}
+.wb-segment-count {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--demo-accent-bright);
+  margin: 0;
+}
+.wb-segment-label {
+  font-weight: 600;
+  margin: 0.15rem 0;
+}
+.wb-segment-crit {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.wb-dropped {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px dashed var(--demo-border);
+  border-radius: 0.6rem;
+}
+.wb-dropped-icon {
+  color: var(--demo-muted);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+.wb-dropped-count {
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+.wb-dropped-reasons {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+}
+
+/* Offer + message */
+.wb-offer {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  margin-bottom: var(--spacing-sm);
+}
+.wb-offer-icon {
+  color: var(--demo-accent-bright);
+  font-size: 1.3rem;
+  margin-top: 0.15rem;
+}
+.wb-offer-headline {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.wb-offer-detail {
+  color: var(--demo-muted);
+  margin: 0.25rem 0;
+}
+.wb-offer-channel {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.wb-message {
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+.wb-message-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.6rem 0.9rem;
+  background: var(--demo-surface-2);
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+}
+.wb-message-body {
+  padding: var(--spacing-md);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Send */
+.wb-outbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.wb-envelope {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.wb-envelope-icon {
+  color: var(--demo-accent-bright);
+  font-size: 1.2rem;
+  margin-top: 0.15rem;
+}
+.wb-envelope-body {
+  margin: 0;
+  line-height: 1.6;
+}
+.wb-stages {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: 0;
+  margin: 0;
+}
+.wb-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  color: var(--demo-muted);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.wb-stage.is-active {
+  opacity: 1;
+  color: var(--demo-text);
+  border-color: var(--demo-accent-bright);
+}
+.wb-stage.is-done {
+  color: var(--demo-accent-bright);
+}
+.wb-stage-icon {
+  font-size: 1.2rem;
+}
+.wb-stage-label {
+  font-size: 0.8rem;
+}
+.wb-done-note {
+  color: var(--demo-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Replies + booking */
+.wb-reply-card,
+.wb-booking {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.wb-reply-card.is-shown,
+.wb-booking.is-shown {
+  opacity: 1;
+  transform: none;
+}
+.wb-reply-card {
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+.wb-reply-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.6rem 0.9rem;
+  background: var(--demo-surface-2);
+}
+.wb-reply-icon {
+  color: var(--demo-accent-bright);
+}
+.wb-reply-from {
+  font-weight: 600;
+  margin: 0;
+}
+.wb-reply-channel {
+  color: var(--demo-muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+.wb-reply-body {
+  padding: var(--spacing-md);
+  margin: 0;
+  line-height: 1.6;
+}
+.wb-booking {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--demo-success);
+  border-radius: 0.6rem;
+}
+.wb-booking-icon {
+  color: var(--demo-success);
+  font-size: 1.5rem;
+}
+.wb-booking-title {
+  font-weight: 700;
+  margin: 0;
+}
+.wb-booking-meta {
+  color: var(--demo-muted);
+  margin: 0;
+}
+
+/* Results */
+.wb-tally {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.wb-tally-item {
+  padding: var(--spacing-md);
+  text-align: center;
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.wb-tally-item-hl {
+  border-color: var(--demo-accent-bright);
+  box-shadow: 0 0 16px var(--demo-accent-glow);
+}
+.wb-tally-num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--demo-accent-bright);
+}
+.wb-tally-label {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+}
+.wb-revenue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--demo-success);
+  margin: 0 0 var(--spacing-xs);
+}
+.wb-takeaway {
+  color: var(--demo-muted);
+  max-width: 60ch;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .wb-stages {
+    flex-direction: column;
+  }
+  .wb-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
