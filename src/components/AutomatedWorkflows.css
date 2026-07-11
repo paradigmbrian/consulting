@@ -1,0 +1,57 @@
+.workflows-placeholder {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.workflows-placeholder-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.workflows-placeholder-icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.workflows-placeholder-brand {
+  color: var(--color-text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.workflows-placeholder-title {
+  margin-bottom: var(--spacing-md);
+}
+
+.workflows-placeholder-subtitle {
+  margin-bottom: var(--spacing-lg);
+}
+
+.workflows-placeholder-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--color-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.workflows-placeholder-btn:hover {
+  background: var(--color-primary-dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.workflows-placeholder-btn-icon {
+  font-size: 1rem;
+}
