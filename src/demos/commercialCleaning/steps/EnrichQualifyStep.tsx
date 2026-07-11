@@ -1,6 +1,6 @@
 import { FaCheckCircle, FaTimesCircle, FaUser, FaPhone } from "react-icons/fa";
 import type { WorkflowProvider } from "../types";
-import AiPanel from "../AiPanel";
+import AiPanel from "../../shared/AiPanel";
 import "./EnrichQualifyStep.css";
 
 const EnrichQualifyStep = ({ provider }: { provider: WorkflowProvider }) => {

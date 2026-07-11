@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FaMagic } from "react-icons/fa";
 import type { WorkflowProvider } from "../types";
-import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
-import AiPanel from "../AiPanel";
+import { usePrefersReducedMotion } from "../../shared/usePrefersReducedMotion";
+import AiPanel from "../../shared/AiPanel";
 import "./PersonalizeStep.css";
 
 const CHARS_PER_TICK = 4;

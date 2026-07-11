@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { FaPaperPlane, FaInbox, FaCheck, FaEnvelopeOpen } from "react-icons/fa";
 import type { WorkflowProvider } from "../types";
-import { useDemo, type SendStatus } from "../DemoController";
+import { useSendLifecycle, type SendStatus } from "../../shared/SendLifecycleProvider";
 import "./SendStep.css";
 
 const ORDER: SendStatus[] = ["sending", "delivered", "opened"];
@@ -16,7 +16,7 @@ const SendStep = ({ provider }: { provider: WorkflowProvider }) => {
   const prospectId = provider.getFeaturedProspectId();
   const enrichment = provider.getEnrichment(prospectId);
   const email = provider.getEmail(prospectId);
-  const { sendStatus, startSend } = useDemo();
+  const { status: sendStatus, start: startSend } = useSendLifecycle();
   const started = useRef(false);
 
   useEffect(() => {

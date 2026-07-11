@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FaReply } from "react-icons/fa";
 import type { WorkflowProvider } from "../types";
-import { useDemo } from "../DemoController";
-import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
+import { useSendLifecycle } from "../../shared/SendLifecycleProvider";
+import { usePrefersReducedMotion } from "../../shared/usePrefersReducedMotion";
 import "./ResultsStep.css";
 
 const REPLY_DELAY_MS = 700;
@@ -11,7 +11,7 @@ const ResultsStep = ({ provider }: { provider: WorkflowProvider }) => {
   const prospectId = provider.getFeaturedProspectId();
   const reply = provider.getReply(prospectId);
   const results = provider.getResults();
-  const { markReplied } = useDemo();
+  const { markReplied } = useSendLifecycle();
   const reduced = usePrefersReducedMotion();
   const [showReply, setShowReply] = useState(reduced);
   const timer = useRef<number | null>(null);

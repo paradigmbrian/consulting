@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
 import type { WorkflowProvider } from "../types";
-import { usePrefersReducedMotion } from "../usePrefersReducedMotion";
-import AiPanel from "../AiPanel";
+import { usePrefersReducedMotion } from "../../shared/usePrefersReducedMotion";
+import AiPanel from "../../shared/AiPanel";
 import "./DiscoverStep.css";
 
 const REVEAL_INTERVAL_MS = 350;
