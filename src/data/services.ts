@@ -18,7 +18,7 @@ export const services: Service[] = [
     label: "Automated Workflows",
     summary:
       "Design and build automated workflows that remove manual, repetitive operations from your business.",
-    published: false,
+    published: true,
   },
 ];
 

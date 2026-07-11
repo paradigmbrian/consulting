@@ -1,7 +1,7 @@
 .hero {
   padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-md);
-  background: linear-gradient(135deg, #1E5A8A 0%, #2777B4 50%, #3A8BC8 100%);
-  color: white;
+  background: var(--hero-bg);
+  color: var(--color-text);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -16,12 +16,12 @@
   bottom: 0;
   background: radial-gradient(
       circle at 20% 50%,
-      rgba(255, 255, 255, 0.1) 0%,
+      rgba(56, 189, 248, 0.12) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 80%,
-      rgba(255, 255, 255, 0.1) 0%,
+      rgba(37, 99, 235, 0.12) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -39,32 +39,33 @@
   justify-content: center;
   width: 90px;
   height: 90px;
-  background-color: white;
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
   border-radius: 50%;
   margin-bottom: var(--spacing-md);
   color: var(--color-primary);
   font-size: 2.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .hero-brand {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary);
   margin-bottom: var(--spacing-sm);
   font-weight: 600;
 }
 
 .hero-title {
   margin-bottom: var(--spacing-md);
-  color: white;
+  color: var(--color-text);
 }
 
 .hero-subtitle {
   font-size: clamp(1.125rem, 2.5vw, 1.25rem);
   margin-bottom: var(--spacing-md);
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--color-text-light);
   line-height: 1.7;
 }
 
@@ -90,74 +91,58 @@
 }
 
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--gradient-accent);
+  color: var(--btn-ink);
+  box-shadow: 0 6px 18px -6px var(--color-primary);
+  border: 1px solid transparent;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .btn-primary.btn-large {
-  background: white;
-  color: var(--color-primary);
-  border: 2px solid white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: var(--gradient-accent);
+  color: var(--btn-ink);
+  border: 1px solid transparent;
+  box-shadow: 0 6px 20px -6px var(--color-primary);
   font-weight: 700;
 }
 
 .hero .btn-primary.btn-large:hover {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--color-primary-dark);
+  filter: brightness(1.08);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  border-color: white;
+  box-shadow: 0 10px 28px -6px var(--color-primary);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  color: white;
+  filter: brightness(1.08);
+  color: var(--btn-ink);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 28px -6px var(--color-primary);
 }
 
 .btn-secondary {
   background: transparent;
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero .btn-secondary {
-  background: white;
-  color: var(--color-primary);
-  border: 2px solid white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
   font-weight: 700;
 }
 
 .hero .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--color-primary-dark);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  border-color: white;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.8);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-2px);
-  color: white;
 }
 
 .btn-icon {

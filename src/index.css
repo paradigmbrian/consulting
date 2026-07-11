@@ -5,16 +5,29 @@
 }
 
 :root {
-  --color-primary: #2777B4;
-  --color-primary-dark: #1E5A8A;
-  --color-secondary: #64748b;
-  --color-text: #1e293b;
-  --color-text-light: #64748b;
-  --color-bg: #ffffff;
-  --color-bg-light: #f8fafc;
-  --color-bg-dark: #0f172a;
-  --color-border: #e2e8f0;
-  --color-success: #10b981;
+  /* ===== Theme: Electric Azure (dark) =====
+     Single source of truth for the palette. To switch themes, replace the
+     values in this block with another theme from docs/design/color-themes.md
+     (e.g. Cyber Teal). Nothing else needs to change. */
+  --color-primary: #38bdf8;        /* azure accent — buttons, links, icons */
+  --color-primary-dark: #2563eb;   /* edge — gradient end, hover */
+  --color-secondary: #8595ad;
+  --color-text: #e6edf7;           /* primary text on dark ground */
+  --color-text-light: #8595ad;     /* muted / secondary text */
+  --color-bg: #0a0f1a;             /* page ground */
+  --color-bg-light: #111a2b;       /* elevated surface — cards, alt sections */
+  --color-bg-dark: #06090f;        /* deepest — footer */
+  --color-border: #1e2a44;
+  --color-success: #34d399;
+  --color-accent-2: #2563eb;       /* secondary accent (gradient partner) */
+  --btn-ink: #04101f;              /* text on filled accent buttons */
+  --gradient-accent: linear-gradient(120deg, #38bdf8 0%, #2563eb 100%);
+  --hero-bg: radial-gradient(
+      circle at 30% 15%,
+      rgba(56, 189, 248, 0.14) 0%,
+      transparent 55%
+    ),
+    linear-gradient(160deg, #0c1526 0%, #0a0f1a 72%);
   --max-width: 1400px;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
