@@ -1,0 +1,112 @@
+.landing-hero {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: white;
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.landing-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.landing-hero-icon {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: var(--spacing-sm);
+}
+
+.landing-hero-brand {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.landing-hero-title {
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.landing-hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  margin-bottom: var(--spacing-lg);
+}
+
+.landing-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: white;
+  color: var(--color-primary);
+  padding: 1.25rem 2.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.landing-hero-btn:hover {
+  color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.landing-hero-btn-icon {
+  font-size: 1.125rem;
+}
+
+.landing-services {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg);
+}
+
+.landing-services .section-title {
+  margin-bottom: var(--spacing-lg);
+}
+
+.landing-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+  justify-content: center;
+  gap: var(--spacing-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.landing-service-card {
+  display: block;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-bg-light);
+  transition: all 0.2s ease;
+}
+
+.landing-service-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.landing-service-card-title {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.landing-service-card-summary {
+  margin-bottom: var(--spacing-sm);
+}
+
+.landing-service-card-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
