@@ -1,0 +1,77 @@
+.discover-count {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.discover-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .discover-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.discover-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: var(--spacing-md);
+  background: var(--demo-surface);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.discover-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.discover-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.discover-card-head h3 {
+  font-size: 1.05rem;
+}
+
+.discover-type {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.discover-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.discover-signals {
+  margin-top: var(--spacing-sm);
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discover-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

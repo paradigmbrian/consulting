@@ -1,24 +1,13 @@
-import Hero from "./components/Hero";
-import WhoIsFor from "./components/WhoIsFor";
-import Problem from "./components/Problem";
-import Offer from "./components/Offer";
-import HowItWorks from "./components/HowItWorks";
-import WhyWorkWithMe from "./components/WhyWorkWithMe";
-import CTA from "./components/CTA";
-import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import DemoPage from "./demos/commercialCleaning/DemoPage";
 
 function App() {
   return (
-    <>
-      <Hero />
-      <WhoIsFor />
-      <Problem />
-      <Offer />
-      <HowItWorks />
-      <WhyWorkWithMe />
-      <CTA />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/demos/commercial-cleaning" element={<DemoPage />} />
+    </Routes>
   );
 }
 

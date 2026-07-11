@@ -1,0 +1,182 @@
+.demo {
+  /* demo-only palette (does not affect anything outside .demo) */
+  --demo-bg: #0d1117;
+  --demo-surface: #161b22;
+  --demo-surface-2: #1c2330;
+  --demo-border: #2a3340;
+  --demo-text: #e6edf3;
+  --demo-muted: #8b97a7;
+  --demo-accent: #2777b4;
+  --demo-accent-bright: #5aa9e6;
+  --demo-accent-glow: rgba(90, 169, 230, 0.5);
+  --demo-accent-deep: #1c5d8f;
+  --demo-edge: #2a3340;
+  --demo-edge-active: #5aa9e6;
+  --demo-success: #10b981;
+
+  /* scope-local remap: flips existing step CSS to dark without touching index.css */
+  --color-bg-light: var(--demo-surface-2);
+  --color-border: var(--demo-border);
+  --color-text: var(--demo-text);
+  --color-text-light: var(--demo-muted);
+  --color-secondary: var(--demo-muted);
+  --color-primary: var(--demo-accent-bright);
+  --color-primary-dark: var(--demo-accent);
+
+  min-height: 100vh;
+  padding: var(--spacing-lg) 0 var(--spacing-xl);
+  color: var(--demo-text);
+  background-color: var(--demo-bg);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.demo-eyebrow {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.demo-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.demo-lede {
+  max-width: 640px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.demo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: var(--demo-accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(90, 169, 230, 0.35);
+}
+
+.demo-cta:hover {
+  background: var(--demo-accent-deep);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.demo-cta-icon {
+  font-size: 1rem;
+}
+
+/* Stage header */
+.demo-stage-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--demo-border);
+}
+
+.demo-stage-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.6rem;
+  background: rgba(90, 169, 230, 0.15);
+  color: var(--demo-accent-bright);
+  font-size: 1.15rem;
+  box-shadow: 0 0 12px var(--demo-accent-glow);
+}
+
+.demo-stage-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.demo-stage-count {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+  white-space: nowrap;
+}
+
+/* Stage */
+.demo-stage {
+  background: var(--demo-surface);
+  border: 1px solid var(--demo-border);
+  border-radius: 1rem;
+  padding: var(--spacing-lg);
+  min-height: 320px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.demo-stub {
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+/* Nav */
+.demo-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.demo-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.demo-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.demo-btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.demo-btn-ghost:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.demo-btn-primary {
+  background: var(--demo-accent);
+  color: #fff;
+}
+
+.demo-btn-primary:hover:not(:disabled) {
+  background: var(--demo-accent-deep);
+}
+
+@media (max-width: 768px) {
+  .demo-stage {
+    padding: var(--spacing-md);
+  }
+
+  .demo-nav {
+    flex-wrap: wrap;
+  }
+}

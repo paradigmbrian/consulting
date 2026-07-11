@@ -1,0 +1,93 @@
+.send-outbox {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.send-envelope {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: var(--spacing-md);
+  background: var(--demo-surface);
+  margin-bottom: var(--spacing-lg);
+}
+
+.send-envelope-icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.send-envelope-to {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.send-envelope-subject {
+  font-size: 0.85rem;
+}
+
+.send-stages {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+.send-stage {
+  flex: 1;
+  text-align: center;
+  opacity: 0.4;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.send-stage.is-active {
+  opacity: 1;
+}
+
+.send-stage-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: var(--demo-surface-2);
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+  transition: all 0.4s ease;
+}
+
+.send-stage.is-active .send-stage-icon {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.send-stage.is-done .send-stage-icon {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: #fff;
+}
+
+.send-stage-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.send-done-note {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  color: var(--color-text-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .send-stage,
+  .send-stage-icon {
+    transition: none;
+  }
+}

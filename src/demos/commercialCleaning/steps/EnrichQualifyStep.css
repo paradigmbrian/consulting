@@ -1,0 +1,85 @@
+.enrich-summary {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.enrich-pill {
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.enrich-pill-ok {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-success);
+}
+
+.enrich-pill-drop {
+  background: rgba(100, 116, 139, 0.12);
+  color: var(--color-secondary);
+}
+
+.enrich-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .enrich-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.enrich-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: var(--spacing-md);
+  background: var(--demo-surface);
+}
+
+.enrich-card.is-dropped {
+  background: var(--color-bg-light);
+  opacity: 0.85;
+}
+
+.enrich-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.enrich-card-head h3 {
+  font-size: 1.02rem;
+}
+
+.enrich-status-ok {
+  color: var(--color-success);
+}
+
+.enrich-status-drop {
+  color: var(--color-secondary);
+}
+
+.enrich-details p {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.enrich-facility {
+  color: var(--color-text-light);
+}
+
+.enrich-reason {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  font-style: italic;
+}

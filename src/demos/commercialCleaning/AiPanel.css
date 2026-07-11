@@ -1,0 +1,110 @@
+.ai-panel {
+  max-width: 640px;
+  margin: 0 auto var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-left: 3px solid var(--demo-accent-bright);
+  border-radius: 0.6rem;
+}
+
+.ai-panel-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ai-panel-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(90, 169, 230, 0.15);
+  color: var(--demo-accent-bright);
+  font-size: 0.85rem;
+}
+
+.ai-panel-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--demo-text);
+}
+
+.ai-panel-state {
+  margin-left: auto;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.ai-panel-state.is-working {
+  color: var(--demo-accent-bright);
+}
+
+.ai-panel-state.is-working::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--demo-accent-bright);
+  vertical-align: middle;
+  animation: ai-panel-pulse 1s ease-in-out infinite;
+}
+
+.ai-panel-state.is-done {
+  color: var(--demo-muted);
+}
+
+@keyframes ai-panel-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.ai-panel-lines {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ai-panel-line {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.88rem;
+  color: var(--demo-muted);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ai-panel-line::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--demo-accent-bright);
+}
+
+.ai-panel-line.is-shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-panel-state.is-working::before {
+    animation: none;
+  }
+  .ai-panel-line {
+    transition: none;
+  }
+}
