@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage";
 import TechnicalConsulting from "./components/TechnicalConsulting";
 import AutomatedWorkflows from "./components/AutomatedWorkflows";
 import DemoPage from "./demos/commercialCleaning/DemoPage";
+import WinBackDemo from "./demos/winBackCampaign/WinBackDemo";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         />
       </Route>
       <Route path="/demos/commercial-cleaning" element={<DemoPage />} />
+      <Route path="/demos/win-back-campaign" element={<WinBackDemo />} />
     </Routes>
   );
 }

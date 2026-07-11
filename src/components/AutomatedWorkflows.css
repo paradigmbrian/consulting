@@ -254,3 +254,16 @@
     font-size: 1.1rem;
   }
 }
+
+.aw-example-card-link {
+  cursor: pointer;
+}
+
+.aw-example-card-link::after {
+  content: "Try the demo →";
+  display: block;
+  margin-top: var(--spacing-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}

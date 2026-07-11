@@ -14,6 +14,7 @@ import {
   FaRocket,
 } from "react-icons/fa";
 import type { IconType } from "react-icons";
+import { Link } from "react-router-dom";
 import "./AutomatedWorkflows.css";
 
 const CALENDLY_URL = "https://calendly.com/brian-paradigmshiftdev/30min";
@@ -31,6 +32,7 @@ interface Example {
   icon: IconType;
   title: string;
   description: string;
+  to?: string;
 }
 
 const examples: Example[] = [
@@ -38,6 +40,7 @@ const examples: Example[] = [
     icon: FaUndo,
     title: "Win-Back Campaigns",
     description: "Re-engage past customers automatically",
+    to: "/demos/win-back-campaign",
   },
   {
     icon: FaCommentDots,
@@ -176,8 +179,8 @@ const AutomatedWorkflows = () => {
             <div className="aw-examples-grid">
               {examples.map((example) => {
                 const Icon = example.icon;
-                return (
-                  <div key={example.title} className="aw-example-card">
+                const inner = (
+                  <>
                     <div className="aw-example-icon">
                       <Icon />
                     </div>
@@ -185,6 +188,19 @@ const AutomatedWorkflows = () => {
                     <p className="aw-example-description">
                       {example.description}
                     </p>
+                  </>
+                );
+                return example.to ? (
+                  <Link
+                    key={example.title}
+                    to={example.to}
+                    className="aw-example-card aw-example-card-link"
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div key={example.title} className="aw-example-card">
+                    {inner}
                   </div>
                 );
               })}
