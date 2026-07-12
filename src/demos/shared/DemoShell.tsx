@@ -1,4 +1,4 @@
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaMagic } from "react-icons/fa";
 import type { ReactNode } from "react";
 import { useDemo } from "./DemoController";
 import FlowMap from "./FlowMap";
@@ -23,9 +23,6 @@ function StageHeader() {
         <Icon />
       </span>
       <h2 className="demo-stage-title">{step.label}</h2>
-      <span className="demo-stage-count">
-        Step {stepIndex + 1} of {steps.length}
-      </span>
     </div>
   );
 }
@@ -55,15 +52,22 @@ function DemoNav() {
   );
 }
 
-const DemoShell = ({ eyebrow, title, lede, renderStage }: DemoShellProps) => {
-  const { stepId } = useDemo();
+const DemoShell = ({ eyebrow, title, renderStage }: DemoShellProps) => {
+  const { stepId, steps, stepIndex } = useDemo();
   return (
     <main className="demo">
-      <div className="container">
-        <header className="demo-header">
+      <header className="demo-topbar">
+        <div className="demo-topbar-heading">
           <p className="demo-eyebrow">{eyebrow}</p>
           <h1 className="demo-title">{title}</h1>
-          <p className="demo-lede">{lede}</p>
+        </div>
+        <span className="demo-stage-count">
+          Step {stepIndex + 1} of {steps.length}
+        </span>
+        <div className="demo-topbar-actions">
+          <span className="demo-ai-chip">
+            <FaMagic aria-hidden="true" /> Powered by Claude
+          </span>
           <a
             href={CALENDLY_URL}
             className="demo-cta"
@@ -71,19 +75,22 @@ const DemoShell = ({ eyebrow, title, lede, renderStage }: DemoShellProps) => {
             rel="noopener noreferrer"
           >
             <FaCalendarAlt className="demo-cta-icon" />
-            Book a 30-minute call
+            Book a call
           </a>
-        </header>
+        </div>
+      </header>
 
+      <div className="demo-body">
         <FlowMap />
-
-        <section className="demo-stage">
+        <section className="demo-content">
           <StageHeader />
-          {renderStage(stepId)}
+          <div className="demo-stage">{renderStage(stepId)}</div>
         </section>
-
-        <DemoNav />
       </div>
+
+      <footer className="demo-footer">
+        <DemoNav />
+      </footer>
     </main>
   );
 };
