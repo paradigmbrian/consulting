@@ -6,6 +6,8 @@ import AutomatedWorkflows from "./components/AutomatedWorkflows";
 import DemoPage from "./demos/commercialCleaning/DemoPage";
 import WinBackDemo from "./demos/winBackCampaign/WinBackDemo";
 import MissedCallTextBackDemo from "./demos/missedCallTextBack/MissedCallTextBackDemo";
+import ReviewGenerationDemo from "./demos/reviewGeneration/ReviewGenerationDemo";
+import AutomatedQuotingDemo from "./demos/automatedQuoting/AutomatedQuotingDemo";
 
 function App() {
   return (
@@ -26,6 +28,14 @@ function App() {
       <Route
         path="/demos/missed-call-text-back"
         element={<MissedCallTextBackDemo />}
+      />
+      <Route
+        path="/demos/review-generation"
+        element={<ReviewGenerationDemo />}
+      />
+      <Route
+        path="/demos/automated-quoting"
+        element={<AutomatedQuotingDemo />}
       />
     </Routes>
   );

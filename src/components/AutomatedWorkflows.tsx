@@ -52,11 +52,13 @@ const examples: Example[] = [
     icon: FaStar,
     title: "Review Generation",
     description: "A steady stream of 5-star reviews, hands-off",
+    to: "/demos/review-generation",
   },
   {
     icon: FaFileInvoiceDollar,
     title: "Automated Quoting",
     description: "From intake to a ready-to-send quote",
+    to: "/demos/automated-quoting",
   },
   {
     icon: FaMoneyBillWave,

@@ -1,0 +1,394 @@
+.qt-step {
+  color: var(--demo-text);
+}
+
+.qt-heading {
+  font-size: 1.15rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.qt-sub {
+  color: var(--demo-muted);
+  margin: 0 0 var(--spacing-md);
+  max-width: 60ch;
+}
+
+.qt-note {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: var(--spacing-md) 0 0;
+}
+
+/* Badge */
+.qt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--spacing-md);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.14);
+  color: var(--demo-success);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.qt-badge-icon {
+  font-size: 0.85rem;
+}
+
+/* Intake card (step 1) */
+.qt-intake {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-left: 3px solid var(--demo-accent-bright);
+  border-radius: 0.6rem;
+}
+.qt-intake-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+.qt-intake-icon {
+  font-size: 1.5rem;
+  color: var(--demo-accent-bright);
+}
+.qt-intake-meta {
+  min-width: 0;
+}
+.qt-intake-name {
+  font-weight: 700;
+  margin: 0;
+}
+.qt-intake-channel {
+  color: var(--demo-muted);
+  font-size: 0.8rem;
+  margin: 0.1rem 0 0;
+}
+.qt-intake-body {
+  margin: 0;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Reveal wrapper */
+.qt-reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-top: var(--spacing-md);
+}
+.qt-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Scope list (step 2) */
+.qt-scope {
+  margin: 0;
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+.qt-scope-row {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: 0.6rem var(--spacing-md);
+  background: var(--demo-surface-2);
+  border-bottom: 1px solid var(--demo-border);
+}
+.qt-scope-row:last-child {
+  border-bottom: none;
+}
+.qt-scope-label {
+  flex: 0 0 40%;
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.qt-scope-value {
+  flex: 1 1 auto;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Itemized quote card (steps 3 & 4) — the hero */
+.qt-quote {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.qt-quote-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+.qt-quote-icon {
+  color: var(--demo-accent-bright);
+  font-size: 1.2rem;
+}
+.qt-quote-title {
+  font-size: 0.78rem;
+  color: var(--demo-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.qt-quote-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.qt-quote-line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--demo-border);
+}
+.qt-quote-line-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.qt-quote-line-label {
+  font-weight: 600;
+}
+.qt-quote-line-detail {
+  color: var(--demo-muted);
+  font-size: 0.82rem;
+}
+.qt-quote-line-amount {
+  flex: 0 0 auto;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.qt-quote-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+}
+.qt-quote-total-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  color: var(--demo-muted);
+}
+.qt-quote-total-amount {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--demo-accent-bright);
+  font-variant-numeric: tabular-nums;
+}
+.qt-quote-validity {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--demo-muted);
+  font-size: 0.78rem;
+}
+
+/* Owner review (step 4) */
+.qt-approve-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--demo-success);
+  border-radius: 0.6rem;
+  font-weight: 600;
+}
+.qt-approve-banner-icon {
+  color: var(--demo-success);
+  font-size: 1.2rem;
+}
+.qt-approve-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+.qt-approve-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: default;
+  user-select: none;
+}
+.qt-approve-btn-primary {
+  background: var(--demo-accent-bright);
+  color: #0a0a0a;
+}
+.qt-approve-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--demo-border);
+  color: var(--demo-muted);
+}
+.qt-approve-btn-icon {
+  font-size: 0.85rem;
+}
+
+/* Send lifecycle (step 5) */
+.qt-outbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.qt-stages {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: 0;
+  margin: 0;
+}
+.qt-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  color: var(--demo-muted);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.qt-stage.is-active {
+  opacity: 1;
+  color: var(--demo-text);
+  border-color: var(--demo-accent-bright);
+}
+.qt-stage.is-done {
+  color: var(--demo-accent-bright);
+}
+.qt-stage-icon {
+  font-size: 1.2rem;
+}
+.qt-stage-label {
+  font-size: 0.8rem;
+}
+
+/* Acceptance reveal (step 5) */
+.qt-accept {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.qt-accept.is-shown {
+  opacity: 1;
+  transform: none;
+}
+.qt-accept-reply {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.qt-accept-reply-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: var(--spacing-xs);
+}
+.qt-accept-reply-icon {
+  color: var(--demo-accent-bright);
+}
+.qt-accept-reply-from {
+  font-weight: 700;
+}
+.qt-accept-reply-body {
+  margin: 0;
+  line-height: 1.5;
+}
+.qt-accept-booking {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--demo-success);
+  border-radius: 0.6rem;
+}
+.qt-accept-booking-icon {
+  color: var(--demo-success);
+  font-size: 1.5rem;
+}
+.qt-accept-booking-title {
+  font-weight: 700;
+  margin: 0;
+}
+.qt-accept-booking-meta {
+  color: var(--demo-muted);
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* Results tally (step 6) */
+.qt-tally {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.qt-tally-item {
+  padding: var(--spacing-md);
+  text-align: center;
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.qt-tally-item-hl {
+  border-color: var(--demo-accent-bright);
+  box-shadow: 0 0 16px var(--demo-accent-glow);
+}
+.qt-tally-num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--demo-accent-bright);
+}
+.qt-tally-label {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+}
+.qt-takeaway {
+  color: var(--demo-muted);
+  max-width: 60ch;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .qt-stages {
+    flex-direction: column;
+  }
+  .qt-scope-row {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .qt-scope-label {
+    flex-basis: auto;
+  }
+  .qt-approve-actions {
+    flex-direction: column;
+  }
+  .qt-approve-btn {
+    justify-content: center;
+  }
+}
