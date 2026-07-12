@@ -46,6 +46,7 @@ const examples: Example[] = [
     icon: FaCommentDots,
     title: "Missed-Call Text-Back",
     description: "Instant reply so leads don't call a competitor",
+    to: "/demos/missed-call-text-back",
   },
   {
     icon: FaStar,
