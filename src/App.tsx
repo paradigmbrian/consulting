@@ -10,6 +10,7 @@ import ReviewGenerationDemo from "./demos/reviewGeneration/ReviewGenerationDemo"
 import AutomatedQuotingDemo from "./demos/automatedQuoting/AutomatedQuotingDemo";
 import InvoiceRemindersDemo from "./demos/invoiceReminders/InvoiceRemindersDemo";
 import WeeklyReportsDemo from "./demos/weeklyReports/WeeklyReportsDemo";
+import OnboardingDemo from "./demos/newCustomerOnboarding/OnboardingDemo";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         path="/demos/weekly-reports"
         element={<WeeklyReportsDemo />}
       />
+      <Route path="/demos/onboarding" element={<OnboardingDemo />} />
     </Routes>
   );
 }

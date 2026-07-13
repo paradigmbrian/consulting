@@ -70,6 +70,7 @@ const examples: Example[] = [
     icon: FaUserPlus,
     title: "New-Customer Onboarding",
     description: "Welcome, docs, and scheduling handled",
+    to: "/demos/onboarding",
   },
   {
     icon: FaTruck,
