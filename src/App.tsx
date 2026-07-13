@@ -8,6 +8,8 @@ import WinBackDemo from "./demos/winBackCampaign/WinBackDemo";
 import MissedCallTextBackDemo from "./demos/missedCallTextBack/MissedCallTextBackDemo";
 import ReviewGenerationDemo from "./demos/reviewGeneration/ReviewGenerationDemo";
 import AutomatedQuotingDemo from "./demos/automatedQuoting/AutomatedQuotingDemo";
+import InvoiceRemindersDemo from "./demos/invoiceReminders/InvoiceRemindersDemo";
+import WeeklyReportsDemo from "./demos/weeklyReports/WeeklyReportsDemo";
 
 function App() {
   return (
@@ -36,6 +38,14 @@ function App() {
       <Route
         path="/demos/automated-quoting"
         element={<AutomatedQuotingDemo />}
+      />
+      <Route
+        path="/demos/invoice-reminders"
+        element={<InvoiceRemindersDemo />}
+      />
+      <Route
+        path="/demos/weekly-reports"
+        element={<WeeklyReportsDemo />}
       />
     </Routes>
   );

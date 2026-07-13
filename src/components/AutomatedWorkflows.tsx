@@ -64,6 +64,7 @@ const examples: Example[] = [
     icon: FaMoneyBillWave,
     title: "Invoice & Payment Reminders",
     description: "Get paid without chasing",
+    to: "/demos/invoice-reminders",
   },
   {
     icon: FaUserPlus,
@@ -79,6 +80,7 @@ const examples: Example[] = [
     icon: FaChartLine,
     title: "Weekly Owner Reports",
     description: "The numbers that matter, in your inbox",
+    to: "/demos/weekly-reports",
   },
   {
     icon: FaSyncAlt,
