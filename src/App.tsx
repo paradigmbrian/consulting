@@ -11,6 +11,7 @@ import AutomatedQuotingDemo from "./demos/automatedQuoting/AutomatedQuotingDemo"
 import InvoiceRemindersDemo from "./demos/invoiceReminders/InvoiceRemindersDemo";
 import WeeklyReportsDemo from "./demos/weeklyReports/WeeklyReportsDemo";
 import OnboardingDemo from "./demos/newCustomerOnboarding/OnboardingDemo";
+import JobDispatchDemo from "./demos/jobDispatch/JobDispatchDemo";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         element={<WeeklyReportsDemo />}
       />
       <Route path="/demos/onboarding" element={<OnboardingDemo />} />
+      <Route path="/demos/dispatch" element={<JobDispatchDemo />} />
     </Routes>
   );
 }

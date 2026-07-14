@@ -76,6 +76,7 @@ const examples: Example[] = [
     icon: FaTruck,
     title: "Job Scheduling & Dispatch",
     description: "Right job, right person, customer notified",
+    to: "/demos/dispatch",
   },
   {
     icon: FaChartLine,
