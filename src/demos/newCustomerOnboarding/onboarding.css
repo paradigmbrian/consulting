@@ -1,0 +1,427 @@
+.nco-step {
+  color: var(--demo-text);
+}
+
+.nco-heading {
+  font-size: 1.15rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.nco-sub {
+  color: var(--demo-muted);
+  margin: 0 0 var(--spacing-md);
+  max-width: 60ch;
+}
+
+.nco-note {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: var(--spacing-md) 0 0;
+}
+
+/* Reveal wrapper (shared by the compose + packet steps) */
+.nco-reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-top: var(--spacing-md);
+}
+.nco-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Booking card (step 1) — the raw form submission */
+.nco-booking {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.nco-booking-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--demo-border);
+}
+.nco-booking-icon {
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  color: var(--demo-accent-bright);
+}
+.nco-booking-headmeta {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.nco-booking-name {
+  margin: 0;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-booking-address {
+  margin: 0.1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--demo-muted);
+}
+.nco-booking-via {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+  text-align: right;
+}
+.nco-booking-service {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+}
+.nco-booking-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--demo-muted);
+}
+.nco-booking-value {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+.nco-fact {
+  font-size: 0.8rem;
+  color: var(--demo-text);
+  padding: 0.25rem 0.6rem;
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .nco-booking-head {
+    flex-wrap: wrap;
+  }
+  .nco-booking-via {
+    text-align: left;
+  }
+}
+
+/* Welcome letter card (step 2) — the hero artifact */
+.nco-welcome {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-left: 3px solid var(--demo-accent-bright);
+  border-radius: 0.6rem;
+}
+.nco-welcome-greeting {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm);
+  color: var(--demo-text);
+}
+.nco-welcome-body {
+  margin: 0 0 var(--spacing-sm);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--demo-text);
+}
+.nco-expect {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--demo-border);
+}
+.nco-expect-label {
+  margin: 0 0 var(--spacing-sm);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--demo-accent-bright);
+  font-weight: 700;
+}
+.nco-expect-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.nco-expect-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--demo-text);
+}
+.nco-expect-icon {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  color: var(--demo-success);
+}
+
+/* Packet checklist (step 3) — items with a status pill */
+.nco-packet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.nco-packet-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+}
+.nco-packet-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.nco-packet-label {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-packet-detail {
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.nco-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nco-pill-ready,
+.nco-pill-collected {
+  color: var(--demo-success);
+  background: rgba(16, 185, 129, 0.12);
+}
+.nco-pill-requested {
+  color: #f4b740;
+  background: rgba(244, 183, 64, 0.12);
+}
+
+@media (max-width: 640px) {
+  .nco-packet-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .nco-pill {
+    white-space: normal;
+  }
+}
+
+/* Deliver (step 4) — send lifecycle strip, ends at "read" */
+.nco-deliver {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.nco-deliver-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+.nco-deliver-to {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-deliver-channel {
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.nco-lifecycle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-sm);
+}
+.nco-life {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  color: var(--demo-muted);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.nco-life.is-active {
+  opacity: 1;
+  color: var(--demo-text);
+  border-color: var(--demo-accent-bright);
+}
+.nco-life.is-done {
+  color: var(--demo-success);
+  border-color: var(--demo-success);
+}
+.nco-life-icon {
+  font-size: 1.1rem;
+}
+.nco-life-label {
+  font-size: 0.8rem;
+}
+.nco-deliver-note {
+  margin: var(--spacing-md) 0 0;
+  font-size: 0.85rem;
+  color: var(--demo-success);
+}
+
+/* Schedule (step 5) — first-visit slot + confirmation payoff (timed reveal) */
+.nco-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.nco-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  transition: border-color 0.3s ease;
+}
+.nco-slot.is-booked {
+  border-color: var(--demo-success);
+}
+.nco-slot-icon {
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  color: var(--demo-accent-bright);
+}
+.nco-slot.is-booked .nco-slot-icon {
+  color: var(--demo-success);
+}
+.nco-slot-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.nco-slot-when {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-slot-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.nco-slot-status {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--demo-muted);
+}
+.nco-slot.is-booked .nco-slot-status {
+  color: var(--demo-success);
+}
+.nco-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-success);
+  border-radius: 0.6rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.nco-confirm.is-shown {
+  opacity: 1;
+  transform: none;
+}
+.nco-confirm-icon {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  font-size: 1.3rem;
+  color: var(--demo-success);
+}
+.nco-confirm-title {
+  margin: 0 0 0.2rem;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-confirm-detail {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--demo-muted);
+}
+
+/* Results (step 6) — recap tally + takeaway */
+.nco-tally {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.nco-tally-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.nco-tally-item-hl {
+  border-color: var(--demo-accent-bright);
+}
+.nco-tally-num {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.nco-tally-item-hl .nco-tally-num {
+  color: var(--demo-accent-bright);
+}
+.nco-tally-label {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+.nco-takeaway {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--demo-text);
+  max-width: 65ch;
+}
+
+@media (max-width: 640px) {
+  .nco-tally {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

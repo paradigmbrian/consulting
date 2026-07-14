@@ -1,0 +1,436 @@
+.jd-step {
+  color: var(--demo-text);
+  /* emergency accent — red counterpart to the amber pattern */
+  --jd-emergency: #e5484d;
+  --jd-emergency-tint: rgba(229, 72, 77, 0.12);
+}
+
+.jd-heading {
+  font-size: 1.15rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.jd-sub {
+  color: var(--demo-muted);
+  margin: 0 0 var(--spacing-md);
+  max-width: 60ch;
+}
+
+.jd-note {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: var(--spacing-md) 0 0;
+}
+
+/* Reveal wrapper (shared by the assign + route steps) */
+.jd-reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-top: var(--spacing-md);
+}
+.jd-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Tech chips (step 1) — the crew */
+.jd-techs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.jd-tech-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: var(--spacing-sm);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+}
+.jd-tech-name {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.jd-tech-specialty {
+  font-size: 0.8rem;
+  color: var(--demo-text);
+}
+.jd-tech-zone {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+
+/* Job board (step 1) — the unsorted pile */
+.jd-jobs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+}
+.jd-job-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+}
+.jd-job-card.is-emergency {
+  border-color: var(--jd-emergency);
+  background: var(--jd-emergency-tint);
+}
+.jd-job-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+.jd-job-customer {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.jd-job-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--demo-muted);
+  background: rgba(139, 151, 167, 0.12);
+}
+.jd-job-tag.is-emergency {
+  color: var(--jd-emergency);
+  background: var(--jd-emergency-tint);
+}
+.jd-job-type {
+  font-size: 0.9rem;
+  color: var(--demo-text);
+}
+.jd-job-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+.jd-job-location {
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.jd-job-window {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+  white-space: nowrap;
+}
+
+/* Assignment list (step 2) — job → tech with the matching reason */
+.jd-assignments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.jd-assign-row {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+}
+.jd-assign-row.is-emergency {
+  border-color: var(--jd-emergency);
+  background: var(--jd-emergency-tint);
+}
+.jd-assign-match {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+.jd-assign-job {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.jd-assign-row.is-emergency .jd-assign-job {
+  color: var(--jd-emergency);
+}
+.jd-assign-customer {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.jd-assign-arrow {
+  flex: 0 0 auto;
+  color: var(--demo-accent-bright);
+}
+.jd-assign-tech {
+  font-weight: 700;
+  color: var(--demo-accent-bright);
+}
+.jd-assign-reason {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--demo-muted);
+}
+
+/* Route timelines (step 3) — per-van ordered stops + drive note */
+.jd-routes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+}
+.jd-route-card {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.jd-route-card.is-emergency {
+  border-color: var(--jd-emergency);
+}
+.jd-route-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+.jd-route-tech {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.jd-route-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--jd-emergency);
+  background: var(--jd-emergency-tint);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.jd-route-stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.jd-route-stop {
+  font-size: 0.85rem;
+  color: var(--demo-text);
+  padding-left: var(--spacing-sm);
+  border-left: 2px solid var(--demo-border);
+}
+.jd-route-note {
+  margin: var(--spacing-sm) 0 0;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--demo-border);
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+
+/* Dispatch (step 4) — crew rows flip to "Accepted" (timed reveal) */
+.jd-dispatch {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.jd-dispatch-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: var(--demo-text);
+  margin-bottom: var(--spacing-md);
+}
+.jd-crew {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.jd-crew-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-bg);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+.jd-crew-row.is-accepted {
+  border-color: var(--demo-success);
+}
+.jd-crew-name {
+  font-weight: 700;
+  color: var(--demo-text);
+  flex: 1 1 auto;
+}
+.jd-crew-stops {
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.jd-crew-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--demo-muted);
+  white-space: nowrap;
+}
+.jd-crew-row.is-accepted .jd-crew-status {
+  color: var(--demo-success);
+}
+.jd-dispatch-note {
+  margin: var(--spacing-md) 0 0;
+  font-size: 0.85rem;
+  color: var(--demo-muted);
+}
+
+/* Notify (step 5) — send lifecycle strip, ends at "read" */
+.jd-notify {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.jd-notify-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+.jd-notify-to {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.jd-notify-channel {
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+}
+.jd-notify-message {
+  margin: 0 0 var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-bg);
+  border: 1px solid var(--demo-border);
+  border-left: 3px solid var(--demo-accent-bright);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--demo-text);
+}
+.jd-lifecycle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-sm);
+}
+.jd-life {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  color: var(--demo-muted);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.jd-life.is-active {
+  opacity: 1;
+  color: var(--demo-text);
+  border-color: var(--demo-accent-bright);
+}
+.jd-life.is-done {
+  color: var(--demo-success);
+  border-color: var(--demo-success);
+}
+.jd-life-icon {
+  font-size: 1.1rem;
+}
+.jd-life-label {
+  font-size: 0.8rem;
+}
+.jd-notify-note {
+  margin: var(--spacing-md) 0 0;
+  font-size: 0.85rem;
+  color: var(--demo-success);
+}
+
+/* Results (step 6) — recap tally + takeaway */
+.jd-tally {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.jd-tally-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.jd-tally-item-hl {
+  border-color: var(--demo-accent-bright);
+}
+.jd-tally-num {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.jd-tally-item-hl .jd-tally-num {
+  color: var(--demo-accent-bright);
+}
+.jd-tally-label {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+.jd-takeaway {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--demo-text);
+  max-width: 65ch;
+}
+
+/* Responsive — collapse multi-column grids, prevent horizontal scroll */
+@media (max-width: 640px) {
+  .jd-techs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .jd-jobs {
+    grid-template-columns: 1fr;
+  }
+  .jd-routes {
+    grid-template-columns: 1fr;
+  }
+  .jd-tally {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .jd-crew-row {
+    flex-wrap: wrap;
+  }
+}

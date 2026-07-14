@@ -1,0 +1,355 @@
+.mc-step {
+  color: var(--demo-text);
+}
+
+.mc-heading {
+  font-size: 1.15rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.mc-sub {
+  color: var(--demo-muted);
+  margin: 0 0 var(--spacing-md);
+  max-width: 60ch;
+}
+
+.mc-note {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: var(--spacing-md) 0 0;
+}
+
+/* Missed-call caller-ID card */
+.mc-callcard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-left: 3px solid #f4b740;
+  border-radius: 0.6rem;
+}
+.mc-callcard-icon {
+  font-size: 1.6rem;
+  color: #f4b740;
+}
+.mc-callcard-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.mc-callcard-name {
+  font-weight: 700;
+  margin: 0;
+}
+.mc-callcard-number {
+  color: var(--demo-muted);
+  margin: 0.1rem 0 0;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+}
+.mc-callcard-meta {
+  color: var(--demo-muted);
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+.mc-callcard-tag {
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(244, 183, 64, 0.14);
+  color: #f4b740;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hero response-time badge */
+.mc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  margin-bottom: var(--spacing-md);
+  border-radius: 999px;
+  background: rgba(90, 169, 230, 0.12);
+  border: 1px solid var(--demo-accent);
+  color: var(--demo-accent-bright);
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 0 12px var(--demo-accent-glow);
+}
+.mc-badge-icon {
+  font-size: 0.9rem;
+}
+
+/* SMS bubbles */
+.mc-outbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.mc-bubble {
+  max-width: 80%;
+  padding: 0.7rem 0.95rem;
+  border-radius: 1rem;
+  line-height: 1.5;
+}
+.mc-bubble-body {
+  margin: 0;
+}
+.mc-bubble-business {
+  align-self: flex-start;
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-bottom-left-radius: 0.3rem;
+}
+.mc-bubble-caller {
+  align-self: flex-end;
+  background: var(--demo-accent);
+  color: #fff;
+  border-bottom-right-radius: 0.3rem;
+}
+.mc-confirm {
+  margin-top: var(--spacing-sm);
+}
+
+/* Send lifecycle stage strip */
+.mc-stages {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: 0;
+  margin: 0;
+}
+.mc-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+  color: var(--demo-muted);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.mc-stage.is-active {
+  opacity: 1;
+  color: var(--demo-text);
+  border-color: var(--demo-accent-bright);
+}
+.mc-stage.is-done {
+  color: var(--demo-accent-bright);
+}
+.mc-stage-icon {
+  font-size: 1.2rem;
+}
+.mc-stage-label {
+  font-size: 0.8rem;
+}
+.mc-done-note {
+  color: var(--demo-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Reveal wrapper (thread/booking after AI completes) */
+.mc-reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-top: var(--spacing-md);
+}
+.mc-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Conversation thread */
+.mc-thread {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.mc-turn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 100%;
+}
+.mc-turn-business {
+  align-items: flex-start;
+}
+.mc-turn-caller {
+  align-items: flex-end;
+}
+.mc-turn-time {
+  font-size: 0.7rem;
+  color: var(--demo-muted);
+  padding: 0 0.3rem;
+}
+
+/* Extracted facts */
+.mc-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.mc-fact {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+.mc-fact-icon {
+  color: var(--demo-success);
+  flex: 0 0 auto;
+}
+.mc-fact-label {
+  color: var(--demo-muted);
+}
+.mc-fact-value {
+  font-weight: 600;
+}
+
+/* Booking card */
+.mc-booking {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--demo-success);
+  border-radius: 0.6rem;
+}
+.mc-booking-icon {
+  color: var(--demo-success);
+  font-size: 1.5rem;
+  margin-top: 0.1rem;
+}
+.mc-booking-title {
+  font-weight: 700;
+  margin: 0;
+}
+.mc-booking-meta {
+  color: var(--demo-muted);
+  margin: 0.15rem 0 0;
+}
+.mc-booking-tech {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+}
+.mc-booking-tech-icon {
+  color: var(--demo-accent-bright);
+}
+
+/* Owner alert phone card */
+.mc-phone {
+  display: flex;
+  justify-content: center;
+}
+.mc-push {
+  width: 100%;
+  max-width: 380px;
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.9rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+.mc-push-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+.mc-push-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--demo-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.mc-push-app-icon {
+  color: var(--demo-accent-bright);
+}
+.mc-push-now {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+.mc-push-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 var(--spacing-xs);
+}
+.mc-push-lines {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--demo-text);
+}
+.mc-push-lines li {
+  margin: 0.15rem 0;
+}
+
+/* Results tally */
+.mc-tally {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.mc-tally-item {
+  padding: var(--spacing-md);
+  text-align: center;
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.mc-tally-item-hl {
+  border-color: var(--demo-accent-bright);
+  box-shadow: 0 0 16px var(--demo-accent-glow);
+}
+.mc-tally-num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--demo-accent-bright);
+}
+.mc-tally-label {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+}
+.mc-revenue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--demo-success);
+  margin: 0 0 var(--spacing-xs);
+}
+.mc-takeaway {
+  color: var(--demo-muted);
+  max-width: 60ch;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .mc-stages {
+    flex-direction: column;
+  }
+  .mc-bubble {
+    max-width: 100%;
+  }
+}

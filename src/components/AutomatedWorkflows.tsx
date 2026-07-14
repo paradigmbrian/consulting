@@ -46,41 +46,49 @@ const examples: Example[] = [
     icon: FaCommentDots,
     title: "Missed-Call Text-Back",
     description: "Instant reply so leads don't call a competitor",
+    to: "/demos/missed-call-text-back",
   },
   {
     icon: FaStar,
     title: "Review Generation",
     description: "A steady stream of 5-star reviews, hands-off",
+    to: "/demos/review-generation",
   },
   {
     icon: FaFileInvoiceDollar,
     title: "Automated Quoting",
     description: "From intake to a ready-to-send quote",
+    to: "/demos/automated-quoting",
   },
   {
     icon: FaMoneyBillWave,
     title: "Invoice & Payment Reminders",
     description: "Get paid without chasing",
+    to: "/demos/invoice-reminders",
   },
   {
     icon: FaUserPlus,
     title: "New-Customer Onboarding",
     description: "Welcome, docs, and scheduling handled",
+    to: "/demos/onboarding",
   },
   {
     icon: FaTruck,
     title: "Job Scheduling & Dispatch",
     description: "Right job, right person, customer notified",
+    to: "/demos/dispatch",
   },
   {
     icon: FaChartLine,
     title: "Weekly Owner Reports",
     description: "The numbers that matter, in your inbox",
+    to: "/demos/weekly-reports",
   },
   {
     icon: FaSyncAlt,
     title: "Tool-to-Tool Sync",
     description: "Stop retyping the same data twice",
+    to: "/demos/tool-sync",
   },
 ];
 
