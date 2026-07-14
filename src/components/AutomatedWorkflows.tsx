@@ -88,6 +88,7 @@ const examples: Example[] = [
     icon: FaSyncAlt,
     title: "Tool-to-Tool Sync",
     description: "Stop retyping the same data twice",
+    to: "/demos/tool-sync",
   },
 ];
 

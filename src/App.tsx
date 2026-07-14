@@ -12,6 +12,7 @@ import InvoiceRemindersDemo from "./demos/invoiceReminders/InvoiceRemindersDemo"
 import WeeklyReportsDemo from "./demos/weeklyReports/WeeklyReportsDemo";
 import OnboardingDemo from "./demos/newCustomerOnboarding/OnboardingDemo";
 import JobDispatchDemo from "./demos/jobDispatch/JobDispatchDemo";
+import ToolSyncDemo from "./demos/toolSync/ToolSyncDemo";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
       />
       <Route path="/demos/onboarding" element={<OnboardingDemo />} />
       <Route path="/demos/dispatch" element={<JobDispatchDemo />} />
+      <Route path="/demos/tool-sync" element={<ToolSyncDemo />} />
     </Routes>
   );
 }

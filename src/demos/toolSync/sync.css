@@ -1,0 +1,389 @@
+.tts-step {
+  color: var(--demo-text);
+  /* caution accent — amber, for the duplicate-caught / conflict state */
+  --tts-warn: #f4b740;
+  --tts-warn-tint: rgba(244, 183, 64, 0.12);
+}
+
+.tts-heading {
+  font-size: 1.15rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.tts-sub {
+  color: var(--demo-muted);
+  margin: 0 0 var(--spacing-md);
+  max-width: 60ch;
+}
+
+.tts-note {
+  color: var(--demo-muted);
+  font-size: 0.85rem;
+  margin: var(--spacing-md) 0 0;
+}
+
+/* Reveal wrapper (shared by the map + reconcile steps) */
+.tts-reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  margin-top: var(--spacing-md);
+}
+.tts-reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Intake card (step 1) — the raw booking */
+.tts-intake {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.tts-intake-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--demo-border);
+}
+.tts-intake-icon {
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  color: var(--demo-accent-bright);
+}
+.tts-intake-title {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.tts-intake-source {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+.tts-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin: var(--spacing-sm) 0 0;
+}
+.tts-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.tts-field-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--demo-muted);
+}
+.tts-field-value {
+  margin: 0;
+  font-weight: 600;
+  color: var(--demo-text);
+}
+
+/* Tool-destination chips (step 1) */
+.tts-flow-label {
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--demo-muted);
+}
+.tts-tools {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+}
+.tts-tool-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: var(--spacing-sm);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+}
+.tts-tool-name {
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.tts-tool-kind {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+
+/* Mapping cards (step 2) — the job shaped per tool */
+.tts-mappings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+}
+.tts-map-card {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.tts-map-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--demo-border);
+}
+.tts-map-tool {
+  font-weight: 700;
+  color: var(--demo-accent-bright);
+}
+.tts-map-kind {
+  font-size: 0.7rem;
+  color: var(--demo-muted);
+  text-align: right;
+}
+.tts-map-fields {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tts-map-field {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+}
+.tts-map-label {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+  flex: 0 0 auto;
+}
+.tts-map-value {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--demo-text);
+  text-align: right;
+  min-width: 0;
+}
+
+/* Reconcile (step 3) — duplicate banner + conflict rows (amber caution) */
+.tts-recon {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.tts-dup-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--tts-warn-tint);
+  border: 1px solid var(--tts-warn);
+  border-radius: 0.6rem;
+}
+.tts-dup-icon {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  font-size: 1.3rem;
+  color: var(--tts-warn);
+}
+.tts-dup-meta {
+  min-width: 0;
+}
+.tts-dup-title {
+  display: block;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.tts-dup-reason {
+  font-size: 0.85rem;
+  color: var(--demo-muted);
+}
+.tts-conflicts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.tts-conflict {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+}
+.tts-conflict-field {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--demo-muted);
+}
+.tts-conflict-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin: 0.35rem 0;
+}
+.tts-conflict-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+.tts-conflict-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--demo-muted);
+}
+.tts-conflict-incoming,
+.tts-conflict-existing {
+  font-size: 0.85rem;
+  color: var(--demo-text);
+}
+.tts-conflict-res {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--demo-success);
+}
+.tts-conflict-arrow {
+  flex: 0 0 auto;
+  color: var(--demo-success);
+}
+.tts-recon-note {
+  margin: var(--spacing-xs) 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--demo-text);
+}
+
+/* Sync board (step 4) — tool rows flip to "Synced" (timed reveal) */
+.tts-sync {
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.6rem;
+}
+.tts-sync-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: var(--demo-text);
+  margin-bottom: var(--spacing-md);
+}
+.tts-sync-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+.tts-sync-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--demo-bg);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+.tts-sync-row.is-synced {
+  border-color: var(--demo-success);
+}
+.tts-sync-tool {
+  font-weight: 700;
+  color: var(--demo-text);
+  flex: 0 0 auto;
+}
+.tts-sync-detail {
+  font-size: 0.8rem;
+  color: var(--demo-muted);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.tts-sync-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--demo-muted);
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.tts-sync-row.is-synced .tts-sync-status {
+  color: var(--demo-success);
+}
+.tts-sync-note {
+  margin: var(--spacing-md) 0 0;
+  font-size: 0.85rem;
+  color: var(--demo-muted);
+}
+
+/* Results (step 5) — recap tally + takeaway */
+.tts-tally {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.tts-tally-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--spacing-md);
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.tts-tally-item-hl {
+  border-color: var(--demo-accent-bright);
+}
+.tts-tally-num {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--demo-text);
+}
+.tts-tally-item-hl .tts-tally-num {
+  color: var(--demo-accent-bright);
+}
+.tts-tally-label {
+  font-size: 0.75rem;
+  color: var(--demo-muted);
+}
+.tts-takeaway {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--demo-text);
+  max-width: 65ch;
+}
+
+/* Responsive — collapse multi-column grids, prevent horizontal scroll */
+@media (max-width: 640px) {
+  .tts-fields {
+    grid-template-columns: 1fr;
+  }
+  .tts-tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tts-mappings {
+    grid-template-columns: 1fr;
+  }
+  .tts-tally {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tts-sync-row {
+    flex-wrap: wrap;
+  }
+}
