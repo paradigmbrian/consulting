@@ -1,0 +1,31 @@
+/* 5. Why me */
+.aw-why {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg-light);
+}
+
+.aw-why-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-sm);
+  max-width: 800px;
+  margin: var(--spacing-md) auto 0;
+  text-align: left;
+}
+
+.aw-why-item {
+  position: relative;
+  padding-left: 2rem;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+.aw-why-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 700;
+}

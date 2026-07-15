@@ -1,0 +1,42 @@
+/* 4. How it works */
+.aw-how {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg);
+}
+
+.aw-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin: var(--spacing-lg) auto 0;
+}
+
+.aw-step {
+  text-align: center;
+}
+
+.aw-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-sm);
+}
+
+.aw-step-icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.aw-step-content h3 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.aw-step-content p {
+  margin: 0;
+}

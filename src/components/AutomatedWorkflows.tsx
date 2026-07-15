@@ -1,8 +1,10 @@
-import { FaCalendarAlt, FaPhone, FaCogs, FaRocket } from "react-icons/fa";
-import type { IconType } from "react-icons";
+import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CALENDLY_URL } from "../data/site";
 import { workflows, workflowPath } from "../data/workflows";
+import AwHowItWorks from "./workflows/AwHowItWorks";
+import AwWhyWorkWithMe from "./workflows/AwWhyWorkWithMe";
+import AwFinalCta from "./workflows/AwFinalCta";
 import "./AutomatedWorkflows.css";
 
 const automatableWork: string[] = [
@@ -12,40 +14,6 @@ const automatableWork: string[] = [
   "Reviews and reputation",
   "Moving data between the tools you already use",
   "Knowing what's actually working",
-];
-
-interface Step {
-  icon: IconType;
-  title: string;
-  description: string;
-}
-
-const steps: Step[] = [
-  {
-    icon: FaPhone,
-    title: "Discovery call (free)",
-    description:
-      "We map where your time and money are leaking to repetitive work, and find the highest-ROI place to start.",
-  },
-  {
-    icon: FaCogs,
-    title: "Build",
-    description:
-      "I design and build the automation around your existing tools. Fixed scope, agreed up front.",
-  },
-  {
-    icon: FaRocket,
-    title: "Handoff or hands-off",
-    description:
-      "You own and run it, or I maintain and improve it over time. Your call.",
-  },
-];
-
-const reasons: string[] = [
-  "10+ years as a professional software engineer",
-  "Real, robust engineering — not brittle no-code that breaks",
-  "Built on the tools you already use",
-  "Fixed scope, agreed up front — no surprise bills",
 ];
 
 const AutomatedWorkflows = () => {
@@ -137,63 +105,9 @@ const AutomatedWorkflows = () => {
         </div>
       </section>
 
-      <section className="aw-how">
-        <div className="container">
-          <div className="section-content">
-            <h2 className="section-title">How It Works</h2>
-            <div className="aw-steps">
-              {steps.map((step) => {
-                const Icon = step.icon;
-                return (
-                  <div key={step.title} className="aw-step">
-                    <div className="aw-step-number">
-                      <Icon className="aw-step-icon" />
-                    </div>
-                    <div className="aw-step-content">
-                      <h3>{step.title}</h3>
-                      <p>{step.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="aw-why">
-        <div className="container">
-          <div className="section-content">
-            <h2 className="section-title">Why work with me</h2>
-            <ul className="aw-why-list">
-              {reasons.map((reason) => (
-                <li key={reason} className="aw-why-item">
-                  {reason}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="aw-cta">
-        <div className="container">
-          <div className="aw-cta-content">
-            <h2 className="aw-cta-title">
-              Curious what's automatable in your business?
-            </h2>
-            <a
-              href={CALENDLY_URL}
-              className="aw-cta-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaCalendarAlt className="aw-cta-btn-icon" />
-              Book a free automation consult →
-            </a>
-          </div>
-        </div>
-      </section>
+      <AwHowItWorks />
+      <AwWhyWorkWithMe />
+      <AwFinalCta />
     </>
   );
 };
