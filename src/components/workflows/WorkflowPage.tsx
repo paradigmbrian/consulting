@@ -32,7 +32,7 @@ const WorkflowPage = () => {
         <WorkflowDemoCta slug={workflow.slug} label={workflow.label} />
       )}
       <AwWhyWorkWithMe />
-      <AwHowItWorks />
+      <AwHowItWorks title="How we'd work together" />
       <WorkflowFaq faq={workflow.faq} />
       <AwFinalCta />
     </>

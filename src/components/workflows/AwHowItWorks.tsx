@@ -29,12 +29,16 @@ const steps: Step[] = [
   },
 ];
 
-const AwHowItWorks = () => {
+interface AwHowItWorksProps {
+  title: string;
+}
+
+const AwHowItWorks = ({ title }: AwHowItWorksProps) => {
   return (
     <section className="aw-how">
       <div className="container">
         <div className="section-content">
-          <h2 className="section-title">How It Works</h2>
+          <h2 className="section-title">{title}</h2>
           <div className="aw-steps">
             {steps.map((step) => {
               const Icon = step.icon;

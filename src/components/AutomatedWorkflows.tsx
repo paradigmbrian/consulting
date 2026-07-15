@@ -105,7 +105,7 @@ const AutomatedWorkflows = () => {
         </div>
       </section>
 
-      <AwHowItWorks />
+      <AwHowItWorks title="How It Works" />
       <AwWhyWorkWithMe />
       <AwFinalCta />
     </>
