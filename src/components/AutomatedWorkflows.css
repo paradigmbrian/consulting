@@ -260,7 +260,7 @@
 }
 
 .aw-example-card-link::after {
-  content: "Try the demo →";
+  content: "See how it works →";
   display: block;
   margin-top: var(--spacing-sm);
   color: var(--color-primary);

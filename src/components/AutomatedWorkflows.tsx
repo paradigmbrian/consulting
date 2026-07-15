@@ -1,23 +1,9 @@
-import {
-  FaCalendarAlt,
-  FaUndo,
-  FaCommentDots,
-  FaStar,
-  FaFileInvoiceDollar,
-  FaMoneyBillWave,
-  FaUserPlus,
-  FaTruck,
-  FaChartLine,
-  FaSyncAlt,
-  FaPhone,
-  FaCogs,
-  FaRocket,
-} from "react-icons/fa";
+import { FaCalendarAlt, FaPhone, FaCogs, FaRocket } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import { Link } from "react-router-dom";
+import { CALENDLY_URL } from "../data/site";
+import { workflows, workflowPath } from "../data/workflows";
 import "./AutomatedWorkflows.css";
-
-const CALENDLY_URL = "https://calendly.com/brian-paradigmshiftdev/30min";
 
 const automatableWork: string[] = [
   "Chasing leads and following up",
@@ -26,70 +12,6 @@ const automatableWork: string[] = [
   "Reviews and reputation",
   "Moving data between the tools you already use",
   "Knowing what's actually working",
-];
-
-interface Example {
-  icon: IconType;
-  title: string;
-  description: string;
-  to?: string;
-}
-
-const examples: Example[] = [
-  {
-    icon: FaUndo,
-    title: "Win-Back Campaigns",
-    description: "Re-engage past customers automatically",
-    to: "/demos/win-back-campaign",
-  },
-  {
-    icon: FaCommentDots,
-    title: "Missed-Call Text-Back",
-    description: "Instant reply so leads don't call a competitor",
-    to: "/demos/missed-call-text-back",
-  },
-  {
-    icon: FaStar,
-    title: "Review Generation",
-    description: "A steady stream of 5-star reviews, hands-off",
-    to: "/demos/review-generation",
-  },
-  {
-    icon: FaFileInvoiceDollar,
-    title: "Automated Quoting",
-    description: "From intake to a ready-to-send quote",
-    to: "/demos/automated-quoting",
-  },
-  {
-    icon: FaMoneyBillWave,
-    title: "Invoice & Payment Reminders",
-    description: "Get paid without chasing",
-    to: "/demos/invoice-reminders",
-  },
-  {
-    icon: FaUserPlus,
-    title: "New-Customer Onboarding",
-    description: "Welcome, docs, and scheduling handled",
-    to: "/demos/onboarding",
-  },
-  {
-    icon: FaTruck,
-    title: "Job Scheduling & Dispatch",
-    description: "Right job, right person, customer notified",
-    to: "/demos/dispatch",
-  },
-  {
-    icon: FaChartLine,
-    title: "Weekly Owner Reports",
-    description: "The numbers that matter, in your inbox",
-    to: "/demos/weekly-reports",
-  },
-  {
-    icon: FaSyncAlt,
-    title: "Tool-to-Tool Sync",
-    description: "Stop retyping the same data twice",
-    to: "/demos/tool-sync",
-  },
 ];
 
 interface Step {
@@ -185,29 +107,27 @@ const AutomatedWorkflows = () => {
               Not a fixed menu — if it's repetitive, it's probably a candidate.
             </p>
             <div className="aw-examples-grid">
-              {examples.map((example) => {
-                const Icon = example.icon;
+              {workflows.map((workflow) => {
+                const Icon = workflow.icon;
                 const inner = (
                   <>
                     <div className="aw-example-icon">
                       <Icon />
                     </div>
-                    <h3 className="aw-example-title">{example.title}</h3>
-                    <p className="aw-example-description">
-                      {example.description}
-                    </p>
+                    <h3 className="aw-example-title">{workflow.label}</h3>
+                    <p className="aw-example-description">{workflow.cardSummary}</p>
                   </>
                 );
-                return example.to ? (
+                return workflow.published ? (
                   <Link
-                    key={example.title}
-                    to={example.to}
+                    key={workflow.slug}
+                    to={workflowPath(workflow.slug)}
                     className="aw-example-card aw-example-card-link"
                   >
                     {inner}
                   </Link>
                 ) : (
-                  <div key={example.title} className="aw-example-card">
+                  <div key={workflow.slug} className="aw-example-card">
                     {inner}
                   </div>
                 );
