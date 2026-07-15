@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import ImportListStep from "./steps/ImportListStep";
@@ -42,6 +43,7 @@ const WinBackDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`Win-back campaign for ${practice.name}`}
           lede="A click-through of how the automation wakes up a practice's lapsed patients — import, segment, offer, send, and book — end to end."
+          backTo={workflowPath("win-back-campaigns")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>

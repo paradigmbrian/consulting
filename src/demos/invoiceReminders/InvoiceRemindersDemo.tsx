@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import OverdueStep from "./steps/OverdueStep";
@@ -42,6 +43,7 @@ const InvoiceRemindersDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`Invoice & payment reminders for ${business.name}`}
           lede="A click-through of how every invoice follows itself up — in the right tone, at the right time — so you get paid without chasing."
+          backTo={workflowPath("invoice-reminders")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>

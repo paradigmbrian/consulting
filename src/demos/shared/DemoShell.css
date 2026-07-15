@@ -123,6 +123,25 @@
   font-size: 0.9rem;
 }
 
+.demo-back {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--demo-border);
+  border-radius: 0.5rem;
+  color: var(--demo-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.demo-back:hover {
+  border-color: var(--demo-accent);
+  color: var(--demo-accent-bright);
+}
+
 /* Body: rail + content */
 .demo-body {
   flex: 1 1 auto;

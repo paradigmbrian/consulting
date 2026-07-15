@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import DataStep from "./steps/DataStep";
@@ -42,6 +43,7 @@ const WeeklyReportsDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`Weekly owner reports for ${business.name}`}
           lede="A click-through of how a week scattered across five tools becomes a 30-second digest — with one action the owner takes on the spot."
+          backTo={workflowPath("weekly-owner-reports")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>

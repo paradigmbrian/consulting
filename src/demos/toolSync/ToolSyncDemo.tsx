@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import IntakeStep from "./steps/IntakeStep";
@@ -37,6 +38,7 @@ const ToolSyncDemo = () => {
         eyebrow="Paradigm Shift — Automation Demo"
         title={`Tool-to-tool sync for ${business.name}`}
         lede="A click-through of how one booking flows into every tool — shaped for each app and de-duplicated on the way — instead of being retyped four times."
+        backTo={workflowPath("tool-sync")}
         renderStage={renderStage}
       />
     </DemoProvider>

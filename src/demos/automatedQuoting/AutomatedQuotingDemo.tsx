@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import RequestStep from "./steps/RequestStep";
@@ -42,6 +43,7 @@ const AutomatedQuotingDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`Automated quoting for ${business.name}`}
           lede="A click-through of how a messy request becomes an itemized, ready-to-send quote — with you still in control of the send."
+          backTo={workflowPath("automated-quoting")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>

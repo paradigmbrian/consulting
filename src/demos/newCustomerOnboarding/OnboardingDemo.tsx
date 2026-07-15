@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import SignupStep from "./steps/SignupStep";
@@ -42,6 +43,7 @@ const OnboardingDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`New-customer onboarding for ${business.name}`}
           lede="A click-through of how a bare booking becomes a welcomed customer — a personal welcome written, the right paperwork assembled, and the first visit booked, all on its own."
+          backTo={workflowPath("new-customer-onboarding")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>

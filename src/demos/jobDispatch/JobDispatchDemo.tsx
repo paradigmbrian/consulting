@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import QueueStep from "./steps/QueueStep";
@@ -42,6 +43,7 @@ const JobDispatchDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`Job scheduling & dispatch for ${business.name}`}
           lede="A click-through of how a messy morning pile becomes an optimized dispatch board — every job matched to the right tech, every van routed to cut the drive, and every customer texted an ETA."
+          backTo={workflowPath("job-dispatch")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>

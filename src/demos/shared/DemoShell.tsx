@@ -1,5 +1,6 @@
 import { FaCalendarAlt, FaMagic } from "react-icons/fa";
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { useDemo } from "./DemoController";
 import FlowMap from "./FlowMap";
 import "./DemoShell.css";
@@ -10,6 +11,7 @@ interface DemoShellProps {
   eyebrow: string;
   title: string;
   lede: string;
+  backTo?: string;
   renderStage: (stepId: string) => ReactNode;
 }
 
@@ -52,11 +54,16 @@ function DemoNav() {
   );
 }
 
-const DemoShell = ({ eyebrow, title, renderStage }: DemoShellProps) => {
+const DemoShell = ({ eyebrow, title, backTo, renderStage }: DemoShellProps) => {
   const { stepId, steps, stepIndex } = useDemo();
   return (
     <main className="demo">
       <header className="demo-topbar">
+        {backTo && (
+          <Link to={backTo} className="demo-back">
+            ← Exit demo
+          </Link>
+        )}
         <div className="demo-topbar-heading">
           <p className="demo-eyebrow">{eyebrow}</p>
           <h1 className="demo-title">{title}</h1>

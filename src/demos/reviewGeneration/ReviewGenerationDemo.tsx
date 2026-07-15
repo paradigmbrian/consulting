@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
+import { workflowPath } from "../../data/workflows";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import AppointmentStep from "./steps/AppointmentStep";
@@ -42,6 +43,7 @@ const ReviewGenerationDemo = () => {
           eyebrow="Paradigm Shift — Automation Demo"
           title={`Review generation for ${business.name}`}
           lede="A click-through of how every happy client becomes a 5-star review — and every unhappy one gets caught before it goes public."
+          backTo={workflowPath("review-generation")}
           renderStage={renderStage}
         />
       </SendLifecycleProvider>
