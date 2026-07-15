@@ -2,8 +2,54 @@
   command = "npm run build"
   publish = "dist"
 
+# Old demo URLs → their new home under the service route.
+# MUST stay above the SPA catch-all: Netlify stops at the first matching rule.
+[[redirects]]
+  from = "/demos/win-back-campaign"
+  to = "/services/automated-workflows/win-back-campaigns/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/missed-call-text-back"
+  to = "/services/automated-workflows/missed-call-text-back/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/review-generation"
+  to = "/services/automated-workflows/review-generation/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/automated-quoting"
+  to = "/services/automated-workflows/automated-quoting/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/invoice-reminders"
+  to = "/services/automated-workflows/invoice-reminders/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/onboarding"
+  to = "/services/automated-workflows/new-customer-onboarding/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/dispatch"
+  to = "/services/automated-workflows/job-dispatch/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/weekly-reports"
+  to = "/services/automated-workflows/weekly-owner-reports/demo"
+  status = 301
+
+[[redirects]]
+  from = "/demos/tool-sync"
+  to = "/services/automated-workflows/tool-sync/demo"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
