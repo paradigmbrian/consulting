@@ -59,7 +59,68 @@ export const workflows: Workflow[] = [
     icon: FaCommentDots,
     cardSummary: "Instant reply so leads don't call a competitor",
     hasDemo: true,
-    published: false,
+    published: true,
+    hero: {
+      headline: "Every missed call is a customer calling someone else",
+      subhead:
+        "When your phone rings and nobody picks up, most callers don't leave a voicemail — they dial the next company on the list. This texts them back in seconds, answers their questions, and books the job while you're still up a ladder.",
+    },
+    stats: [],
+    painPoints: [
+      "You're on a job, the phone rings, and there's nobody in the office to answer it.",
+      "Voicemails pile up until the evening — by then the caller has booked someone else.",
+      "You call back the next morning and hear \"we already went with another company.\"",
+      "You have no idea how many calls you missed last week, or what they were worth.",
+    ],
+    mechanism: [
+      {
+        title: "The call comes in — and goes unanswered",
+        description:
+          "The automation watches your business line. Nobody has to remember to do anything; the missed call itself is the trigger.",
+      },
+      {
+        title: "A text goes out in seconds",
+        description:
+          "The caller gets a real reply while your business is still the one they're thinking about — not a voicemail greeting promising you'll call back.",
+      },
+      {
+        title: "The conversation qualifies itself",
+        description:
+          "An AI-assisted text thread asks what they need, where they are, and how urgent it is — in your voice, using your service area and your pricing rules.",
+      },
+      {
+        title: "The job gets booked",
+        description:
+          "Qualified leads land on the calendar against your real availability. You get the details, not the back-and-forth.",
+      },
+      {
+        title: "You see what it caught",
+        description:
+          "Every missed call, reply, and booking is logged, so you can see what the automation recovered instead of guessing.",
+      },
+    ],
+    faq: [
+      {
+        q: "Will customers know they're texting a robot?",
+        a: "The thread is written in your voice, and it never pretends to be a person sitting in your office. Most callers just want a fast, accurate answer — that's what they get. Anything it can't handle cleanly gets handed to you with the whole conversation attached.",
+      },
+      {
+        q: "Does this replace my answering service?",
+        a: "It doesn't have to. Plenty of businesses run both: the text-back catches the callers who'd never leave a voicemail, and the answering service handles the ones who want a person. If you'd rather it replace one, we can scope that.",
+      },
+      {
+        q: "What if I'd rather call people back myself?",
+        a: "Then it texts them to say you'll call right back, and alerts you with the number and whatever it already knows about the job. The point is that the caller hears from you in seconds — not that a machine has to handle it.",
+      },
+      {
+        q: "Do I need to change my phone system?",
+        a: "Almost never. It works with the number you already publish and sits alongside your existing setup rather than replacing it.",
+      },
+      {
+        q: "How long does it take to build?",
+        a: "This is usually the fastest one to stand up — typically a couple of weeks from the discovery call to live, depending on how much qualification logic you want in the thread.",
+      },
+    ],
   },
   {
     slug: "review-generation",

@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage";
 import TechnicalConsulting from "./components/TechnicalConsulting";
 import AutomatedWorkflows from "./components/AutomatedWorkflows";
 import WorkflowDemo from "./components/workflows/WorkflowDemo";
+import WorkflowPage from "./components/workflows/WorkflowPage";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         <Route
           path="/services/automated-workflows"
           element={<AutomatedWorkflows />}
+        />
+        <Route
+          path="/services/automated-workflows/:slug"
+          element={<WorkflowPage />}
         />
       </Route>
       <Route
