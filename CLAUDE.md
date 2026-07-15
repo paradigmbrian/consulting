@@ -30,11 +30,15 @@ src/
   index.css         # Global styles and CSS variables
 public/
   favicon/          # Favicon assets
-src/demos/commercialCleaning/  # Scripted commercial-cleaning prospecting demo (route /demos/commercial-cleaning)
+src/data/
+  services.ts       # Two top-level service lines
+  workflows.ts      # The 9 automated workflows — source of truth for cards and pages
+src/components/workflows/  # WorkflowPage template + its sections + shared aw-* sections
+src/demos/          # One directory per automation demo; registry.ts maps slug → lazy component
 ```
 
 ## Key Details
-- **Routing** — `react-router-dom` v6. `/` → landing page (`components/Home.tsx`); `/demos/commercial-cleaning` → scripted product-tour demo (`src/demos/commercialCleaning/`). Netlify SPA fallback in `netlify.toml`.
+- **Routing** — `react-router-dom` v6. `/` → landing page (`components/LandingPage.tsx`); `/services/technical-consulting` and `/services/automated-workflows` → the two service lines; `/services/automated-workflows/:slug` → per-workflow service page (`components/workflows/WorkflowPage.tsx`, inside `Layout`); `/services/automated-workflows/:slug/demo` → that workflow's interactive demo (full-bleed, outside `Layout`, lazily resolved via `src/demos/registry.ts`). Old `/demos/*` URLs 301 to the nested demo routes — those rules must stay above the SPA catch-all in `netlify.toml`, which Netlify evaluates in file order. `src/demos/commercialCleaning/` is retained but has no route.
 - **No CMS** — all content is hardcoded in components
 - **No blog infrastructure** — no markdown parsing, no dynamic content
 - **Calendly integration** — CTAs link to https://calendly.com/brian-paradigmshiftdev/30min
@@ -48,4 +52,4 @@ src/demos/commercialCleaning/  # Scripted commercial-cleaning prospecting demo (
 
 ## Content Reference
 Consulting offer details, pricing, and copy are documented in the Obsidian vault at:
-`/Users/brian/Documents/dev-vault/PDS/Consulting/`
+`/Users/brian/Documents/dev-vault/projects/paradigm/Consulting/`
