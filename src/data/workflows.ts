@@ -61,9 +61,9 @@ export const workflows: Workflow[] = [
     hasDemo: true,
     published: true,
     hero: {
-      headline: "Every missed call is a customer calling someone else",
+      headline: "A missed call doesn't wait for you to call back",
       subhead:
-        "When your phone rings and nobody picks up, most callers don't leave a voicemail — they dial the next company on the list. This texts them back in seconds, answers their questions, and books the job while you're still up a ladder.",
+        "When your phone rings and nobody picks up, some callers leave a voicemail. Others just dial the next company on the list. This texts them back in seconds, answers their questions, and books the job while you're still up a ladder.",
     },
     stats: [],
     painPoints: [
@@ -92,6 +92,11 @@ export const workflows: Workflow[] = [
         title: "The job gets booked",
         description:
           "Qualified leads land on the calendar against your real availability. You get the details, not the back-and-forth.",
+      },
+      {
+        title: "You get pinged, not pestered",
+        description:
+          "A single alert lands with the caller's number, what they wanted, and what got booked. No live back-and-forth to sit through — you see the outcome, and you can step in if you want to.",
       },
       {
         title: "You see what it caught",

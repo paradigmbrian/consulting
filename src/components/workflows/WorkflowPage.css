@@ -160,6 +160,10 @@
   font-weight: 700;
 }
 
+.wf-mechanism-body {
+  min-width: 0;
+}
+
 .wf-mechanism-title {
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   margin-bottom: var(--spacing-xs);
@@ -215,7 +219,6 @@
   list-style: none;
 }
 
-.wf-faq-question::marker,
 .wf-faq-question::-webkit-details-marker {
   display: none;
 }
