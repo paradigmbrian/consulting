@@ -3,9 +3,8 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useDemo } from "./DemoController";
 import FlowMap from "./FlowMap";
+import { CALENDLY_URL } from "../../data/site";
 import "./DemoShell.css";
-
-const CALENDLY_URL = "https://calendly.com/brian-paradigmshiftdev/30min";
 
 interface DemoShellProps {
   eyebrow: string;
