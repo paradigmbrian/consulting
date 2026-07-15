@@ -72,7 +72,26 @@
 }
 
 @media (max-width: 640px) {
+  .site-header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    row-gap: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+  }
+
   .site-header-nav {
-    gap: var(--spacing-sm);
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  .site-header-link {
+    font-size: 0.85rem;
+  }
+
+  .site-header-cta {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
   }
 }
