@@ -204,12 +204,12 @@ export const workflows: Workflow[] = [
       headline:
         "Your best work is invisible to the person deciding whether to call you",
       subhead:
-        "A customer who's happy with the job gets on with their day, and the review doesn't get written. The customer who had a bad experience is motivated enough to post without being asked. This asks everyone how it went, points the happy ones at Google, and routes the unhappy ones to you — while there's still a problem you can fix.",
+        "Plenty of happy customers just get on with their day, and the review never gets written. The unhappy ones are often motivated enough to post without being asked. This asks everyone how it went, points the happy ones at Google, and routes the unhappy ones to you — while there's still a problem you can fix.",
     },
     stats: [
       {
         value: "97%",
-        label: "of consumers read online reviews for local businesses",
+        label: "of US consumers read online reviews for local businesses",
         source: "BrightLocal, 2026",
         sourceUrl:
           "https://www.brightlocal.com/research/local-consumer-review-survey/",
@@ -217,7 +217,7 @@ export const workflows: Workflow[] = [
       {
         value: "74%",
         label:
-          "of consumers look for reviews written in the last three months",
+          "of US consumers look for reviews written in the last three months",
         source: "BrightLocal, 2026",
         sourceUrl:
           "https://www.brightlocal.com/research/local-consumer-review-survey/",
@@ -372,17 +372,17 @@ export const workflows: Workflow[] = [
     },
     stats: [
       {
-        value: "64%",
+        value: "39%",
         label:
-          "of small businesses that invoice after delivery say customers being slow to pay is a payments challenge",
+          "of all US small businesses say customers being slow to pay is a payments challenge — second only to payment processing fees",
         source: "Federal Reserve Banks Small Business Credit Survey, 2024",
         sourceUrl:
           "https://www.fedsmallbusiness.org/-/media/project/clevelandfedtenant/fsbsite/reports/2024/2024-report-on-payments_sbcs.pdf",
       },
       {
-        value: "39%",
+        value: "64%",
         label:
-          "of all small businesses say the same — second only to payment processing fees",
+          "of US small businesses that invoice after delivery say the same",
         source: "Federal Reserve Banks Small Business Credit Survey, 2024",
         sourceUrl:
           "https://www.fedsmallbusiness.org/-/media/project/clevelandfedtenant/fsbsite/reports/2024/2024-report-on-payments_sbcs.pdf",
@@ -536,16 +536,7 @@ export const workflows: Workflow[] = [
       subhead:
         "Calls land overnight, an emergency comes in before you've finished your coffee, and the board gets rearranged until it roughly works. Your techs drive further than they need to, and the customer gets an arrival window wide enough to swallow their morning. This sorts the pile against skills, zones, and the windows you've already promised, routes each van, and tells the customer when to expect someone.",
     },
-    stats: [
-      {
-        value: "8.0 → 5.5",
-        label:
-          "average customer satisfaction (out of 10) when the promised arrival window goes from one hour to four",
-        source: "Zion & Zion, 2018",
-        sourceUrl:
-          "https://www.zionandzion.com/download/research/ConsumerSatisfactionAffectedbyPlumberWaitTimes.pdf",
-      },
-    ],
+    stats: [],
     painPoints: [
       "You start the morning rearranging the whiteboard, because the calls that landed overnight don't fit the day you'd already worked out.",
       "Your vans cross paths on the highway, each heading for a job the other one just drove past.",
