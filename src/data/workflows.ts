@@ -26,12 +26,26 @@ export interface WorkflowCard {
   hasDemo: boolean;
 }
 
+export interface FeatureRow {
+  eyebrow?: string;
+  title: string;
+  body: string;
+  snippet: string; // key into the workflow's showcase module
+  flip?: boolean; // place the visual on the left instead of the right
+}
+
+export interface Showcase {
+  heroSnippet: string; // key for the hero product-shot
+  rows: FeatureRow[]; // 2–3 curated feature rows
+}
+
 export interface WorkflowContent {
   hero: { headline: string; subhead: string };
   stats: Stat[]; // empty ⇒ section omitted
   painPoints: string[];
   mechanism: { title: string; description: string }[];
   faq: { q: string; a: string }[];
+  showcase?: Showcase; // present ⇒ page renders the Phase-2 redesign
 }
 
 /**
