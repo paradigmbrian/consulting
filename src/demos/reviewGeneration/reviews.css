@@ -56,7 +56,7 @@
   align-self: flex-start;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.14);
+  background: var(--demo-success-soft);
   color: var(--demo-success);
   font-size: 0.72rem;
   font-weight: 700;
@@ -88,7 +88,7 @@
 .rg-bubble-caller {
   align-self: flex-end;
   background: var(--demo-accent);
-  color: #fff;
+  color: var(--demo-on-accent);
   border-bottom-right-radius: 0.3rem;
 }
 .rg-stages {
@@ -177,7 +177,7 @@
   border-left: 3px solid var(--demo-success);
 }
 .rg-route-negative {
-  border-left: 3px solid #f4b740;
+  border-left: 3px solid var(--demo-warn);
 }
 .rg-route-sentiment {
   display: inline-flex;
@@ -190,12 +190,12 @@
   white-space: nowrap;
 }
 .rg-route-positive .rg-route-sentiment {
-  background: rgba(16, 185, 129, 0.14);
+  background: var(--demo-success-soft);
   color: var(--demo-success);
 }
 .rg-route-negative .rg-route-sentiment {
-  background: rgba(244, 183, 64, 0.14);
-  color: #f4b740;
+  background: var(--demo-warn-soft);
+  color: var(--demo-warn);
 }
 .rg-route-sentiment-icon {
   font-size: 0.85rem;
@@ -216,7 +216,7 @@
   gap: 0.35rem;
 }
 .rg-route-lock {
-  color: #f4b740;
+  color: var(--demo-warn);
   font-size: 0.85rem;
 }
 .rg-route-note {
@@ -264,7 +264,7 @@
   margin-bottom: var(--spacing-sm);
 }
 .rg-review-star {
-  color: #f5b301;
+  color: var(--demo-star);
   font-size: 1.1rem;
 }
 .rg-review-body {
@@ -284,7 +284,7 @@
   gap: var(--spacing-sm);
   margin-top: var(--spacing-md);
   padding: var(--spacing-md);
-  background: rgba(16, 185, 129, 0.1);
+  background: var(--demo-success-soft);
   border: 1px solid var(--demo-success);
   border-radius: 0.6rem;
 }
@@ -319,7 +319,7 @@
   background: var(--demo-surface-2);
   border: 1px solid var(--demo-border);
   border-radius: 0.9rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--demo-shadow);
 }
 .rg-push-head {
   display: flex;
@@ -415,7 +415,7 @@
   color: var(--demo-success);
 }
 .rg-rating-star {
-  color: #f5b301;
+  color: var(--demo-star);
   font-size: 1.3rem;
 }
 .rg-rating-caption {
