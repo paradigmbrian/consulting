@@ -460,3 +460,29 @@
   height: 3rem;
   margin-bottom: 0;
 }
+
+/* "Illustrative" marker on product-shots — makes clear the sample figures in
+   the mockups are not real, sourced results. */
+.wf-shot-tag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--demo-muted);
+  background: var(--demo-surface);
+  border: 1px solid var(--demo-border);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  opacity: 0.85;
+}
+
+/* "See it run" band: framed preview above the CTA */
+.wf-demo-preview {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+}

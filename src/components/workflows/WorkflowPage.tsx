@@ -72,7 +72,11 @@ const WorkflowPage = () => {
         </div>
       </section>
       {workflow.hasDemo && (
-        <WorkflowDemoCta slug={workflow.slug} label={workflow.label} />
+        <WorkflowDemoCta
+          slug={workflow.slug}
+          label={workflow.label}
+          preview={shot(workflow.showcase.heroSnippet, true)}
+        />
       )}
       {tail}
     </>
