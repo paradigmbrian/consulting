@@ -31,32 +31,39 @@ const steps: Step[] = [
 
 interface AwHowItWorksProps {
   title: string;
+  as?: "section" | "bare";
 }
 
-const AwHowItWorks = ({ title }: AwHowItWorksProps) => {
+const AwHowItWorks = ({ title, as = "section" }: AwHowItWorksProps) => {
+  const content = (
+    <div className="section-content">
+      <h2 className="section-title">{title}</h2>
+      <div className="aw-steps">
+        {steps.map((step) => {
+          const Icon = step.icon;
+          return (
+            <div key={step.title} className="aw-step">
+              <div className="aw-step-number">
+                <Icon className="aw-step-icon" />
+              </div>
+              <div className="aw-step-content">
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+
+  if (as === "bare") {
+    return content;
+  }
+
   return (
     <section className="aw-how">
-      <div className="container">
-        <div className="section-content">
-          <h2 className="section-title">{title}</h2>
-          <div className="aw-steps">
-            {steps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <div key={step.title} className="aw-step">
-                  <div className="aw-step-number">
-                    <Icon className="aw-step-icon" />
-                  </div>
-                  <div className="aw-step-content">
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      <div className="container">{content}</div>
     </section>
   );
 };

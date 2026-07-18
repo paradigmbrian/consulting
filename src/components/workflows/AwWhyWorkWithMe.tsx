@@ -7,21 +7,31 @@ const reasons: string[] = [
   "Fixed scope, agreed up front — no surprise bills",
 ];
 
-const AwWhyWorkWithMe = () => {
+interface AwWhyWorkWithMeProps {
+  as?: "section" | "bare";
+}
+
+const AwWhyWorkWithMe = ({ as = "section" }: AwWhyWorkWithMeProps) => {
+  const content = (
+    <div className="section-content">
+      <h2 className="section-title">Why work with me</h2>
+      <ul className="aw-why-list">
+        {reasons.map((reason) => (
+          <li key={reason} className="aw-why-item">
+            {reason}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  if (as === "bare") {
+    return content;
+  }
+
   return (
     <section className="aw-why">
-      <div className="container">
-        <div className="section-content">
-          <h2 className="section-title">Why work with me</h2>
-          <ul className="aw-why-list">
-            {reasons.map((reason) => (
-              <li key={reason} className="aw-why-item">
-                {reason}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <div className="container">{content}</div>
     </section>
   );
 };

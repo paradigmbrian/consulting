@@ -1,7 +1,7 @@
 /* 1. Hero */
 .wf-hero {
   background: var(--hero-bg);
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0;
   text-align: center;
 }
 
@@ -48,64 +48,104 @@
   font-size: 1.125rem;
 }
 
-/* 2. Stats */
-.wf-stats {
-  padding: var(--spacing-xl) 0;
-  background: var(--color-bg-light);
+.wf-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
 }
 
-.wf-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--spacing-md);
-  max-width: 1000px;
-  margin: var(--spacing-lg) auto 0;
-}
-
-.wf-stat {
-  padding: var(--spacing-md);
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
-  background: var(--color-bg);
-  text-align: left;
-}
-
-.wf-stat-value {
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.1;
+.wf-hero-btn-secondary {
+  background: transparent;
   color: var(--color-primary);
-  margin-bottom: var(--spacing-xs);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
-.wf-stat-label {
-  color: var(--color-text);
+.wf-hero-btn-secondary:hover {
+  color: var(--color-primary);
+  filter: none;
+  box-shadow: none;
+  border-color: var(--color-primary);
+}
+
+.wf-hero-stats {
+  margin-top: var(--spacing-lg);
+}
+
+.wf-hero-stats-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
   margin-bottom: var(--spacing-sm);
 }
 
-.wf-stat-source {
-  font-size: 0.8rem;
-  color: var(--color-text-light);
-  text-decoration: underline;
+.wf-hero-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
 }
 
-.wf-stat-source:hover {
+.wf-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 220px;
+}
+
+.wf-hero-stat-value {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
   color: var(--color-primary);
 }
 
-/* 3. Pains */
-.wf-pains {
-  padding: var(--spacing-xl) 0;
+.wf-hero-stat-label {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.wf-hero-stat:hover .wf-hero-stat-label {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* 3. Problem / Solution band */
+.wf-problem-solution {
+  padding: var(--spacing-lg) 0;
   background: var(--color-bg);
+}
+
+.wf-ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.wf-ps-heading {
+  text-align: left;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+@media (max-width: 768px) {
+  .wf-ps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
 }
 
 .wf-pains-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-sm);
-  max-width: 800px;
-  margin: var(--spacing-lg) auto 0;
+  max-width: none;
+  margin: var(--spacing-md) 0 0;
   text-align: left;
 }
 
@@ -124,19 +164,13 @@
   font-weight: 700;
 }
 
-/* 4. Mechanism */
-.wf-mechanism {
-  padding: var(--spacing-xl) 0;
-  background: var(--color-bg-light);
-}
-
 .wf-mechanism-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  max-width: 800px;
-  margin: var(--spacing-lg) auto 0;
+  max-width: none;
+  margin: var(--spacing-md) 0 0;
   text-align: left;
 }
 
@@ -175,7 +209,7 @@
 
 /* 5. Demo */
 .wf-demo {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0;
   background: var(--color-bg);
   text-align: center;
 }
@@ -189,9 +223,29 @@
   margin: var(--spacing-sm) 0 var(--spacing-lg);
 }
 
+/* 7. Tail band (why + how) */
+.wf-tail {
+  padding: var(--spacing-lg) 0;
+  background: var(--color-bg-light);
+}
+
+.wf-tail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .wf-tail-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
 /* 8. FAQ */
 .wf-faq {
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-lg) 0;
   background: var(--color-bg-light);
 }
 
@@ -200,7 +254,7 @@
   flex-direction: column;
   gap: var(--spacing-sm);
   max-width: 800px;
-  margin: var(--spacing-lg) auto 0;
+  margin: var(--spacing-md) auto 0;
   text-align: left;
 }
 

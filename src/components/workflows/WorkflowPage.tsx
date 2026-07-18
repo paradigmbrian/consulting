@@ -1,9 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
 import { getWorkflow } from "../../data/workflows";
 import WorkflowHero from "./WorkflowHero";
-import WorkflowStats from "./WorkflowStats";
-import WorkflowPains from "./WorkflowPains";
-import WorkflowMechanism from "./WorkflowMechanism";
+import WorkflowProblemSolution from "./WorkflowProblemSolution";
 import WorkflowDemoCta from "./WorkflowDemoCta";
 import WorkflowFaq from "./WorkflowFaq";
 import AwWhyWorkWithMe from "./AwWhyWorkWithMe";
@@ -24,15 +22,25 @@ const WorkflowPage = () => {
       <WorkflowHero
         headline={workflow.hero.headline}
         subhead={workflow.hero.subhead}
+        slug={workflow.slug}
+        hasDemo={workflow.hasDemo}
+        stats={workflow.stats}
       />
-      <WorkflowStats stats={workflow.stats} />
-      <WorkflowPains painPoints={workflow.painPoints} />
-      <WorkflowMechanism mechanism={workflow.mechanism} />
+      <WorkflowProblemSolution
+        painPoints={workflow.painPoints}
+        mechanism={workflow.mechanism}
+      />
       {workflow.hasDemo && (
         <WorkflowDemoCta slug={workflow.slug} label={workflow.label} />
       )}
-      <AwWhyWorkWithMe />
-      <AwHowItWorks title="How we'd work together" />
+      <section className="wf-tail">
+        <div className="container">
+          <div className="wf-tail-grid">
+            <AwWhyWorkWithMe as="bare" />
+            <AwHowItWorks title="How we'd work together" as="bare" />
+          </div>
+        </div>
+      </section>
       <WorkflowFaq faq={workflow.faq} />
       <AwFinalCta />
     </>
