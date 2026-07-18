@@ -45,7 +45,7 @@ export interface WorkflowContent {
   painPoints: string[];
   mechanism: { title: string; description: string }[];
   faq: { q: string; a: string }[];
-  showcase?: Showcase; // present ⇒ page renders the Phase-2 redesign
+  showcase: Showcase; // per-workflow product-shots + feature rows (Phase-2)
 }
 
 /**

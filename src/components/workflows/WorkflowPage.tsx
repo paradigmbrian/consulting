@@ -36,67 +36,41 @@ const WorkflowPage = () => {
     </>
   );
 
-  if (workflow.showcase) {
-    const Showcase = showcaseRegistry[workflow.slug];
-    const shot = (key: string, layered = false) => (
-      <ShowcaseFrame layered={layered}>
-        <Suspense fallback={<div className="wf-shot-skeleton" />}>
-          {createElement(Showcase, { snippet: key })}
-        </Suspense>
-      </ShowcaseFrame>
-    );
+  const Showcase = showcaseRegistry[workflow.slug];
+  const shot = (key: string, layered = false) => (
+    <ShowcaseFrame layered={layered}>
+      <Suspense fallback={<div className="wf-shot-skeleton" />}>
+        {createElement(Showcase, { snippet: key })}
+      </Suspense>
+    </ShowcaseFrame>
+  );
 
-    return (
-      <>
-        <WorkflowHero
-          eyebrow={workflow.label}
-          headline={workflow.hero.headline}
-          subhead={workflow.hero.subhead}
-          slug={workflow.slug}
-          hasDemo={workflow.hasDemo}
-          stats={workflow.stats}
-          heroVisual={shot(workflow.showcase.heroSnippet, true)}
-        />
-        <WorkflowProblemSolution
-          painPoints={workflow.painPoints}
-          mechanism={[]}
-        />
-        <section className="wf-features">
-          <div className="container">
-            {workflow.showcase.rows.map((row) => (
-              <WorkflowFeatureRow
-                key={row.title}
-                eyebrow={row.eyebrow}
-                title={row.title}
-                body={row.body}
-                flip={row.flip}
-                visual={shot(row.snippet)}
-              />
-            ))}
-          </div>
-        </section>
-        {workflow.hasDemo && (
-          <WorkflowDemoCta slug={workflow.slug} label={workflow.label} />
-        )}
-        {tail}
-      </>
-    );
-  }
-
-  // Fallback: current (Phase-1) layout for not-yet-migrated workflows
   return (
     <>
       <WorkflowHero
+        eyebrow={workflow.label}
         headline={workflow.hero.headline}
         subhead={workflow.hero.subhead}
         slug={workflow.slug}
         hasDemo={workflow.hasDemo}
         stats={workflow.stats}
+        heroVisual={shot(workflow.showcase.heroSnippet, true)}
       />
-      <WorkflowProblemSolution
-        painPoints={workflow.painPoints}
-        mechanism={workflow.mechanism}
-      />
+      <WorkflowProblemSolution painPoints={workflow.painPoints} mechanism={[]} />
+      <section className="wf-features">
+        <div className="container">
+          {workflow.showcase.rows.map((row) => (
+            <WorkflowFeatureRow
+              key={row.title}
+              eyebrow={row.eyebrow}
+              title={row.title}
+              body={row.body}
+              flip={row.flip}
+              visual={shot(row.snippet)}
+            />
+          ))}
+        </div>
+      </section>
       {workflow.hasDemo && (
         <WorkflowDemoCta slug={workflow.slug} label={workflow.label} />
       )}
