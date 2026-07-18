@@ -13,12 +13,12 @@
 }
 
 .enrich-pill-ok {
-  background: rgba(16, 185, 129, 0.12);
+  background: var(--demo-success-soft);
   color: var(--color-success);
 }
 
 .enrich-pill-drop {
-  background: rgba(100, 116, 139, 0.12);
+  background: color-mix(in srgb, var(--demo-muted) 12%, transparent);
   color: var(--color-secondary);
 }
 

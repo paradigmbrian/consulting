@@ -1,8 +1,8 @@
 .jd-step {
   color: var(--demo-text);
   /* emergency accent — red counterpart to the amber pattern */
-  --jd-emergency: #e5484d;
-  --jd-emergency-tint: rgba(229, 72, 77, 0.12);
+  --jd-emergency: var(--demo-error);
+  --jd-emergency-tint: var(--demo-error-soft);
 }
 
 .jd-heading {
@@ -102,7 +102,7 @@
   font-weight: 600;
   white-space: nowrap;
   color: var(--demo-muted);
-  background: rgba(139, 151, 167, 0.12);
+  background: color-mix(in srgb, var(--demo-muted) 12%, transparent);
 }
 .jd-job-tag.is-emergency {
   color: var(--jd-emergency);

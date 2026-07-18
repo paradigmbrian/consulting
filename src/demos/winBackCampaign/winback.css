@@ -296,7 +296,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  background: rgba(16, 185, 129, 0.1);
+  background: var(--demo-success-soft);
   border: 1px solid var(--demo-success);
   border-radius: 0.6rem;
 }

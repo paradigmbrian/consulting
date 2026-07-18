@@ -63,7 +63,7 @@
 
 .tally-item-hl {
   border-color: var(--color-success);
-  background: rgba(16, 185, 129, 0.08);
+  background: var(--demo-success-soft);
 }
 
 .tally-num {

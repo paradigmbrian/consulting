@@ -210,11 +210,11 @@
 .nco-pill-ready,
 .nco-pill-collected {
   color: var(--demo-success);
-  background: rgba(16, 185, 129, 0.12);
+  background: var(--demo-success-soft);
 }
 .nco-pill-requested {
-  color: #f4b740;
-  background: rgba(244, 183, 64, 0.12);
+  color: var(--demo-warn);
+  background: var(--demo-warn-soft);
 }
 
 @media (max-width: 640px) {

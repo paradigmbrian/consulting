@@ -70,7 +70,7 @@
 .send-stage.is-done .send-stage-icon {
   border-color: var(--color-success);
   background: var(--color-success);
-  color: #fff;
+  color: var(--demo-on-accent);
 }
 
 .send-stage-label {

@@ -27,12 +27,12 @@
   padding: var(--spacing-md);
   background: var(--demo-surface-2);
   border: 1px solid var(--demo-border);
-  border-left: 3px solid #f4b740;
+  border-left: 3px solid var(--demo-warn);
   border-radius: 0.6rem;
 }
 .mc-callcard-icon {
   font-size: 1.6rem;
-  color: #f4b740;
+  color: var(--demo-warn);
 }
 .mc-callcard-body {
   flex: 1 1 auto;
@@ -57,8 +57,8 @@
   align-self: flex-start;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  background: rgba(244, 183, 64, 0.14);
-  color: #f4b740;
+  background: var(--demo-warn-soft);
+  color: var(--demo-warn);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -73,7 +73,7 @@
   padding: 0.4rem 0.8rem;
   margin-bottom: var(--spacing-md);
   border-radius: 999px;
-  background: rgba(90, 169, 230, 0.12);
+  background: var(--demo-accent-soft);
   border: 1px solid var(--demo-accent);
   color: var(--demo-accent-bright);
   font-weight: 700;
@@ -98,6 +98,10 @@
 }
 .mc-bubble-body {
   margin: 0;
+  /* inherit the bubble's color: dark on the light business bubble, on-accent
+     (white) on the blue caller bubble — the global `p` rule would otherwise
+     force muted gray, unreadable on the accent fill. */
+  color: inherit;
 }
 .mc-bubble-business {
   align-self: flex-start;
@@ -108,7 +112,7 @@
 .mc-bubble-caller {
   align-self: flex-end;
   background: var(--demo-accent);
-  color: #fff;
+  color: var(--demo-on-accent);
   border-bottom-right-radius: 0.3rem;
 }
 .mc-confirm {
@@ -226,7 +230,7 @@
   align-items: flex-start;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  background: rgba(16, 185, 129, 0.1);
+  background: var(--demo-success-soft);
   border: 1px solid var(--demo-success);
   border-radius: 0.6rem;
 }
@@ -266,7 +270,7 @@
   background: var(--demo-surface-2);
   border: 1px solid var(--demo-border);
   border-radius: 0.9rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--demo-shadow);
 }
 .mc-push-head {
   display: flex;

@@ -111,15 +111,15 @@
 }
 .wr-badge-good {
   color: var(--demo-success);
-  background: rgba(16, 185, 129, 0.12);
+  background: var(--demo-success-soft);
 }
 .wr-badge-watch {
-  color: #f4b740;
-  background: rgba(244, 183, 64, 0.12);
+  color: var(--demo-warn);
+  background: var(--demo-warn-soft);
 }
 .wr-badge-flat {
   color: var(--demo-muted);
-  background: rgba(139, 151, 167, 0.12);
+  background: color-mix(in srgb, var(--demo-muted) 12%, transparent);
 }
 
 @media (max-width: 640px) {
@@ -175,21 +175,21 @@
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-md);
   margin-bottom: var(--spacing-sm);
-  background: rgba(244, 183, 64, 0.1);
-  border: 1px solid rgba(244, 183, 64, 0.35);
+  background: var(--demo-warn-soft);
+  border: 1px solid var(--demo-warn);
   border-radius: 0.5rem;
 }
 .wr-watchout-icon {
   flex: 0 0 auto;
   margin-top: 0.15rem;
-  color: #f4b740;
+  color: var(--demo-warn);
 }
 .wr-watchout-label {
   margin: 0 0 0.15rem;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #f4b740;
+  color: var(--demo-warn);
   font-weight: 700;
 }
 .wr-watchout-text {
@@ -303,7 +303,7 @@
   padding: 0.7rem 1.2rem;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--demo-on-accent);
   background: var(--demo-accent);
   border: 1px solid var(--demo-accent-bright);
   border-radius: 0.5rem;

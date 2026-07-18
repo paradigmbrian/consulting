@@ -1,8 +1,8 @@
 .tts-step {
   color: var(--demo-text);
   /* caution accent — amber, for the duplicate-caught / conflict state */
-  --tts-warn: #f4b740;
-  --tts-warn-tint: rgba(244, 183, 64, 0.12);
+  --tts-warn: var(--demo-warn);
+  --tts-warn-tint: var(--demo-warn-soft);
 }
 
 .tts-heading {

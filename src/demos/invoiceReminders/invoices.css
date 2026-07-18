@@ -78,11 +78,11 @@
   letter-spacing: 0.06em;
 }
 .inv-invoice-stamp-overdue {
-  background: rgba(244, 183, 64, 0.14);
-  color: #f4b740;
+  background: var(--demo-warn-soft);
+  color: var(--demo-warn);
 }
 .inv-invoice-stamp-paid {
-  background: rgba(16, 185, 129, 0.14);
+  background: var(--demo-success-soft);
   color: var(--demo-success);
 }
 .inv-invoice-rows {
@@ -132,8 +132,8 @@
 }
 .inv-rung-owner {
   border-style: dashed;
-  border-color: #f4b740;
-  background: rgba(244, 183, 64, 0.06);
+  border-color: var(--demo-warn);
+  background: var(--demo-warn-soft);
 }
 .inv-rung-index {
   flex: 0 0 auto;
@@ -144,13 +144,15 @@
   justify-content: center;
   border-radius: 999px;
   background: var(--demo-accent);
-  color: #fff;
+  color: var(--demo-on-accent);
   font-weight: 700;
   font-size: 0.85rem;
 }
 .inv-rung-owner .inv-rung-index {
-  background: #f4b740;
-  color: #0a0a0a;
+  background: var(--demo-warn);
+  /* --demo-warn's mid-tone amber contrasts better with dark text than with
+     --demo-on-accent (white), which falls below AA contrast on this fill. */
+  color: var(--demo-text);
 }
 .inv-rung-body {
   flex: 1 1 auto;
@@ -319,7 +321,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  background: rgba(16, 185, 129, 0.1);
+  background: var(--demo-success-soft);
   border: 1px solid var(--demo-success);
   border-radius: 0.6rem;
 }
@@ -341,12 +343,12 @@
   align-items: flex-start;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  border: 1px dashed #f4b740;
+  border: 1px dashed var(--demo-warn);
   border-radius: 0.6rem;
-  background: rgba(244, 183, 64, 0.06);
+  background: var(--demo-warn-soft);
 }
 .inv-safety-icon {
-  color: #f4b740;
+  color: var(--demo-warn);
   font-size: 1.3rem;
   margin-top: 0.1rem;
 }
