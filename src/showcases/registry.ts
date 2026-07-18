@@ -14,4 +14,11 @@ export const showcaseRegistry: Record<
 > = {
   "review-generation": lazy(() => import("./reviewGeneration")),
   "win-back-campaigns": lazy(() => import("./winBackCampaign")),
+  "missed-call-text-back": lazy(() => import("./missedCallTextBack")),
+  "job-dispatch": lazy(() => import("./jobDispatch")),
+  "new-customer-onboarding": lazy(() => import("./newCustomerOnboarding")),
+  "weekly-owner-reports": lazy(() => import("./weeklyReports")),
+  "invoice-reminders": lazy(() => import("./invoiceReminders")),
+  "tool-sync": lazy(() => import("./toolSync")),
+  "automated-quoting": lazy(() => import("./automatedQuoting")),
 };

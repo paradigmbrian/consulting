@@ -230,6 +230,30 @@ export const workflows: Workflow[] = [
         a: "This is usually the fastest one to stand up — typically a couple of weeks from the discovery call to live, depending on how much qualification logic you want in the thread.",
       },
     ],
+    showcase: {
+      heroSnippet: "booked",
+      rows: [
+        {
+          eyebrow: "The trigger",
+          title: "The call comes in — and goes unanswered",
+          body: "The automation watches your business line. Nobody has to remember to do anything; the missed call itself is the trigger.",
+          snippet: "missedcall",
+        },
+        {
+          eyebrow: "The reply",
+          title: "A text goes out in seconds",
+          body: "The caller gets a real reply while your business is still the one they're thinking about — not a voicemail greeting promising you'll call back.",
+          snippet: "textback",
+          flip: true,
+        },
+        {
+          eyebrow: "The conversation",
+          title: "The conversation qualifies itself",
+          body: "An AI-assisted text thread asks what they need, where they are, and how urgent it is — in your voice, using your service area and your pricing rules.",
+          snippet: "conversation",
+        },
+      ],
+    },
   },
   {
     slug: "review-generation",
@@ -419,6 +443,30 @@ export const workflows: Workflow[] = [
         a: "That depends less on the software than on your pricing. If the rules are already clear, it moves quickly; if they need untangling first, that's the longer part of the job. We work it out on the discovery call rather than guess at it here, and the scope we agree up front is the scope you get.",
       },
     ],
+    showcase: {
+      heroSnippet: "quote",
+      rows: [
+        {
+          eyebrow: "The request",
+          title: "It reads what the customer actually wrote",
+          body: "A website form, an email, or a text with barely any detail in it — the automation picks it up the moment it arrives and pulls out the scope: the size of the job, the access, the awkward items.",
+          snippet: "intake",
+        },
+        {
+          eyebrow: "The quote",
+          title: "Built from your prices, not a guess",
+          body: "Every line comes off your own rate card: crew and hours, travel, and the surcharges this particular job actually needs. It comes out itemized, so the customer sees what they're paying for instead of a bare total.",
+          snippet: "quote",
+          flip: true,
+        },
+        {
+          eyebrow: "The control",
+          title: "It stops and waits for you",
+          body: "Nothing reaches the customer until you've seen it. The draft lands with the scope and every line priced — you approve it, change a line first, or bin it.",
+          snippet: "approve",
+        },
+      ],
+    },
   },
   {
     slug: "invoice-reminders",
@@ -510,6 +558,30 @@ export const workflows: Workflow[] = [
         a: "It depends on how many stages of follow-up you want and what your invoicing tool lets us read. We scope it on the discovery call and agree it up front — real, robust engineering, and no surprise bills.",
       },
     ],
+    showcase: {
+      heroSnippet: "invoice",
+      rows: [
+        {
+          eyebrow: "The schedule",
+          title: "A follow-up plan, not a blast",
+          body: "The due date passing is the only trigger it needs. It lays out a schedule that gets firmer over time — a heads-up before it's due, a nudge after, a firmer reminder later — and a point where it stops and hands the invoice to you.",
+          snippet: "ladder",
+        },
+        {
+          eyebrow: "The tone",
+          title: "Each reminder gets firmer, never louder",
+          body: "Same customer, three different tones — warm, then friendly, then clearly professional. Every message carries a one-tap pay link, so settling up takes seconds instead of a phone call.",
+          snippet: "messages",
+          flip: true,
+        },
+        {
+          eyebrow: "The result",
+          title: "They pay, and the chasing stops",
+          body: "The payment lands and the sequence ends there — no stray reminder to a customer who already paid last night. Days-to-pay drops, and you only hear about the invoices that actually needed a human.",
+          snippet: "results",
+        },
+      ],
+    },
   },
   {
     slug: "new-customer-onboarding",
@@ -584,6 +656,30 @@ export const workflows: Workflow[] = [
         a: "Then it branches. The packet is built from rules you give us, so a commercial account can pull a different agreement, a different set of contacts, and a different first-visit window than a residential one. Getting those rules right is a good part of what the discovery conversation is for.",
       },
     ],
+    showcase: {
+      heroSnippet: "welcome",
+      rows: [
+        {
+          eyebrow: "The welcome",
+          title: "It reads what they actually booked",
+          body: "Claude reads the service, the property, how they'd like to be visited — then writes a welcome that names it back to them, along with who's coming and what happens on the visit. Not a template with their name pasted at the top.",
+          snippet: "booking",
+        },
+        {
+          eyebrow: "The packet",
+          title: "Everything they need, gathered in one place",
+          body: "It works out what a new customer needs before the first visit, fills in what the booking already told it, and flags the rest — the agreement to sign, the gate code, anything only the customer can give you.",
+          snippet: "packet",
+          flip: true,
+        },
+        {
+          eyebrow: "The first visit",
+          title: "It lands on the calendar without you touching it",
+          body: "A slot gets offered against your real availability and the right route, booked the moment they confirm, with a reminder the day before. You never open the calendar.",
+          snippet: "schedule",
+        },
+      ],
+    },
   },
   {
     slug: "job-dispatch",
@@ -659,6 +755,30 @@ export const workflows: Workflow[] = [
         a: "Longer than a text-back, because the work is in getting your rules right — zones, skills, what counts as urgent, who gets told what. Discovery first, then a build against your real schedule, then we run it beside your current process before anything depends on it.",
       },
     ],
+    showcase: {
+      heroSnippet: "assign",
+      rows: [
+        {
+          eyebrow: "The pile",
+          title: "Every job lands in one place — emergency included",
+          body: "Overnight calls, carry-overs, and whatever just broke all show up together, each already tagged with the skill it needs, where it is, and the window you promised. Nothing gets sorted by hand before the day can start.",
+          snippet: "queue",
+        },
+        {
+          eyebrow: "The match",
+          title: "Each job finds the tech who actually fits",
+          body: "Skill, zone, and workload decide the assignment — the burst pipe bumps to the front, the install goes to the tech certified for it. You get the reasoning behind every match, not just a grid to double-check.",
+          snippet: "assign",
+          flip: true,
+        },
+        {
+          eyebrow: "The notice",
+          title: "The customer hears it from you first",
+          body: "The moment a route is set, the customer gets a text naming who's coming and when — read before the van is anywhere close. A tighter window is a morning they can plan around instead of one they lose.",
+          snippet: "notify",
+        },
+      ],
+    },
   },
   {
     slug: "weekly-owner-reports",
@@ -733,6 +853,30 @@ export const workflows: Workflow[] = [
         a: "Yes. The first version is a starting point — once you've read a few, you'll want something added or something dropped. Adjusting what it tracks is expected, not an extra project.",
       },
     ],
+    showcase: {
+      heroSnippet: "report",
+      rows: [
+        {
+          eyebrow: "The intake",
+          title: "It collects the week's numbers for you",
+          body: "The automation pulls from the tools you already use — jobs booked, work completed, invoices sent and paid, quotes still open. Nobody has to export anything or remember to run a report.",
+          snippet: "rawdata",
+        },
+        {
+          eyebrow: "The digest",
+          title: "It writes it in plain English",
+          body: "Not a dashboard, not a wall of charts. A few short paragraphs you can read on your phone in the truck — the win, the one thing to watch, and a single action to take.",
+          snippet: "deliver",
+          flip: true,
+        },
+        {
+          eyebrow: "The follow-through",
+          title: "You can act straight from the email",
+          body: "If something needs chasing, the report gives you a button for it — send the invoice reminder, follow up on the quote. You don't have to go find the right tool and log in.",
+          snippet: "act",
+        },
+      ],
+    },
   },
   {
     slug: "tool-sync",
@@ -802,6 +946,30 @@ export const workflows: Workflow[] = [
         a: "No-code connectors are fine until your data comes in a shape they didn't expect or a tool times out mid-write. Then they tend to fail without saying so, and you find out long after the damage is done. What we build checks its own writes, retries what's worth retrying, and escalates what it can't handle. It's more work up front than clicking apps together, and it holds up.",
       },
     ],
+    showcase: {
+      heroSnippet: "results",
+      rows: [
+        {
+          eyebrow: "The entry",
+          title: "Typed once, not four times",
+          body: "A job comes in wherever you already work — the booking form, the scheduler, a call written up afterwards. That single entry is the trigger; nobody has to remember to copy it into anything else.",
+          snippet: "intake",
+        },
+        {
+          eyebrow: "The reshaping",
+          title: "Each tool gets the shape it expects",
+          body: "Your books want a billing line. The crew app wants a work order and an address. The same facts get turned into what each tool actually needs, instead of being force-fed a format it quietly rejects.",
+          snippet: "mapping",
+          flip: true,
+        },
+        {
+          eyebrow: "The write",
+          title: "All four tools update together",
+          body: "Every record goes out at once, and each write gets confirmed before it's called done — so a tool that's down or rejects the update gets retried and flagged, not silently dropped.",
+          snippet: "sync",
+        },
+      ],
+    },
   },
 ];
 
