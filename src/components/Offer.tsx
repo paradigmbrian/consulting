@@ -7,7 +7,7 @@ const Offer = () => {
     <section id="offer" className="offer">
       <div className="container">
         <div className="section-content">
-          <h2 className="section-title">Choose Your Path</h2>
+          <h2 className="section-title">Choose your path</h2>
 
           <div className="offer-grid">
             <div className="offer-item">
@@ -22,7 +22,7 @@ const Offer = () => {
               <div className="offer-item-details">
                 <div className="offer-item-detail">
                   <HiCurrencyDollar className="offer-item-detail-icon" />
-                  <span>$4,000 - $6000</span>
+                  <span>$4,000–$6,000</span>
                 </div>
                 <div className="offer-item-detail">
                   <HiClock className="offer-item-detail-icon" />
@@ -33,8 +33,9 @@ const Offer = () => {
               <div className="offer-item-section">
                 <h4 className="offer-item-section-title">What it is</h4>
                 <p className="offer-item-section-text">
-                  A focused engagement that gives you a clear, opinionated
-                  technical plan before you write code or hire engineers.
+                  A written, opinionated plan for what to build first, what to
+                  build it with, and what to skip — so your first dollar and
+                  first hire go to the right thing.
                 </p>
               </div>
 
@@ -70,7 +71,7 @@ const Offer = () => {
               <div className="offer-item-details">
                 <div className="offer-item-detail">
                   <HiCurrencyDollar className="offer-item-detail-icon" />
-                  <span>$2,500 - $3,500</span>
+                  <span>$2,500–$3,500</span>
                 </div>
                 <div className="offer-item-detail">
                   <HiClock className="offer-item-detail-icon" />
@@ -81,9 +82,9 @@ const Offer = () => {
               <div className="offer-item-section">
                 <h4 className="offer-item-section-title">What it is</h4>
                 <p className="offer-item-section-text">
-                  A focused technical audit of your existing product to identify
-                  risks, misalignments, and decision gaps before you invest
-                  further.
+                  A hands-on review of your existing product that surfaces the
+                  risks, misalignments, and early decisions set to bite you
+                  later — before you pour more money in.
                 </p>
               </div>
 
@@ -131,9 +132,9 @@ const Offer = () => {
               <div className="offer-item-section">
                 <h4 className="offer-item-section-title">What it is</h4>
                 <p className="offer-item-section-text">
-                  Lightweight, high-level technical leadership to support
-                  product, hiring, and architecture decisions — without bringing
-                  on a full-time CTO.
+                  A technical partner on call for the decisions that are too big
+                  to guess on — hiring, architecture, and build-vs-buy calls —
+                  without a full-time CTO's salary or equity.
                 </p>
               </div>
 

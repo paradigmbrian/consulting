@@ -21,9 +21,9 @@ const Hero = () => {
             Paradigm Shift — Early-Stage Tech Consulting
           </p>
           <h1 className="hero-title">
-            Technical Clarity for
+            Technical clarity for
             <br />
-            Non-Technical Founders
+            non-technical founders
           </h1>
           <p className="hero-subtitle">
             Choose the right technical path — before costly mistakes are made

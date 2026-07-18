@@ -5,9 +5,9 @@ const WhoIsFor = () => {
     <section className="who-is-for">
       <div className="container">
         <div className="section-content">
-          <h2 className="section-title">Who This Is For</h2>
+          <h2 className="section-title">Who this is for</h2>
           <p className="who-is-for-intro">
-            You're building a B2C SaaS product and need to make early technical decisions, but don't want to guess, overbuild, or waste time and money fixing avoidable mistakes later.
+            You've got a product idea — or an early build — and you need to make technical decisions you can't fully evaluate yet, without overbuilding, hiring too early, or paying later to fix avoidable mistakes.
           </p>
           <p className="who-is-for-subtitle">
             The right support depends on where you are today. Choose the engagement that matches your current stage.

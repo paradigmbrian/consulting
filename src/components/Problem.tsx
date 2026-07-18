@@ -7,7 +7,7 @@ const Problem = () => {
     <section className="problem">
       <div className="container">
         <div className="section-content">
-          <h2 className="section-title">The Problem We Help You Solve</h2>
+          <h2 className="section-title">The problem I help you solve</h2>
           <p className="problem-intro">
             At the idea stage, every technical choice feels risky
           </p>

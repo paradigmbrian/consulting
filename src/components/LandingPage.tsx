@@ -19,11 +19,13 @@ const LandingPage = () => {
                 Paradigm Shift Software Development
               </p>
               <h1 className="landing-hero-title">
-                Software expertise for growing businesses
+                Make the right technical calls — and automate the work that's
+                eating your week
               </h1>
               <p className="landing-hero-subtitle">
-                From early-stage technical strategy to automating the work that
-                slows you down.
+                For founders making early product decisions and businesses
+                buried in repetitive work — a software engineer who helps you
+                move faster with less guesswork.
               </p>
               <div className="wf-hero-actions">
                 <a
@@ -47,7 +49,7 @@ const LandingPage = () => {
       <section className="landing-services">
         <div className="container">
           <p className="wf-eyebrow">Services</p>
-          <h2 className="section-title">What we do</h2>
+          <h2 className="section-title">What I do</h2>
           <div className="landing-services-grid">
             {publishedServices.map((service) => (
               <Link

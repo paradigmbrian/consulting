@@ -30,10 +30,10 @@ const AutomatedWorkflows = () => {
                 Custom automation for the way your business actually works
               </h1>
               <p className="aw-hero-subtitle">
-                I'm a software engineer with 10+ years of experience. I build
-                systems that take the repetitive, revenue-losing busywork off
-                your plate — designed around how your business runs, not a
-                template you have to bend to fit.
+                I build systems that take the repetitive, revenue-losing
+                busywork off your plate — designed around how your business
+                runs, not a template you have to bend to fit. Backed by 10+
+                years as a professional software engineer.
               </p>
               <div className="wf-hero-actions">
                 <a

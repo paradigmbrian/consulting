@@ -6,15 +6,15 @@ const HowItWorks = () => {
     <section className="how-it-works">
       <div className="container">
         <div className="section-content">
-          <h2 className="section-title">How It Works</h2>
+          <h2 className="section-title">How it works</h2>
           <div className="steps">
             <div className="step">
               <div className="step-number">
                 <FaPhone className="step-icon" />
               </div>
               <div className="step-content">
-                <h3>Founder Call</h3>
-                <p>We start with a 30-minute conversation to understand where you are, what you're building, and which engagement makes the most sense for your situation.</p>
+                <h3>Founder call</h3>
+                <p>I start with a 30-minute conversation to understand where you are, what you're building, and which engagement makes the most sense for your situation.</p>
               </div>
             </div>
             <div className="step">
@@ -22,8 +22,8 @@ const HowItWorks = () => {
                 <FaHandshake className="step-icon" />
               </div>
               <div className="step-content">
-                <h3>Choose Your Path</h3>
-                <p>Based on your stage and needs, we'll confirm the right engagement—whether that's the MVP Tech Blueprint, a Founder Tech Audit, or Fractional CTO support.</p>
+                <h3>Choose your path</h3>
+                <p>Based on your stage and needs, I'll confirm the right engagement — whether that's the MVP Tech Blueprint, a Founder Tech Audit, or Fractional CTO support.</p>
               </div>
             </div>
             <div className="step">
@@ -31,8 +31,8 @@ const HowItWorks = () => {
                 <FaRocket className="step-icon" />
               </div>
               <div className="step-content">
-                <h3>Get Clarity & Move Forward</h3>
-                <p>You'll receive focused, actionable guidance tailored to your specific situation—no generic advice, no unnecessary complexity.</p>
+                <h3>Get clarity & move forward</h3>
+                <p>You'll get focused, actionable guidance tailored to your situation — no generic advice, no unnecessary complexity.</p>
               </div>
             </div>
           </div>
