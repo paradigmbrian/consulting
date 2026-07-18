@@ -22,7 +22,7 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: rgba(90, 169, 230, 0.15);
+  background: var(--demo-accent-soft);
   color: var(--demo-accent-bright);
   font-size: 0.85rem;
 }

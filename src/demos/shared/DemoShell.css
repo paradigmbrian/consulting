@@ -1,20 +1,30 @@
 .demo {
-  /* demo-only palette (does not affect anything outside .demo) */
-  --demo-bg: #0d1117;
-  --demo-surface: #161b22;
-  --demo-surface-2: #1c2330;
-  --demo-border: #2a3340;
-  --demo-text: #e6edf3;
-  --demo-muted: #8b97a7;
-  --demo-accent: #2777b4;
-  --demo-accent-bright: #5aa9e6;
-  --demo-accent-glow: rgba(90, 169, 230, 0.5);
-  --demo-accent-deep: #1c5d8f;
-  --demo-edge: #2a3340;
-  --demo-edge-active: #5aa9e6;
-  --demo-success: #10b981;
+  /* demo-only palette (does not affect anything outside .demo) — LIGHT */
+  --demo-bg: #f4f6fa;             /* demo ground */
+  --demo-surface: #ffffff;        /* content pane */
+  --demo-surface-2: #f7f9fc;      /* nested cards / bubbles */
+  --demo-border: #e3e8ef;
+  --demo-text: #0f172a;
+  --demo-muted: #566072;
+  --demo-accent: #2563eb;
+  --demo-accent-bright: #3b82f6;
+  --demo-accent-deep: #1d4ed8;
+  --demo-accent-glow: rgba(37, 99, 235, 0.22);  /* softer glow for light */
+  --demo-accent-soft: rgba(37, 99, 235, 0.10);  /* accent tint fills */
+  --demo-edge: #e3e8ef;
+  --demo-edge-active: #3b82f6;
+  --demo-success: #059669;
+  --demo-success-soft: rgba(5, 150, 105, 0.12);
+  --demo-warn: #b7791f;           /* darker amber — readable as text on light */
+  --demo-warn-soft: rgba(245, 158, 11, 0.16);
+  --demo-error: #dc2626;
+  --demo-error-soft: rgba(220, 38, 38, 0.10);
+  --demo-star: #f59e0b;           /* review-star gold */
+  --demo-on-accent: #ffffff;      /* text on filled accent */
+  --demo-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+  --demo-dot: rgba(15, 23, 42, 0.05);  /* background dot pattern */
 
-  /* scope-local remap: flips existing step CSS to dark without touching index.css */
+  /* scope-local remap: flips shared step CSS to this palette without touching index.css */
   --color-bg-light: var(--demo-surface-2);
   --color-border: var(--demo-border);
   --color-text: var(--demo-text);
@@ -31,7 +41,7 @@
   background-color: var(--demo-bg);
   background-image: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.06) 1px,
+    var(--demo-dot) 1px,
     transparent 1px
   );
   background-size: 22px 22px;
@@ -91,7 +101,7 @@
   gap: 0.4rem;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: rgba(90, 169, 230, 0.12);
+  background: var(--demo-accent-soft);
   border: 1px solid var(--demo-accent);
   color: var(--demo-accent-bright);
   font-size: 0.75rem;
@@ -105,17 +115,17 @@
   align-items: center;
   gap: var(--spacing-xs);
   background: var(--demo-accent);
-  color: #fff;
+  color: var(--demo-on-accent);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(90, 169, 230, 0.35);
+  box-shadow: 0 4px 16px var(--demo-accent-glow);
 }
 
 .demo-cta:hover {
   background: var(--demo-accent-deep);
-  color: #fff;
+  color: var(--demo-on-accent);
   transform: translateY(-1px);
 }
 
@@ -163,7 +173,7 @@
   background: var(--demo-surface);
   border: 1px solid var(--demo-border);
   border-radius: 1rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--demo-shadow);
   overflow: hidden;
 }
 
@@ -184,7 +194,7 @@
   width: 40px;
   height: 40px;
   border-radius: 0.6rem;
-  background: rgba(90, 169, 230, 0.15);
+  background: var(--demo-accent-soft);
   color: var(--demo-accent-bright);
   font-size: 1.15rem;
   box-shadow: 0 0 12px var(--demo-accent-glow);
@@ -248,7 +258,7 @@
 
 .demo-btn-primary {
   background: var(--demo-accent);
-  color: #fff;
+  color: var(--demo-on-accent);
 }
 
 .demo-btn-primary:hover:not(:disabled) {

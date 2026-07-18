@@ -99,7 +99,7 @@
 
 .flow-node-done .flow-node-badge {
   background: var(--demo-success);
-  color: #fff;
+  color: var(--demo-on-accent);
 }
 
 .flow-node-active {
@@ -110,7 +110,7 @@
 }
 
 .flow-node-active .flow-node-badge {
-  background: rgba(90, 169, 230, 0.15);
+  background: var(--demo-accent-soft);
 }
 
 @keyframes flow-pulse {
