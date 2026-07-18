@@ -1,0 +1,64 @@
+/* Framed product-shot styles — shared by the detail pages and the automation
+   landing/index pages (any page that renders a ShowcaseFrame). Color tokens
+   come from .demo-scope (demoTokens.css, imported by ShowcaseFrame). */
+
+/* A mini demo "screen": the demo's own gray dotted ground so the inner
+   white/surface cards contrast and pop, lifted off the page with a strong
+   shadow. */
+.wf-shot {
+  position: relative;
+  background-color: var(--demo-bg);
+  background-image: radial-gradient(circle, var(--demo-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+  border: 1px solid var(--demo-border);
+  border-radius: 1rem;
+  box-shadow: 0 24px 50px -16px rgba(15, 23, 42, 0.22),
+    0 2px 8px rgba(15, 23, 42, 0.06);
+  padding: var(--spacing-md);
+  width: 100%;
+  max-width: 460px;
+}
+
+.wf-shot-layered::before {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  background: var(--demo-surface-2);
+  border: 1px solid var(--demo-border);
+  border-radius: 1rem;
+  z-index: -1;
+}
+
+.wf-shot-skeleton {
+  width: 100%;
+  max-width: 460px;
+  height: 220px;
+  border-radius: 1rem;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+}
+
+/* "Illustrative" marker — makes clear the sample figures in the mockups are not
+   real, sourced results. */
+.wf-shot-tag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 1;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--demo-muted);
+  background: var(--demo-surface);
+  border: 1px solid var(--demo-border);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .wf-shot {
+    max-width: 100%;
+  }
+}

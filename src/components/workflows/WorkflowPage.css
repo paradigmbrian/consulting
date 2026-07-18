@@ -305,133 +305,12 @@
   }
 }
 
-/* ===== Phase 2 redesign: split hero, feature rows, framed product-shots ===== */
+/* ===== Phase 2 redesign: feature-rows band (split-hero / eyebrow / feature-row
+   / product-shot styles now live in shared-sections.css + showcase.css) ===== */
 
-.wf-eyebrow {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xs);
-}
-
-/* Framed product-shot: a mini demo "screen" — the demo's own gray dotted
-   ground so the inner white/surface cards contrast and pop, lifted off the
-   page with a strong shadow. Color tokens come from .demo-scope. */
-.wf-shot {
-  position: relative;
-  background-color: var(--demo-bg);
-  background-image: radial-gradient(circle, var(--demo-dot) 1px, transparent 1px);
-  background-size: 22px 22px;
-  border: 1px solid var(--demo-border);
-  border-radius: 1rem;
-  box-shadow: 0 24px 50px -16px rgba(15, 23, 42, 0.22),
-    0 2px 8px rgba(15, 23, 42, 0.06);
-  padding: var(--spacing-md);
-  width: 100%;
-  max-width: 460px;
-}
-
-.wf-shot-layered::before {
-  content: "";
-  position: absolute;
-  inset: 14px -14px -14px 14px;
-  background: var(--demo-surface-2);
-  border: 1px solid var(--demo-border);
-  border-radius: 1rem;
-  z-index: -1;
-}
-
-.wf-shot-skeleton {
-  width: 100%;
-  max-width: 460px;
-  height: 220px;
-  border-radius: 1rem;
-  background: var(--color-bg-light);
-  border: 1px solid var(--color-border);
-}
-
-/* Split hero */
-.wf-hero-split {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: var(--spacing-lg);
-  align-items: center;
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.wf-hero-copy {
-  text-align: left;
-}
-
-.wf-hero-copy .wf-hero-actions {
-  justify-content: flex-start;
-}
-
-.wf-hero-copy .wf-hero-stats-label,
-.wf-hero-copy .wf-hero-stats-row {
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.wf-hero-visual {
-  display: flex;
-  justify-content: center;
-}
-
-/* Feature rows */
 .wf-features {
   padding: var(--spacing-lg) 0;
   background: var(--color-bg-light);
-}
-
-.wf-feature-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto var(--spacing-xl);
-}
-
-.wf-feature-row:last-child {
-  margin-bottom: 0;
-}
-
-.wf-feature-row-flip .wf-feature-copy {
-  order: 2;
-}
-
-.wf-feature-copy {
-  text-align: left;
-}
-
-.wf-feature-title {
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  margin-bottom: var(--spacing-sm);
-}
-
-.wf-feature-visual {
-  display: flex;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .wf-hero-split,
-  .wf-feature-row {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-
-  .wf-feature-row-flip .wf-feature-copy {
-    order: 0;
-  }
-
-  .wf-shot {
-    max-width: 100%;
-  }
 }
 
 /* Tail band: the shared "How we'd work" steps render 3-across by default, which
@@ -459,25 +338,6 @@
   width: 3rem;
   height: 3rem;
   margin-bottom: 0;
-}
-
-/* "Illustrative" marker on product-shots — makes clear the sample figures in
-   the mockups are not real, sourced results. */
-.wf-shot-tag {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  z-index: 1;
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--demo-muted);
-  background: var(--demo-surface);
-  border: 1px solid var(--demo-border);
-  border-radius: 999px;
-  padding: 0.15rem 0.5rem;
-  opacity: 0.85;
 }
 
 /* "See it run" band: framed preview above the CTA */

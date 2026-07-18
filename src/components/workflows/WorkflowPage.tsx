@@ -11,6 +11,7 @@ import WorkflowFaq from "./WorkflowFaq";
 import AwWhyWorkWithMe from "./AwWhyWorkWithMe";
 import AwHowItWorks from "./AwHowItWorks";
 import AwFinalCta from "./AwFinalCta";
+import "../shared-sections.css";
 import "./WorkflowPage.css";
 
 const WorkflowPage = () => {

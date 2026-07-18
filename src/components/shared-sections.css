@@ -1,0 +1,85 @@
+/* Shared section-layout utilities — the split hero, eyebrow label, and
+   alternating feature row. Used by the workflow detail pages and the automation
+   landing/index pages so they share one design system. */
+
+.wf-eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Split hero: copy + framed visual */
+.wf-hero-split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.wf-hero-copy {
+  text-align: left;
+}
+
+.wf-hero-copy .wf-hero-actions {
+  justify-content: flex-start;
+}
+
+.wf-hero-copy .wf-hero-stats-label,
+.wf-hero-copy .wf-hero-stats-row {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.wf-hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+/* Alternating feature row: copy on one side, framed visual on the other */
+.wf-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.wf-feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.wf-feature-row-flip .wf-feature-copy {
+  order: 2;
+}
+
+.wf-feature-copy {
+  text-align: left;
+}
+
+.wf-feature-title {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+.wf-feature-visual {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .wf-hero-split,
+  .wf-feature-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .wf-feature-row-flip .wf-feature-copy {
+    order: 0;
+  }
+}
