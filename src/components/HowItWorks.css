@@ -41,13 +41,13 @@
   border-radius: 50%;
   font-size: 1.5rem;
   font-weight: 700;
-  box-shadow: 0 4px 12px var(--color-primary);
+  box-shadow: 0 4px 12px var(--primary-soft);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .step:hover .step-number {
   transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 8px 20px var(--color-primary);
+  box-shadow: 0 8px 20px var(--primary-soft);
 }
 
 .step-icon {
