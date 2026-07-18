@@ -17,8 +17,7 @@
   padding: var(--spacing-lg);
   background-color: var(--color-bg);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 
 .outcomes-title {
@@ -64,12 +63,12 @@
   padding: var(--spacing-md);
   background: linear-gradient(
     135deg,
-    rgba(39, 119, 180, 0.08) 0%,
-    rgba(39, 119, 180, 0.04) 100%
+    var(--primary-soft) 0%,
+    var(--primary-soft-2) 100%
   );
   border-left: 4px solid var(--color-primary);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(39, 119, 180, 0.15);
+  box-shadow: 0 4px 12px var(--primary-soft);
   text-align: center;
   margin-top: var(--spacing-md);
   width: 100%;

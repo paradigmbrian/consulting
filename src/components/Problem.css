@@ -38,13 +38,13 @@
   background-color: var(--color-bg);
   border-radius: 0.5rem;
   border-left: 3px solid var(--color-primary);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .problem-list li:hover {
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 4px 12px var(--primary-soft);
   border-left-width: 4px;
 }
 
@@ -76,8 +76,8 @@
   padding: var(--spacing-md);
   background-color: var(--color-bg);
   border-radius: 0.75rem;
-  border: 2px solid #f59e0b;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+  border: 2px solid var(--color-warm);
+  box-shadow: 0 4px 12px var(--warm-soft);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -110,7 +110,7 @@
 
 .problem-warning-icon {
   flex-shrink: 0;
-  color: #f59e0b;
+  color: var(--color-warm);
   font-size: 1.5rem;
 }
 
@@ -126,12 +126,12 @@
   padding: var(--spacing-md);
   background: linear-gradient(
     135deg,
-    rgba(39, 119, 180, 0.08) 0%,
-    rgba(39, 119, 180, 0.04) 100%
+    var(--primary-soft) 0%,
+    var(--primary-soft-2) 100%
   );
   border-left: 4px solid var(--color-primary);
   border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(39, 119, 180, 0.15);
+  box-shadow: 0 4px 12px var(--primary-soft);
   text-align: center;
   margin-top: var(--spacing-md);
   width: 100%;

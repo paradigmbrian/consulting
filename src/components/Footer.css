@@ -1,6 +1,9 @@
 .footer {
   padding: var(--spacing-lg) var(--spacing-sm);
   background-color: var(--color-bg-dark);
+  /* Intentional: footer stays on the dark ground on purpose (anchor/contrast).
+     No light-on-dark text token exists in the light palette, so this white
+     overlay is kept literally to stay legible on --color-bg-dark. */
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
@@ -12,12 +15,14 @@
 
 .footer-text {
   font-size: 0.875rem;
+  /* Intentional: light text on the dark footer ground, see .footer above. */
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: var(--spacing-xs);
 }
 
 .footer-tagline {
   font-size: 0.875rem;
+  /* Intentional: light text on the dark footer ground, see .footer above. */
   color: rgba(255, 255, 255, 0.5);
   font-style: italic;
 }
