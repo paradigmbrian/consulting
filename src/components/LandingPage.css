@@ -17,12 +17,13 @@
 }
 
 .landing-hero-brand {
-  color: var(--color-primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.9rem;
-  margin-bottom: var(--spacing-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.landing-hero-brand-icon {
+  font-size: 1.1rem;
 }
 
 .landing-hero-title {
@@ -81,17 +82,18 @@
 
 .landing-service-card {
   display: block;
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
-  background: var(--color-bg-light);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
 }
 
 .landing-service-card:hover {
   border-color: var(--color-primary);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .landing-service-card-title {
