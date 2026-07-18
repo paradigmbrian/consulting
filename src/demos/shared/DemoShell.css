@@ -1,5 +1,7 @@
-.demo {
-  /* demo-only palette (does not affect anything outside .demo) — LIGHT */
+/* demo-only palette (LIGHT). Shared by the full-viewport demo (.demo) AND by
+   static showcase snippets on the marketing pages (.demo-scope), so snippets
+   borrow the demo colors without inheriting the 100vh shell layout below. */
+:where(.demo, .demo-scope) {
   --demo-bg: #f4f6fa;             /* demo ground */
   --demo-surface: #ffffff;        /* content pane */
   --demo-surface-2: #f7f9fc;      /* nested cards / bubbles */
@@ -32,7 +34,9 @@
   --color-secondary: var(--demo-muted);
   --color-primary: var(--demo-accent-bright);
   --color-primary-dark: var(--demo-accent);
+}
 
+.demo {
   display: flex;
   flex-direction: column;
   height: 100vh;
