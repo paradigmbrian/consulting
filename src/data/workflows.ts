@@ -206,6 +206,30 @@ export const workflows: Workflow[] = [
         a: "This is usually the fastest one to stand up — typically a couple of weeks from the discovery call to live, depending on how much qualification logic you want in the thread.",
       },
     ],
+    showcase: {
+      heroSnippet: "reply",
+      rows: [
+        {
+          eyebrow: "The filter",
+          title: "Most of the list gets thrown out",
+          body: "Contacting everyone doesn't bring work back. It drops anyone served recently, anyone who opted out, and anyone with no working contact — and keeps only the customers with a real reason to hear from you.",
+          snippet: "segments",
+        },
+        {
+          eyebrow: "The message",
+          title: "Each group gets a reason that fits them",
+          body: "An overdue routine customer doesn't get the same message as someone who never booked the follow-up on a big job. The offer and the copy are drafted per group, in your voice, with one clear next step.",
+          snippet: "offer",
+          flip: true,
+        },
+        {
+          eyebrow: "The result",
+          title: "You see what it actually recovered",
+          body: "Who got contacted, who replied, who booked, and what work came out of it — logged, so you can judge the campaign on what it brought back.",
+          snippet: "results",
+        },
+      ],
+    },
   },
   {
     slug: "review-generation",

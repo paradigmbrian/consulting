@@ -13,4 +13,5 @@ export const showcaseRegistry: Record<
   LazyExoticComponent<ComponentType<{ snippet: string }>>
 > = {
   "review-generation": lazy(() => import("./reviewGeneration")),
+  "win-back-campaigns": lazy(() => import("./winBackCampaign")),
 };
