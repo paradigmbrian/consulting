@@ -4,7 +4,7 @@ The whole site is themed from **one block** of CSS custom properties at the top
 of `src/index.css` (`:root`). Every component reads these tokens, so swapping
 the theme is a matter of replacing that one block — no component edits.
 
-**Currently applied:** Electric Azure (dark).
+**Currently applied:** Clean Light (Domo-inspired).
 
 ## How to swap themes
 
@@ -13,9 +13,11 @@ the theme is a matter of replacing that one block — no component edits.
    `:root` with one of the blocks below.
 3. `npm run build` (or the dev server hot-reloads).
 
-Both themes are **full dark**. Panels (hero / CTA sections) use `--hero-bg` and
-filled buttons use `--gradient-accent` with `--btn-ink` text, so contrast holds
-on either palette.
+The current theme is a **light** site: white/near-white grounds with a dark
+footer (`--color-bg-dark`) for anchor/contrast. The alternate themes below are
+**full dark** and predate the light migration. Panels (hero / CTA sections)
+use `--hero-bg` and filled buttons use `--gradient-accent` with `--btn-ink`
+text, so contrast holds on any palette.
 
 ## Token roles
 
@@ -24,7 +26,7 @@ on either palette.
 | `--color-primary` | Accent — buttons, links, icons, eyebrows |
 | `--color-primary-dark` | Gradient partner / secondary edge |
 | `--color-secondary` | Muted UI text (alias of muted) |
-| `--color-text` | Primary text on the dark ground |
+| `--color-text` | Primary text on the page ground |
 | `--color-text-light` | Muted / secondary text |
 | `--color-bg` | Page ground |
 | `--color-bg-light` | Elevated surface — cards, alternating sections |
@@ -32,16 +34,66 @@ on either palette.
 | `--color-border` | Hairlines, card borders, outlined buttons |
 | `--color-success` | Semantic success (checkmarks) — not the accent |
 | `--color-accent-2` | Secondary accent (gradient partner) |
+| `--color-warm` | Warm amber highlight accent (Domo-like) |
+| `--color-warm-dark` | Amber hover |
+| `--warm-ink` | Text on amber fills |
 | `--btn-ink` | Text color on filled accent buttons |
 | `--gradient-accent` | Filled-button / accent gradient |
-| `--hero-bg` | Dark hero & CTA panel background (glow + gradient) |
+| `--hero-bg` | Hero & CTA panel background (glow + gradient) |
+| `--primary-soft` | Blue tint fill (chips, badges) |
+| `--primary-soft-2` | Faint blue wash |
+| `--warm-soft` | Amber tint fill |
+| `--shadow-sm` | Small elevation shadow (cards) |
+| `--shadow-md` | Larger elevation shadow (raised cards, popovers) |
+| `--overlay-scrim` | Dark scrim for overlays on a light ground |
 
 ---
 
-## Theme: Electric Azure (dark) — CURRENT
+## Theme: Clean Light (Domo-inspired) — CURRENT
+
+Light, near-white grounds with a saturated blue accent and a warm amber
+secondary accent (Domo-like). Dark footer (`--color-bg-dark`) stays as an
+anchor/contrast surface. Includes the shared soft/shadow helper tokens used
+across chips, badges, cards, and overlays.
+
+```css
+  --color-primary: #2563eb;        /* blue accent — buttons, links, icons */
+  --color-primary-dark: #1d4ed8;   /* hover / gradient end */
+  --color-secondary: #64748b;
+  --color-text: #0f172a;           /* near-black — headings + body on light */
+  --color-text-light: #566072;     /* muted / secondary text */
+  --color-bg: #ffffff;             /* page ground */
+  --color-bg-light: #f4f6fa;       /* elevated surface — cards, alt sections */
+  --color-bg-dark: #0b1220;        /* footer — stays dark for anchor/contrast */
+  --color-border: #e3e8ef;
+  --color-success: #059669;
+  --color-accent-2: #0ea5e9;       /* secondary accent (gradient partner) */
+  --color-warm: #f59e0b;           /* warm amber highlight accent (Domo-like) */
+  --color-warm-dark: #d97706;      /* amber hover */
+  --warm-ink: #241a02;             /* text on amber fills */
+  --primary-soft: rgba(37, 99, 235, 0.10);   /* blue tint fill (chips, badges) */
+  --primary-soft-2: rgba(37, 99, 235, 0.04);  /* faint blue wash */
+  --warm-soft: rgba(245, 158, 11, 0.14);      /* amber tint fill */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.10);
+  --overlay-scrim: rgba(15, 23, 42, 0.55);    /* dark scrim for light ground */
+  --btn-ink: #ffffff;              /* text on filled accent buttons */
+  --gradient-accent: linear-gradient(120deg, #2563eb 0%, #1d4ed8 100%);
+  --hero-bg: radial-gradient(
+      circle at 30% 15%,
+      rgba(37, 99, 235, 0.08) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+```
+
+---
+
+## Theme: Electric Azure (dark)
 
 Saturated sky-blue on deep navy. Familiar evolution of the original brand blue,
-charged up and moved onto a dark ground.
+charged up and moved onto a dark ground. The site's previous theme, before the
+light migration.
 
 ```css
   --color-primary: #38bdf8;        /* azure accent — buttons, links, icons */
@@ -99,17 +151,16 @@ Electric Azure block to switch.
 
 ## Notes
 
-- `--color-success` is intentionally a **green** in both themes so the ✓
+- `--color-success` is intentionally a **green** across themes so the ✓
   checkmarks (e.g. the "Why me" list) stay distinct from the accent. On Cyber
   Teal it's nudged toward lime (`#4ade80`) so it reads apart from the teal
   accent.
 - Decorative gradient icon circles in the Technical Consulting page
   (`Offer.css`, `HowItWorks.css`) still use `--color-primary → --color-primary-dark`
-  with white glyphs. They render fine on both themes; if you want them to match
+  with white glyphs. They render fine across themes; if you want them to match
   the tinted circle treatment used on the Automated Workflows page, that's a
   small follow-up (swap to a `color-mix` tinted background + accent-colored
   glyph).
-- Both themes commit to a dark site. If you later want **light pages with a
-  dark hero** instead, that's a larger change (the content sections would need a
-  light `--color-bg`/`--color-text` while `--hero-bg` and panels stay dark) —
-  flag it and it can be planned separately.
+- The Electric Azure and Cyber Teal alternates below commit to a full dark
+  site; swapping to either reverts the light migration (content sections,
+  hero, and panels would all need to go dark together).
