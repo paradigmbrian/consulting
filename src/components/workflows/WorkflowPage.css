@@ -132,6 +132,11 @@
   font-size: clamp(1.35rem, 3vw, 1.75rem);
 }
 
+.wf-ps-grid-single {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+}
+
 @media (max-width: 768px) {
   .wf-ps-grid {
     grid-template-columns: 1fr;
@@ -311,13 +316,18 @@
   margin-bottom: var(--spacing-xs);
 }
 
-/* Framed product-shot (color tokens come from .demo-scope) */
+/* Framed product-shot: a mini demo "screen" — the demo's own gray dotted
+   ground so the inner white/surface cards contrast and pop, lifted off the
+   page with a strong shadow. Color tokens come from .demo-scope. */
 .wf-shot {
   position: relative;
-  background: var(--demo-surface);
+  background-color: var(--demo-bg);
+  background-image: radial-gradient(circle, var(--demo-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
   border: 1px solid var(--demo-border);
   border-radius: 1rem;
-  box-shadow: var(--demo-shadow);
+  box-shadow: 0 24px 50px -16px rgba(15, 23, 42, 0.22),
+    0 2px 8px rgba(15, 23, 42, 0.06);
   padding: var(--spacing-md);
   width: 100%;
   max-width: 460px;
@@ -422,4 +432,31 @@
   .wf-shot {
     max-width: 100%;
   }
+}
+
+/* Tail band: the shared "How we'd work" steps render 3-across by default, which
+   overflows the half-width tail column — stack them and rein in the headings. */
+.wf-tail .section-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+}
+
+.wf-tail .aw-steps {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  max-width: none;
+}
+
+.wf-tail .aw-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  text-align: left;
+}
+
+.wf-tail .aw-step-number {
+  flex: 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0;
 }

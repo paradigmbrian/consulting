@@ -1,3 +1,4 @@
+import { lazy } from "react";
 import type { ComponentType, LazyExoticComponent } from "react";
 
 /**
@@ -10,4 +11,6 @@ import type { ComponentType, LazyExoticComponent } from "react";
 export const showcaseRegistry: Record<
   string,
   LazyExoticComponent<ComponentType<{ snippet: string }>>
-> = {};
+> = {
+  "review-generation": lazy(() => import("./reviewGeneration")),
+};

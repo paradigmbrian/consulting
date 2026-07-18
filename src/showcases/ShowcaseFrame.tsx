@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "../demos/shared/demoTokens.css";
 
 interface ShowcaseFrameProps {
   children: ReactNode;

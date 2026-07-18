@@ -1,40 +1,7 @@
-/* demo-only palette (LIGHT). Shared by the full-viewport demo (.demo) AND by
-   static showcase snippets on the marketing pages (.demo-scope), so snippets
-   borrow the demo colors without inheriting the 100vh shell layout below. */
-:where(.demo, .demo-scope) {
-  --demo-bg: #f4f6fa;             /* demo ground */
-  --demo-surface: #ffffff;        /* content pane */
-  --demo-surface-2: #f7f9fc;      /* nested cards / bubbles */
-  --demo-border: #e3e8ef;
-  --demo-text: #0f172a;
-  --demo-muted: #566072;
-  --demo-accent: #2563eb;
-  --demo-accent-bright: #3b82f6;
-  --demo-accent-deep: #1d4ed8;
-  --demo-accent-glow: rgba(37, 99, 235, 0.22);  /* softer glow for light */
-  --demo-accent-soft: rgba(37, 99, 235, 0.10);  /* accent tint fills */
-  --demo-edge: #e3e8ef;
-  --demo-edge-active: #3b82f6;
-  --demo-success: #059669;
-  --demo-success-soft: rgba(5, 150, 105, 0.12);
-  --demo-warn: #b7791f;           /* darker amber — readable as text on light */
-  --demo-warn-soft: rgba(245, 158, 11, 0.16);
-  --demo-error: #dc2626;
-  --demo-error-soft: rgba(220, 38, 38, 0.10);
-  --demo-star: #f59e0b;           /* review-star gold */
-  --demo-on-accent: #ffffff;      /* text on filled accent */
-  --demo-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
-  --demo-dot: rgba(15, 23, 42, 0.05);  /* background dot pattern */
-
-  /* scope-local remap: flips shared step CSS to this palette without touching index.css */
-  --color-bg-light: var(--demo-surface-2);
-  --color-border: var(--demo-border);
-  --color-text: var(--demo-text);
-  --color-text-light: var(--demo-muted);
-  --color-secondary: var(--demo-muted);
-  --color-primary: var(--demo-accent-bright);
-  --color-primary-dark: var(--demo-accent);
-}
+/* Demo color tokens (`--demo-*`) live in demoTokens.css so they are also
+   loadable by the marketing showcase snippets (via ShowcaseFrame) without the
+   full-viewport shell layout below. */
+@import "./demoTokens.css";
 
 .demo {
   display: flex;

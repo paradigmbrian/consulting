@@ -297,6 +297,30 @@ export const workflows: Workflow[] = [
         a: "It hooks into whatever you already use to close a job out — your scheduling tool, your invoicing, or something as simple as a text you send yourself. We find the trigger that fits how you already work rather than making you change how you work.",
       },
     ],
+    showcase: {
+      heroSnippet: "review",
+      rows: [
+        {
+          eyebrow: "The trigger",
+          title: "It starts the moment a visit wraps",
+          body: "No one has to remember to ask. However you already mark a job complete becomes the trigger — the request goes out on its own, every time.",
+          snippet: "appt",
+        },
+        {
+          eyebrow: "The ask",
+          title: "A real question, in your voice — at the right moment",
+          body: "A short text asks how it went, in your words, not a link demanding stars. It reaches everyone, once they've had a chance to see the work.",
+          snippet: "thread",
+          flip: true,
+        },
+        {
+          eyebrow: "The routing",
+          title: "Happy clients to Google, unhappy ones to you",
+          body: "An AI step reads what they actually wrote. Pleased customers get a one-tap review link with a draft in their own words; anyone unhappy reaches you first — while there's still time to make it right.",
+          snippet: "route",
+        },
+      ],
+    },
   },
   {
     slug: "automated-quoting",
