@@ -1,0 +1,27 @@
+.hero-montage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.hero-montage-front {
+  position: relative;
+  z-index: 2;
+}
+
+/* Second card peeks out behind, slightly rotated, to signal breadth. */
+.hero-montage-back {
+  position: absolute;
+  top: -34px;
+  right: -30px;
+  z-index: 1;
+  width: 74%;
+  opacity: 0.9;
+  transform: rotate(2.5deg);
+}
+
+@media (max-width: 768px) {
+  .hero-montage-back {
+    display: none;
+  }
+}

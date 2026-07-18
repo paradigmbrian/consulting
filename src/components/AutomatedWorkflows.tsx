@@ -2,9 +2,11 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CALENDLY_URL } from "../data/site";
 import { workflows, workflowPath } from "../data/workflows";
+import HeroMontage from "../showcases/HeroMontage";
 import AwHowItWorks from "./workflows/AwHowItWorks";
 import AwWhyWorkWithMe from "./workflows/AwWhyWorkWithMe";
 import AwFinalCta from "./workflows/AwFinalCta";
+import "./shared-sections.css";
 import "./AutomatedWorkflows.css";
 
 const automatableWork: string[] = [
@@ -21,25 +23,33 @@ const AutomatedWorkflows = () => {
     <>
       <section className="aw-hero">
         <div className="container">
-          <div className="aw-hero-content">
-            <h1 className="aw-hero-title">
-              Custom automation for the way your business actually works
-            </h1>
-            <p className="aw-hero-subtitle">
-              I'm a software engineer with 10+ years of experience. I build
-              systems that take the repetitive, revenue-losing busywork off your
-              plate — designed around how your business runs, not a template you
-              have to bend to fit.
-            </p>
-            <a
-              href={CALENDLY_URL}
-              className="aw-hero-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaCalendarAlt className="aw-hero-btn-icon" />
-              Book a free automation consult →
-            </a>
+          <div className="wf-hero-split">
+            <div className="wf-hero-copy">
+              <p className="wf-eyebrow">Automated Workflows</p>
+              <h1 className="aw-hero-title">
+                Custom automation for the way your business actually works
+              </h1>
+              <p className="aw-hero-subtitle">
+                I'm a software engineer with 10+ years of experience. I build
+                systems that take the repetitive, revenue-losing busywork off
+                your plate — designed around how your business runs, not a
+                template you have to bend to fit.
+              </p>
+              <div className="wf-hero-actions">
+                <a
+                  href={CALENDLY_URL}
+                  className="aw-hero-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaCalendarAlt className="aw-hero-btn-icon" />
+                  Book a free automation consult →
+                </a>
+              </div>
+            </div>
+            <div className="wf-hero-visual">
+              <HeroMontage />
+            </div>
           </div>
         </div>
       </section>
@@ -47,6 +57,7 @@ const AutomatedWorkflows = () => {
       <section className="aw-framing">
         <div className="container">
           <div className="section-content">
+            <p className="wf-eyebrow">Where it fits</p>
             <h2 className="section-title">
               If your team does it the same way every time, it can probably be
               automated
@@ -68,6 +79,7 @@ const AutomatedWorkflows = () => {
       <section className="aw-examples">
         <div className="container">
           <div className="section-content">
+            <p className="wf-eyebrow">Use cases</p>
             <h2 className="section-title">
               A few examples of what that looks like in practice
             </h2>
