@@ -78,6 +78,10 @@
 }
 .rg-bubble-body {
   margin: 0;
+  /* inherit the bubble's color: dark on the light business bubble,
+     on-accent (white) on the blue caller bubble — the global `p` rule
+     would otherwise force muted gray, unreadable on the accent fill. */
+  color: inherit;
 }
 .rg-bubble-business {
   align-self: flex-start;
