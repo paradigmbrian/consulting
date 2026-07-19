@@ -19,7 +19,7 @@ const WorkflowPage = () => {
   const workflow = slug ? getWorkflow(slug) : undefined;
 
   if (!workflow || !workflow.published) {
-    return <Navigate to="/services/automated-workflows" replace />;
+    return <Navigate to="/" replace />;
   }
 
   const tail = (

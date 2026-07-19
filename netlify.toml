@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# The automation index merged into the homepage — send its old URL there.
+# MUST stay above the SPA catch-all: Netlify stops at the first matching rule.
+[[redirects]]
+  from = "/services/automated-workflows"
+  to = "/"
+  status = 301
+
 # Old demo URLs → their new home under the service route.
 # MUST stay above the SPA catch-all: Netlify stops at the first matching rule.
 [[redirects]]
