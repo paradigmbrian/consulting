@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { HiLightBulb } from "react-icons/hi";
 import { FaCalendarAlt } from "react-icons/fa";
-import { publishedServices, servicePath } from "../data/services";
+import { CALENDLY_URL } from "../data/site";
 import "./Header.css";
 
 const Header = () => {
@@ -13,17 +13,14 @@ const Header = () => {
           <span className="site-header-brand-text">Paradigm Shift</span>
         </Link>
         <nav className="site-header-nav">
-          {publishedServices.map((service) => (
-            <Link
-              key={service.slug}
-              to={servicePath(service.slug)}
-              className="site-header-link"
-            >
-              {service.label}
-            </Link>
-          ))}
+          <Link to="/#use-cases" className="site-header-link">
+            Use cases
+          </Link>
+          <Link to="/#how-it-works" className="site-header-link">
+            How it works
+          </Link>
           <a
-            href="https://calendly.com/brian-paradigmshiftdev/30min"
+            href={CALENDLY_URL}
             className="site-header-cta"
             target="_blank"
             rel="noopener noreferrer"

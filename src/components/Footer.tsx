@@ -1,21 +1,33 @@
-import './Footer.css'
+import { Link } from "react-router-dom";
+import { CALENDLY_URL } from "../data/site";
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
+          <nav className="footer-links">
+            <Link to="/#use-cases">Use cases</Link>
+            <Link to="/#how-it-works">How it works</Link>
+            <Link to="/services/technical-consulting">
+              Technical consulting
+            </Link>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Book a call
+            </a>
+          </nav>
           <p className="footer-text">
             © {new Date().getFullYear()} Paradigm Shift Software Development, LLC
           </p>
           <p className="footer-tagline">
-            Making the right early technology decisions
+            AI-powered automation, built on the tools you already use.
           </p>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
 
