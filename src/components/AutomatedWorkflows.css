@@ -199,3 +199,9 @@
   font-weight: 600;
   font-size: 0.9rem;
 }
+
+/* "See it actually work" proof band */
+.aw-proof {
+  padding: var(--spacing-xl) 0;
+  background: var(--color-bg);
+}

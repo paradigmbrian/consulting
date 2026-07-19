@@ -1,11 +1,12 @@
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaPlay } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CALENDLY_URL } from "../data/site";
-import { workflows, workflowPath } from "../data/workflows";
+import { workflows, workflowPath, workflowDemoPath } from "../data/workflows";
 import HeroMontage from "../showcases/HeroMontage";
 import AwHowItWorks from "./workflows/AwHowItWorks";
 import AwWhyWorkWithMe from "./workflows/AwWhyWorkWithMe";
 import AwFinalCta from "./workflows/AwFinalCta";
+import WorkflowFaq from "./workflows/WorkflowFaq";
 import "./shared-sections.css";
 import "./AutomatedWorkflows.css";
 
@@ -16,6 +17,29 @@ const automatableWork: string[] = [
   "Reviews and reputation",
   "Moving data between the tools you already use",
   "Knowing what's actually working",
+];
+
+const homeFaq = [
+  {
+    q: "Is this just ChatGPT with extra steps?",
+    a: "No. It's an AI model (Claude) doing a specific job inside the tools you already use — reading a message, deciding what to do, drafting a reply, updating a record — not a chatbot you have to go and talk to. You don't change how you work; the work just gets done.",
+  },
+  {
+    q: "Is my business's data safe?",
+    a: "Your data stays in the tools you already trust, and the automation only touches what the job needs. I'll walk you through exactly what it reads and writes on the call, and nothing goes live until you're comfortable with it.",
+  },
+  {
+    q: "What happens when the AI gets something wrong?",
+    a: "It's built to hand off, not to guess. Anything it isn't sure about comes to you with the full context instead of being sent blindly — and the steps that matter, like a quote going out or a public review, wait for your say-so.",
+  },
+  {
+    q: "Do I have to switch tools?",
+    a: "No. It's built on top of what you already use — your phone, your inbox, your scheduling and invoicing software. If a tool can't be connected cleanly, I'll tell you on the call rather than sell you a rebuild.",
+  },
+  {
+    q: "What does it cost?",
+    a: "Fixed scope, agreed up front — no hourly billing and no surprise scope creep. We work out what's worth automating first on a free call, and you get a price before anything is built.",
+  },
 ];
 
 const AutomatedWorkflows = () => {
@@ -131,10 +155,42 @@ const AutomatedWorkflows = () => {
         </div>
       </section>
 
+      <section className="aw-proof">
+        <div className="container">
+          <div className="wf-hero-split">
+            <div className="wf-hero-copy">
+              <p className="wf-eyebrow">Proof, not promises</p>
+              <h2 className="aw-hero-title">
+                Most "AI automation" is a slideshow. These you can click through.
+              </h2>
+              <p className="aw-hero-subtitle">
+                Every use case above has a working, click-through demo on a
+                made-up business — the real thing, powered by Claude, so you can
+                see exactly what happens at each step before you commit to
+                anything.
+              </p>
+              <div className="wf-hero-actions">
+                <Link
+                  to={workflowDemoPath("review-generation")}
+                  className="aw-hero-btn"
+                >
+                  <FaPlay className="aw-hero-btn-icon" />
+                  Try a live demo →
+                </Link>
+              </div>
+            </div>
+            <div className="wf-hero-visual">
+              <HeroMontage />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div id="how-it-works">
         <AwHowItWorks title="How it works" />
       </div>
       <AwWhyWorkWithMe />
+      <WorkflowFaq faq={homeFaq} />
       <AwFinalCta />
     </>
   );
