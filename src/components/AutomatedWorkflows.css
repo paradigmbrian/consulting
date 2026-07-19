@@ -47,6 +47,55 @@
   font-size: 1.125rem;
 }
 
+.aw-hero-btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+
+.aw-hero-btn-ghost:hover {
+  color: var(--color-primary);
+  filter: none;
+  box-shadow: none;
+  border-color: var(--color-primary);
+}
+
+/* Trust strip */
+.aw-trust {
+  padding: var(--spacing-md) 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.aw-trust-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm) var(--spacing-md);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.aw-trust-list li {
+  position: relative;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding-left: 1.5rem;
+}
+
+.aw-trust-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 700;
+}
+
 /* 2. Framing band */
 .aw-framing {
   padding: var(--spacing-xl) 0;

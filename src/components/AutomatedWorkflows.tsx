@@ -25,15 +25,15 @@ const AutomatedWorkflows = () => {
         <div className="container">
           <div className="wf-hero-split">
             <div className="wf-hero-copy">
-              <p className="wf-eyebrow">Automated Workflows</p>
+              <p className="wf-eyebrow">AI Services for Small Business</p>
               <h1 className="aw-hero-title">
-                Custom automation for the way your business actually works
+                Put AI to work on the busywork your business runs on
               </h1>
               <p className="aw-hero-subtitle">
-                I build systems that take the repetitive, revenue-losing
-                busywork off your plate — designed around how your business
-                runs, not a template you have to bend to fit. Backed by 10+
-                years as a professional software engineer.
+                I build AI-powered automations that answer missed calls, chase
+                invoices, ask for reviews, and turn messy requests into quotes —
+                around the tools you already use, not a template you have to bend
+                to fit. Backed by 10+ years as a professional software engineer.
               </p>
               <div className="wf-hero-actions">
                 <a
@@ -45,12 +45,26 @@ const AutomatedWorkflows = () => {
                   <FaCalendarAlt className="aw-hero-btn-icon" />
                   Book a free automation consult →
                 </a>
+                <Link to="/#use-cases" className="aw-hero-btn aw-hero-btn-ghost">
+                  See it work →
+                </Link>
               </div>
             </div>
             <div className="wf-hero-visual">
               <HeroMontage />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="aw-trust">
+        <div className="container">
+          <ul className="aw-trust-list">
+            <li>10+ years as a professional software engineer</li>
+            <li>Real AI, not brittle no-code that breaks</li>
+            <li>Built on the tools you already use</li>
+            <li>Fixed scope, agreed up front — no surprise bills</li>
+          </ul>
         </div>
       </section>
 
@@ -76,7 +90,7 @@ const AutomatedWorkflows = () => {
         </div>
       </section>
 
-      <section className="aw-examples">
+      <section className="aw-examples" id="use-cases">
         <div className="container">
           <div className="section-content">
             <p className="wf-eyebrow">Use cases</p>
@@ -117,7 +131,9 @@ const AutomatedWorkflows = () => {
         </div>
       </section>
 
-      <AwHowItWorks title="How It Works" />
+      <div id="how-it-works">
+        <AwHowItWorks title="How it works" />
+      </div>
       <AwWhyWorkWithMe />
       <AwFinalCta />
     </>
