@@ -121,6 +121,12 @@ button {
   }
 }
 
+/* Offset in-page anchor targets so the sticky header doesn't cover them. */
+#use-cases,
+#how-it-works {
+  scroll-margin-top: 5rem;
+}
+
 .section-title {
   text-align: center;
 }

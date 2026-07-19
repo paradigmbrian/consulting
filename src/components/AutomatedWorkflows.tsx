@@ -69,9 +69,9 @@ const AutomatedWorkflows = () => {
                   <FaCalendarAlt className="aw-hero-btn-icon" />
                   Book a free automation consult →
                 </a>
-                <Link to="/#use-cases" className="aw-hero-btn aw-hero-btn-ghost">
+                <a href="#use-cases" className="aw-hero-btn aw-hero-btn-ghost">
                   See it work →
-                </Link>
+                </a>
               </div>
             </div>
             <div className="wf-hero-visual">

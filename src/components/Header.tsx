@@ -13,12 +13,12 @@ const Header = () => {
           <span className="site-header-brand-text">Paradigm Shift</span>
         </Link>
         <nav className="site-header-nav">
-          <Link to="/#use-cases" className="site-header-link">
+          <a href="/#use-cases" className="site-header-link">
             Use cases
-          </Link>
-          <Link to="/#how-it-works" className="site-header-link">
+          </a>
+          <a href="/#how-it-works" className="site-header-link">
             How it works
-          </Link>
+          </a>
           <a
             href={CALENDLY_URL}
             className="site-header-cta"

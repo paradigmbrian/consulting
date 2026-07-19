@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <nav className="footer-links">
-            <Link to="/#use-cases">Use cases</Link>
-            <Link to="/#how-it-works">How it works</Link>
+            <a href="/#use-cases">Use cases</a>
+            <a href="/#how-it-works">How it works</a>
             <Link to="/services/technical-consulting">
               Technical consulting
             </Link>
