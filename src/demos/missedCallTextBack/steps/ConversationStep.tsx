@@ -24,7 +24,7 @@ const ConversationStep = ({ provider }: { provider: WorkflowProvider }) => {
         The automation qualifies the lead — in plain text
       </h3>
       <p className="mc-sub">
-        Claude handles the back-and-forth over SMS, pulling out exactly what the
+        The AI handles the back-and-forth over SMS, pulling out exactly what the
         shop needs to book the job.
       </p>
 

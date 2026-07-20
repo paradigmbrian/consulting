@@ -25,7 +25,7 @@ const RouteStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="jd-step">
       <h3 className="jd-heading">It routes each van to cut the drive</h3>
       <p className="jd-sub">
-        Claude sequences each tech's stops into the tightest route that still
+        The AI sequences each tech's stops into the tightest route that still
         honors every time window — and keeps the emergency locked as the first
         stop.
       </p>

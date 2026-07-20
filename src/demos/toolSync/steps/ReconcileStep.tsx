@@ -16,7 +16,7 @@ const ReconcileStep = ({ provider }: { provider: WorkflowProvider }) => {
         It catches the duplicate before it's created
       </h3>
       <p className="tts-sub">
-        Before writing anything, Claude checks each tool for a match. This "new"
+        Before writing anything, the AI checks each tool for a match. This "new"
         customer is actually an existing account under a shortened name — so the
         job merges onto the real record instead of spawning a second one.
       </p>

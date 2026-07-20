@@ -14,7 +14,7 @@ const BuildStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="qt-step">
       <h3 className="qt-heading">It builds the quote, line by line</h3>
       <p className="qt-sub">
-        Claude prices each piece from the shop's rate card and totals it — an
+        The AI prices each piece from the shop's rate card and totals it — an
         itemized estimate, not a templated guess.
       </p>
 

@@ -14,7 +14,7 @@ const ComposeStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="nco-step">
       <h3 className="nco-heading">It writes a real welcome — not a template</h3>
       <p className="nco-sub">
-        Claude reads what the customer actually booked, then writes a warm,
+        The AI reads what the customer actually booked, then writes a warm,
         personal welcome and a tailored "what to expect" — the kind of message
         an owner wishes they had time to send every time.
       </p>

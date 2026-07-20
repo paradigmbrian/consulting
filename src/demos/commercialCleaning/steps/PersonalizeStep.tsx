@@ -15,7 +15,7 @@ const PersonalizeStep = ({ provider }: { provider: WorkflowProvider }) => {
   const ai = provider.getAiReasoning("personalize");
   const reduced = usePrefersReducedMotion();
 
-  // The email types in only after Claude's reasoning finishes.
+  // The email types in only after the AI's reasoning finishes.
   const [reasoningDone, setReasoningDone] = useState(reduced);
   const [typed, setTyped] = useState(reduced ? email.body.length : 0);
   const timer = useRef<number | null>(null);
@@ -71,7 +71,7 @@ const PersonalizeStep = ({ provider }: { provider: WorkflowProvider }) => {
           </p>
           <p className="email-drafted">
             <FaMagic className="email-drafted-icon" aria-hidden="true" /> Drafted
-            by Claude
+            by AI
           </p>
         </div>
         <pre className={"email-body" + (isDone ? "" : " is-typing")}>

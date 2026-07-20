@@ -99,11 +99,27 @@ already-qualified buyer who has received value.
 
 ## How it slots onto the site
 
-- New third service line alongside Technical Consulting and Automated Workflows.
-- Structurally mirrors existing patterns: a service-line index page presenting the two
-  rungs as offer tiers (like `Offer.tsx`'s three tiers), reusing shared section
-  components (`AwHowItWorks`, CTA → Calendly).
-- No new infrastructure, CMS, or routing paradigm — a new route under `/services/`.
+> **Re-baselined 2026-07-19** against the current `main`. The site was restructured
+> into an AI-forward homepage: `/` now renders the automated-workflows page, the
+> landing page was retired, and the header nav is hardcoded (no longer driven by
+> `data/services.ts`, which is now vestigial with no consumers). The plan below
+> reflects the *actual* current structure, not the earlier data-driven model.
+
+- AI Integration is a **secondary service page**, a peer of the existing
+  `/services/technical-consulting` page. It is **not** the homepage and **not** in the
+  primary header nav.
+- It is surfaced the same way Technical Consulting is: a **Footer link**
+  (`Footer.tsx`) alongside "Technical consulting".
+- The page is assembled like `TechnicalConsulting.tsx` — a component that composes
+  sections — reusing the existing `offer-*` tier-card classes (`Offer.css`), the
+  `steps`/`step` classes (`HowItWorks.css`), the shared `wf-eyebrow` label
+  (`shared-sections.css`), global `section-title`/`section-content`/`btn` utilities,
+  and the shared `<CTA />` component.
+- Styling uses the current light-theme CSS variables (`--color-primary`,
+  `--color-text-light`, `--color-bg-light`, `--color-border`, `--spacing-*`,
+  `--shadow-sm`). `CALENDLY_URL` comes from `data/site.ts`.
+- Route `/services/ai-integration` under `Layout`. No new infrastructure or routing
+  paradigm; the `data/services.ts` file is left untouched (it is inert).
 - **The actual page build is a separate implementation plan**, not part of this doc.
 
 ## Decisions locked

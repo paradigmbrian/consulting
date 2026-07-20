@@ -14,7 +14,7 @@ const AnalyzeStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="wr-step">
       <h3 className="wr-heading">It reads the whole week in one pass</h3>
       <p className="wr-sub">
-        Claude pulls every tool's numbers into one place, compares them against
+        The AI pulls every tool's numbers into one place, compares them against
         last week, and flags what actually moved — and what needs attention.
       </p>
 

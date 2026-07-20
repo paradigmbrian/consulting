@@ -263,7 +263,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   discover: {
     step: "discover",
-    title: "Claude — matching buy-signals",
+    title: "AI — matching buy-signals",
     lines: [
       "Scanning facility types across the service area…",
       "Inferring fit: physical location, no in-house janitorial, inside the radius.",
@@ -272,7 +272,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   enrich: {
     step: "enrich",
-    title: "Claude — qualifying prospects",
+    title: "AI — qualifying prospects",
     lines: [
       "Cross-checking each prospect against Summit's ideal-customer profile…",
       "Dropping The Hartwell Residence: residential address, outside the commercial ICP.",
@@ -282,7 +282,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   personalize: {
     step: "personalize",
-    title: "Claude — drafting outreach",
+    title: "AI — drafting outreach",
     lines: [
       "Reading Lakeline Dental's profile: 6 operatories, ~4,200 sq ft.",
       "Decision-maker is the practice owner, Dr. Reyes — address her directly.",

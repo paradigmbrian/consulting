@@ -200,7 +200,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   assign: {
     step: "assign",
-    title: "Claude — assigning the day",
+    title: "AI — assigning the day",
     lines: [
       "Reading every job's skill need and flagging the burst-pipe emergency.",
       "Matching each job to the tech whose specialty and zone fit best.",
@@ -211,7 +211,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   route: {
     step: "route",
-    title: "Claude — routing each van",
+    title: "AI — routing each van",
     lines: [
       "Ordering each tech's stops to cut total drive time.",
       "Honoring the ASAP emergency and every fixed time window.",

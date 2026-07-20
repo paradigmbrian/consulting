@@ -22,7 +22,7 @@ const PacketStep = ({ provider }: { provider: WorkflowProvider }) => {
         It assembles exactly what this customer needs
       </h3>
       <p className="nco-sub">
-        Claude sorts what's already known from what only the customer can
+        The AI sorts what's already known from what only the customer can
         provide — then turns the gaps into one-tap requests. Nothing gets chased
         by hand.
       </p>

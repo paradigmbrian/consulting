@@ -13,7 +13,7 @@ const MapStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="tts-step">
       <h3 className="tts-heading">It shapes the one job for every tool</h3>
       <p className="tts-sub">
-        Each app wants the same facts in a different shape. Claude reads the
+        Each app wants the same facts in a different shape. The AI reads the
         booking once and builds the right record for each — a draft invoice, a
         CRM deal, a calendar event, and a work order.
       </p>

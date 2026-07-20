@@ -1,7 +1,7 @@
 import "./AwWhyWorkWithMe.css";
 
 const reasons: string[] = [
-  "10+ years as a professional software engineer",
+  "10+ years of professional software engineering",
   "Real, robust engineering — not brittle no-code that breaks",
   "Built on the tools you already use",
   "Fixed scope, agreed up front — no surprise bills",
@@ -14,7 +14,7 @@ interface AwWhyWorkWithMeProps {
 const AwWhyWorkWithMe = ({ as = "section" }: AwWhyWorkWithMeProps) => {
   const content = (
     <div className="section-content">
-      <h2 className="section-title">Why work with me</h2>
+      <h2 className="section-title">Why work with us</h2>
       <ul className="aw-why-list">
         {reasons.map((reason) => (
           <li key={reason} className="aw-why-item">

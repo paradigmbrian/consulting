@@ -14,7 +14,7 @@ const PlanStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="inv-step">
       <h3 className="inv-heading">It plans the follow-up — tone and timing</h3>
       <p className="inv-sub">
-        Claude doesn't just blast one reminder. It lays out a schedule that gets
+        The AI doesn't just blast one reminder. It lays out a schedule that gets
         firmer over time, and knows when to hand the tough one to you.
       </p>
 

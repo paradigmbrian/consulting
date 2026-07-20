@@ -15,7 +15,7 @@ const SegmentStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="wb-step">
       <h3 className="wb-heading">Find the winnable patients</h3>
       <p className="wb-sub">
-        Claude reads the full list, groups the lapsed patients worth
+        The AI reads the full list, groups the lapsed patients worth
         re-engaging, and sets aside the rest.
       </p>
 

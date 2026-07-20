@@ -99,7 +99,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   conversation: {
     step: "conversation",
-    title: "Claude — working the conversation",
+    title: "AI — working the conversation",
     lines: [
       "Reading the caller's first text: 'AC quit, house is 84.'",
       "Flagging this as a same-day emergency, not a routine request.",
@@ -110,7 +110,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   book: {
     step: "book",
-    title: "Claude — booking & dispatch",
+    title: "AI — booking & dispatch",
     lines: [
       "Checking today's schedule for an open emergency slot.",
       "Next opening: 4:30 PM — within the same-day window.",

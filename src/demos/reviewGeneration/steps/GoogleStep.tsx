@@ -17,7 +17,7 @@ const GoogleStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="rg-step">
       <h3 className="rg-heading">One tap to a public 5-star review</h3>
       <p className="rg-sub">
-        Claude drafts the review in {firstName}'s voice and sends a one-tap
+        The AI drafts the review in {firstName}'s voice and sends a one-tap
         link. She just taps post.
       </p>
 

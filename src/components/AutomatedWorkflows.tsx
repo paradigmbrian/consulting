@@ -22,11 +22,11 @@ const automatableWork: string[] = [
 const homeFaq = [
   {
     q: "Is this just ChatGPT with extra steps?",
-    a: "No. It's an AI model (Claude) doing a specific job inside the tools you already use — reading a message, deciding what to do, drafting a reply, updating a record — not a chatbot you have to go and talk to. You don't change how you work; the work just gets done.",
+    a: "No. It's an AI model doing a specific job inside the tools you already use — reading a message, deciding what to do, drafting a reply, updating a record — not a chatbot you have to go and talk to. You don't change how you work; the work just gets done.",
   },
   {
     q: "Is my business's data safe?",
-    a: "Your data stays in the tools you already trust, and the automation only touches what the job needs. I'll walk you through exactly what it reads and writes on the call, and nothing goes live until you're comfortable with it.",
+    a: "Your data stays in the tools you already trust, and the automation only touches what the job needs. We'll walk you through exactly what it reads and writes on the call, and nothing goes live until you're comfortable with it.",
   },
   {
     q: "What happens when the AI gets something wrong?",
@@ -34,7 +34,7 @@ const homeFaq = [
   },
   {
     q: "Do I have to switch tools?",
-    a: "No. It's built on top of what you already use — your phone, your inbox, your scheduling and invoicing software. If a tool can't be connected cleanly, I'll tell you on the call rather than sell you a rebuild.",
+    a: "No. It's built on top of what you already use — your phone, your inbox, your scheduling and invoicing software. If a tool can't be connected cleanly, we'll tell you on the call rather than sell you a rebuild.",
   },
   {
     q: "What does it cost?",
@@ -54,10 +54,10 @@ const AutomatedWorkflows = () => {
                 Put AI to work on the busywork your business runs on
               </h1>
               <p className="aw-hero-subtitle">
-                I build AI-powered automations that answer missed calls, chase
+                We build AI-powered automations that answer missed calls, chase
                 invoices, ask for reviews, and turn messy requests into quotes —
                 around the tools you already use, not a template you have to bend
-                to fit. Backed by 10+ years as a professional software engineer.
+                to fit. Backed by 10+ years of professional software engineering.
               </p>
               <div className="wf-hero-actions">
                 <a
@@ -84,7 +84,7 @@ const AutomatedWorkflows = () => {
       <section className="aw-trust">
         <div className="container">
           <ul className="aw-trust-list">
-            <li>10+ years as a professional software engineer</li>
+            <li>10+ years of professional software engineering</li>
             <li>Real AI, not brittle no-code that breaks</li>
             <li>Built on the tools you already use</li>
             <li>Fixed scope, agreed up front — no surprise bills</li>
@@ -165,7 +165,7 @@ const AutomatedWorkflows = () => {
               </h2>
               <p className="aw-hero-subtitle">
                 Every use case above has a working, click-through demo on a
-                made-up business — the real thing, powered by Claude, so you can
+                made-up business — the real thing, powered by real AI, so you can
                 see exactly what happens at each step before you commit to
                 anything.
               </p>
@@ -180,7 +180,7 @@ const AutomatedWorkflows = () => {
               </div>
             </div>
             <div className="wf-hero-visual">
-              <HeroMontage />
+              <HeroMontage variant="proof" />
             </div>
           </div>
         </div>

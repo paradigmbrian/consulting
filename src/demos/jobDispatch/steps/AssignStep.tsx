@@ -22,7 +22,7 @@ const AssignStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="jd-step">
       <h3 className="jd-heading">It matches every job to the right tech</h3>
       <p className="jd-sub">
-        Claude reads each job's skill need, zone, and time window — bumps the
+        The AI reads each job's skill need, zone, and time window — bumps the
         burst pipe to the front — then matches it to the tech who fits, balancing
         the load so no van is overloaded.
       </p>

@@ -122,7 +122,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   segment: {
     step: "segment",
-    title: "Claude — segmenting the list",
+    title: "AI — segmenting the list",
     lines: [
       "Scanning 1,420 patient records for recall gaps…",
       "Flagging visits older than 9 months with valid contact info.",
@@ -133,7 +133,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   offer: {
     step: "offer",
-    title: "Claude — drafting the offer & copy",
+    title: "AI — drafting the offer & copy",
     lines: [
       "Picking an offer that clears the 'worth booking' bar: $59 cleaning + exam.",
       "Writing a short, personal SMS — first name, practice name, one link.",

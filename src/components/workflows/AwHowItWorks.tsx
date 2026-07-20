@@ -19,13 +19,13 @@ const steps: Step[] = [
     icon: FaCogs,
     title: "Build",
     description:
-      "I design and build the automation around your existing tools. Fixed scope, agreed up front.",
+      "We design and build the automation around your existing tools. Fixed scope, agreed up front.",
   },
   {
     icon: FaRocket,
     title: "Handoff or hands-off",
     description:
-      "You own and run it, or I maintain and improve it over time. Your call.",
+      "You own and run it, or we maintain and improve it over time. Your call.",
   },
 ];
 

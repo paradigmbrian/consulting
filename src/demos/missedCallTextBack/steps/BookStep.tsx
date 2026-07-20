@@ -14,7 +14,7 @@ const BookStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="mc-step">
       <h3 className="mc-heading">It books the job and dispatches a tech</h3>
       <p className="mc-sub">
-        Claude offers the next same-day slot, confirms with the caller over
+        The AI offers the next same-day slot, confirms with the caller over
         text, and puts the job on the board.
       </p>
 

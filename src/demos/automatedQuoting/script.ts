@@ -76,7 +76,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   understand: {
     step: "understand",
-    title: "Claude — reading the request",
+    title: "AI — reading the request",
     lines: [
       "Reading Devin's message the way a customer actually wrote it.",
       "Pulling the essentials: 3-bed house → 2nd-floor apartment, ~12 mi cross-town.",
@@ -87,7 +87,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   build: {
     step: "build",
-    title: "Claude — building the quote",
+    title: "AI — building the quote",
     lines: [
       "Pricing each line from Anchor's own rate card — not a guess.",
       "Sizing crew and truck to a 3-bedroom, ~12-mile move.",

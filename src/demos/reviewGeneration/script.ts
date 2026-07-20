@@ -96,7 +96,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   route: {
     step: "route",
-    title: "Claude — reading the reply",
+    title: "AI — reading the reply",
     lines: [
       "Reading Jenna's reply for tone and specifics.",
       "Sentiment: clearly positive — 'obsessed', 'glowing', names her provider.",
@@ -107,7 +107,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   draft: {
     step: "draft",
-    title: "Claude — drafting the review",
+    title: "AI — drafting the review",
     lines: [
       "Writing a short review in Jenna's own voice — not a template.",
       "Working in the specifics she mentioned: HydraFacial, Maya, glowing skin.",

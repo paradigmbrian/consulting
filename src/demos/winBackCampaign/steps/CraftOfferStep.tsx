@@ -16,7 +16,7 @@ const CraftOfferStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="wb-step">
       <h3 className="wb-heading">Craft the offer &amp; the message</h3>
       <p className="wb-sub">
-        Claude picks an offer worth booking and writes short, compliant copy —
+        The AI picks an offer worth booking and writes short, compliant copy —
         personalized per patient.
       </p>
 

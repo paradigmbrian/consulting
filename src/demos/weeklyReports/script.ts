@@ -103,7 +103,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   analyze: {
     step: "analyze",
-    title: "Claude — reading the week",
+    title: "AI — reading the week",
     lines: [
       "Pulling every tool's numbers into one place — jobs, revenue, leads, quotes, reviews, calls, crew hours.",
       "Comparing each against last week to see what actually moved.",
@@ -114,7 +114,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   write: {
     step: "write",
-    title: "Claude — writing the digest",
+    title: "AI — writing the digest",
     lines: [
       "Leading with the headline: a strong week, with one thing to fix.",
       "Backing each win with the number that proves it.",

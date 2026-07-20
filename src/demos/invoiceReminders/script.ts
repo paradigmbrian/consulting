@@ -100,7 +100,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   plan: {
     step: "plan",
-    title: "Claude — planning the follow-up",
+    title: "AI — planning the follow-up",
     lines: [
       "Reading the invoice: $2,450 for the panel upgrade, now slipping past due.",
       "Checking Marcus's history — a good customer who's paid before, just late.",
@@ -111,7 +111,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   draft: {
     step: "draft",
-    title: "Claude — writing the reminders",
+    title: "AI — writing the reminders",
     lines: [
       "Writing each reminder in the tone the schedule calls for.",
       "The heads-up stays warm; the nudge is friendly and low-pressure.",

@@ -72,7 +72,7 @@ const DemoShell = ({ eyebrow, title, backTo, renderStage }: DemoShellProps) => {
         </span>
         <div className="demo-topbar-actions">
           <span className="demo-ai-chip">
-            <FaMagic aria-hidden="true" /> Powered by Claude
+            <FaMagic aria-hidden="true" /> Powered by real AI
           </span>
           <a
             href={CALENDLY_URL}

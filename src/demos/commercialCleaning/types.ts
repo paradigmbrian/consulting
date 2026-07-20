@@ -68,7 +68,7 @@ export type AiStep = "discover" | "enrich" | "personalize";
 
 export interface AiReasoning {
   step: AiStep;
-  /** Panel header, e.g. "Claude — matching buy-signals". */
+  /** Panel header, e.g. "AI — matching buy-signals". */
   title: string;
   /** Short reasoning lines, revealed in sequence. */
   lines: string[];

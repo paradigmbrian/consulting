@@ -123,7 +123,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   map: {
     step: "map",
-    title: "Claude — shaping the job for each tool",
+    title: "AI — shaping the job for each tool",
     lines: [
       "Reading the one booking: customer, address, service, price, date, phone.",
       "Translating those facts into each tool's own schema and field names.",
@@ -134,7 +134,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   reconcile: {
     step: "reconcile",
-    title: "Claude — checking for duplicates",
+    title: "AI — checking for duplicates",
     lines: [
       "Before writing anything, searching each tool for an existing match.",
       "Matching on the service address even though the name came in abbreviated and the phone had changed.",

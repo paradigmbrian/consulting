@@ -338,7 +338,7 @@ export const workflows: Workflow[] = [
       },
       {
         q: "What if my scheduling software already does review requests?",
-        a: "A lot of them will blast a link at everyone who's had a job done. If that's working for you, keep it. The difference here is the reading step — noticing that a customer isn't happy and getting you involved instead of handing them a review form. If your existing tool does that, you don't need me to build it.",
+        a: "A lot of them will blast a link at everyone who's had a job done. If that's working for you, keep it. The difference here is the reading step — noticing that a customer isn't happy and getting you involved instead of handing them a review form. If your existing tool does that, you don't need us to build it.",
       },
       {
         q: "How does it know the job is finished?",
@@ -662,7 +662,7 @@ export const workflows: Workflow[] = [
         {
           eyebrow: "The welcome",
           title: "It reads what they actually booked",
-          body: "Claude reads the service, the property, how they'd like to be visited — then writes a welcome that names it back to them, along with who's coming and what happens on the visit. Not a template with their name pasted at the top.",
+          body: "The AI reads the service, the property, how they'd like to be visited — then writes a welcome that names it back to them, along with who's coming and what happens on the visit. Not a template with their name pasted at the top.",
           snippet: "booking",
         },
         {

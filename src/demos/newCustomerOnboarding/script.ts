@@ -97,7 +97,7 @@ export const results: ResultsSummary = {
 export const aiReasoning: Record<AiStep, AiReasoning> = {
   compose: {
     step: "compose",
-    title: "Claude — composing Marcus's welcome",
+    title: "AI — composing Marcus's welcome",
     lines: [
       "Pulling the booking: weekly service, in-ground saltwater pool, prefers mornings.",
       "Greeting Marcus by name and confirming exactly what he signed up for.",
@@ -108,7 +108,7 @@ export const aiReasoning: Record<AiStep, AiReasoning> = {
   },
   packet: {
     step: "packet",
-    title: "Claude — assembling the onboarding packet",
+    title: "AI — assembling the onboarding packet",
     lines: [
       "Listing everything a new weekly customer needs before the first visit.",
       "Auto-filling what the booking already gave us: equipment profile and card on file.",

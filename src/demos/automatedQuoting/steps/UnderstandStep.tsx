@@ -16,7 +16,7 @@ const UnderstandStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="qt-step">
       <h3 className="qt-heading">It turns the mess into a clear scope</h3>
       <p className="qt-sub">
-        Claude reads {firstName}'s message and pulls out the details that
+        The AI reads {firstName}'s message and pulls out the details that
         actually drive the price.
       </p>
 

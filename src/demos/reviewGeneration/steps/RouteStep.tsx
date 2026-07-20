@@ -15,7 +15,7 @@ const RouteStep = ({ provider }: { provider: WorkflowProvider }) => {
     <div className="rg-step">
       <h3 className="rg-heading">It reads the reply — and picks a path</h3>
       <p className="rg-sub">
-        Claude doesn't blast everyone to Google. It reads what the client
+        The AI doesn't blast everyone to Google. It reads what the client
         actually said and routes on sentiment.
       </p>
 
