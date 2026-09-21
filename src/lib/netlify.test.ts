@@ -19,6 +19,14 @@ function parseRedirects(toml: string): Redirect[] {
     }));
 }
 
+/** The body of each `[[headers]]` table, cut at the next table header. */
+function headerBlocks(toml: string): string[] {
+  return toml
+    .split("[[headers]]")
+    .slice(1)
+    .map((block) => block.split("[[")[0]);
+}
+
 const toml = readFileSync("netlify.toml", "utf8");
 const redirects = parseRedirects(toml);
 
@@ -26,6 +34,18 @@ describe("netlify.toml", () => {
   it("publishes the static export on Node 22", () => {
     expect(toml).toMatch(/publish\s*=\s*"out"/);
     expect(toml).toMatch(/NODE_VERSION\s*=\s*"22"/);
+  });
+
+  it("skips Netlify's Next.js runtime — a static export needs none", () => {
+    expect(toml).toMatch(/NETLIFY_NEXT_PLUGIN_SKIP\s*=\s*"true"/);
+  });
+
+  it("caches the content-hashed /_next/static assets immutably", () => {
+    const hashed = headerBlocks(toml).find((block) =>
+      /for\s*=\s*"\/_next\/static\/\*"/.test(block),
+    );
+    expect(hashed, "a [[headers]] block for /_next/static/*").toBeDefined();
+    expect(hashed).toMatch(/Cache-Control\s*=\s*"[^"]*\bimmutable\b[^"]*"/);
   });
 
   it("has no SPA catch-all", () => {

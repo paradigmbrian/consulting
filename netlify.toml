@@ -4,6 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Netlify auto-detects Next.js and attaches its runtime, which expects a
+  # `.next` build; this is a static export publishing `out/` and needs none.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+# Everything under /_next/static is content-hashed, so it can be cached forever.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 # Legacy demo URLs → their home under the service route. Every other URL is a
 # real file in out/ (Next static export), so there is no SPA catch-all, and
