@@ -87,8 +87,10 @@ any statistic.
 - `npm run lint` — ESLint, zero warnings · `npm run typecheck` — `tsc --noEmit`
 - `npm run build` — `next build` → `out/`, then the SEO gate (`postbuild`)
 - `npm run preview` — serve `out/` on :4173 the way Netlify does
-- `npm run e2e` — Playwright (builds first). `npm run e2e:update` regenerates visual
-  baselines — only after an intentional visual change, and look at the diff first.
+- `npm run e2e` — Playwright (builds first). `npm run e2e:update` rewrites only the
+  snapshots that fail comparison (Playwright's `--update-snapshots=changed` default); a
+  full regeneration needs `npx playwright test e2e/visual.spec.ts --update-snapshots=all`.
+  Only after an intentional visual change, and look at the diff first.
 
 **Definition of done:** `npm test` → `npm run lint` → `npm run build` → `npm run e2e`.
 
