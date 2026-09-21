@@ -1,7 +1,7 @@
 # Next.js Migration at Parity — Design
 
 **Date:** 2026-09-20
-**Status:** Draft for review
+**Status:** Implemented (branch next-migration)
 **Spec 1 of 3.** Spec 2 is the blog (fed by `../content-engine`). Spec 3 is the IA refactor
 (`Services ▾ · Demos · Blog` nav, `/demos` index, home-page proof strips). They are built in
 that order; each gets its own spec, plan and build.
@@ -133,7 +133,8 @@ One module, `src/lib/seo.ts`, derives all metadata and structured data from `ser
 
 ### Build gate
 
-`scripts/verify-seo.ts` runs as `postbuild`. It walks `out/**/*.html` (excluding
+`scripts/verify-seo/run.ts` (checks in `scripts/verify-seo/checks.ts`) runs as `postbuild`. It
+walks `out/**/*.html` (excluding
 `activebalance/` and `404.html`) and fails the build if any page lacks a title, a description,
 a canonical, an `og:image`, or exactly one `<h1>`; if any title, description or canonical is
 duplicated across pages; if any JSON-LD block fails to parse; or if `sitemap.xml` and the set

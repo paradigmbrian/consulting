@@ -4,8 +4,8 @@ A modern, responsive React website for the MVP Tech Blueprint consulting service
 
 ## Tech Stack
 
-- **React 18** with TypeScript
-- **Vite** for fast development and building
+- **React 19** with TypeScript
+- **Next.js** (static export) for development and building
 - **CSS** (no framework dependencies)
 - **Netlify** for hosting
 
@@ -29,7 +29,7 @@ Start the development server:
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173`
+The site will be available at `http://localhost:3000`
 
 ### Building
 
@@ -39,15 +39,17 @@ Build for production:
 npm run build
 ```
 
-The production build will be in the `dist` directory.
+The production build (a static export) will be in the `out` directory.
 
 ### Preview Production Build
 
-Preview the production build locally:
+Preview the production build locally, the way Netlify serves it:
 
 ```bash
 npm run preview
 ```
+
+This serves `out/` at `http://localhost:4173`.
 
 ## Deployment to Netlify
 
@@ -55,38 +57,41 @@ npm run preview
 2. Connect your repository to Netlify
 3. Netlify will automatically detect the build settings from `netlify.toml`:
    - Build command: `npm run build`
-   - Publish directory: `dist`
+   - Publish directory: `out`
 4. Deploy!
 
 The `netlify.toml` file is already configured with:
 - Build settings
-- SPA redirect rules (all routes redirect to `index.html`)
+- 301 redirects for the legacy `/demos/*` URLs
+
+There is no SPA catch-all — the static export emits a real file for every route, and
+unknown URLs get `out/404.html`.
 
 ## Project Structure
 
 ```
 ├── src/
-│   ├── components/      # React components
-│   │   ├── Hero.tsx     # Hero section
-│   │   ├── Problem.tsx  # Problem section
-│   │   ├── Solution.tsx # Solution section
-│   │   ├── Offer.tsx    # What's included
-│   │   ├── CTA.tsx      # Call to action
-│   │   └── Footer.tsx   # Footer
-│   ├── App.tsx          # Main app component
-│   ├── main.tsx         # Entry point
-│   └── index.css        # Global styles
-├── index.html           # HTML template
-├── netlify.toml         # Netlify configuration
-└── package.json         # Dependencies
+│   ├── app/              # Routes — thin files that import components
+│   ├── components/       # React components (paired .tsx + .css)
+│   ├── data/              # Site content and the workflow/service source of truth
+│   ├── lib/               # Routes list, SEO metadata and JSON-LD builders
+│   ├── demos/             # Interactive per-automation demos
+│   ├── showcases/         # Static product-shot snippets
+│   └── index.css          # Global styles
+├── scripts/verify-seo/    # Post-build SEO gate
+├── e2e/                   # Playwright tests
+├── netlify.toml           # Netlify configuration
+└── package.json           # Dependencies
 ```
+
+See `CLAUDE.md` for the full source layout.
 
 ## Customization
 
 ### Updating Content
 
 - Edit component files in `src/components/` to update text and content
-- The Calendly link is in `Hero.tsx` and `CTA.tsx`
+- The Calendly link is `CALENDLY_URL` in `src/data/site.ts`
 
 ### Styling
 
@@ -99,7 +104,7 @@ The `netlify.toml` file is already configured with:
 - ✅ Fully responsive design
 - ✅ Modern, clean UI
 - ✅ TypeScript for type safety
-- ✅ Fast build times with Vite
+- ✅ Static HTML for every route (Next.js static export)
 - ✅ Optimized for Netlify deployment
 - ✅ SEO-friendly meta tags
 
