@@ -31,11 +31,17 @@ const pages: BuiltPage[] = htmlFiles(OUT).map((file) => ({
   html: readFileSync(file, "utf8"),
 }));
 
+const readIfPresent = (publicPath: string): string | null => {
+  const file = join(OUT, publicPath);
+  return existsSync(file) ? readFileSync(file, "utf8") : null;
+};
+
 const problems = verify({
   pages,
-  sitemapXml: readFileSync(join(OUT, "sitemap.xml"), "utf8"),
+  sitemapXml: readIfPresent("/sitemap.xml") ?? "",
   siteUrl: SITE_URL,
   fileExists: (publicPath) => existsSync(join(OUT, publicPath)),
+  readFile: readIfPresent,
 });
 
 if (problems.length > 0) {

@@ -5,6 +5,7 @@ import {
   absoluteUrl,
   breadcrumbJsonLd,
   clip,
+  demoBreadcrumb,
   demoMeta,
   faqJsonLd,
   ogImagePath,
@@ -173,5 +174,25 @@ describe("JSON-LD", () => {
     ]);
     const crumbs = workflowBreadcrumb(missedCall).itemListElement as unknown[];
     expect(crumbs).toHaveLength(3);
+  });
+
+  it("ends a demo breadcrumb at the demo itself", () => {
+    const crumbs = demoBreadcrumb(missedCall).itemListElement as {
+      position: number;
+      name: string;
+      item: string;
+    }[];
+    expect(crumbs).toHaveLength(4);
+    expect(crumbs.map((c) => c.position)).toEqual([1, 2, 3, 4]);
+    expect(crumbs[3]).toMatchObject({
+      name: "Demo",
+      item: "https://paradigmshiftdev.io/services/automated-workflows/missed-call-text-back/demo",
+    });
+  });
+});
+
+describe("requireService", () => {
+  it("throws on a slug the site does not define", () => {
+    expect(() => requireService("nope")).toThrow("Unknown service: nope");
   });
 });

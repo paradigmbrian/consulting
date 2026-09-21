@@ -24,6 +24,7 @@ const input = (pages: { path: string; html: string }[], paths?: string[]): Verif
   sitemapXml: sitemap(paths ?? pages.map((p) => p.path)),
   siteUrl: SITE,
   fileExists: () => true,
+  readFile: () => "content",
 });
 
 describe("verify", () => {
@@ -79,6 +80,22 @@ describe("verify", () => {
     );
     expect(problems).toContain('duplicate title "Same": /a, /b');
     expect(problems).toContain('duplicate description "Same": /a, /b');
+  });
+
+  it.each(["llms.txt", "robots.txt", "sitemap.xml"])("reports a missing %s", (file) => {
+    const problems = verify({
+      ...input([{ path: "/a", html: page("/a") }]),
+      readFile: (publicPath) => (publicPath === `/${file}` ? null : "content"),
+    });
+    expect(problems).toContain(`${file}: not built`);
+  });
+
+  it("reports a required artifact that was built empty", () => {
+    const problems = verify({
+      ...input([{ path: "/a", html: page("/a") }]),
+      readFile: (publicPath) => (publicPath === "/llms.txt" ? "  \n" : "content"),
+    });
+    expect(problems).toContain("llms.txt: built empty");
   });
 
   it("reports pages missing from the sitemap and sitemap URLs with no page", () => {

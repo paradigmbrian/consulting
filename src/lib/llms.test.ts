@@ -10,9 +10,14 @@ describe("buildLlmsTxt", () => {
     expect(lines[2].startsWith("> ")).toBe(true);
   });
 
+  it("ends with exactly one trailing newline", () => {
+    expect(text).toMatch(/[^\n]\n$/);
+  });
+
   it("lists three services, nine automations, nine demos and a contact link", () => {
+    // trimEnd: the file's own trailing newline is not part of the last section.
     const section = (heading: string): string[] =>
-      text.split(`## ${heading}\n\n`)[1].split("\n\n")[0].split("\n");
+      text.trimEnd().split(`## ${heading}\n\n`)[1].split("\n\n")[0].split("\n");
     expect(section("Services")).toHaveLength(3);
     expect(section("Automations")).toHaveLength(9);
     expect(section("Interactive demos")).toHaveLength(9);

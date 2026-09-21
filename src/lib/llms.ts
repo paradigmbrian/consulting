@@ -35,5 +35,5 @@ export function buildLlmsTxt(): string {
     ].join("\n"),
     ["## Contact", "", `- [Book a 30-minute call](${CALENDLY_URL})`].join("\n"),
   ];
-  return sections.join("\n\n");
+  return `${sections.join("\n\n")}\n`;
 }

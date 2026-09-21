@@ -11,7 +11,12 @@ export interface VerifyInput {
   siteUrl: string;
   /** Does this site-root-relative path ("/og/home.png") exist in the build output? */
   fileExists: (publicPath: string) => boolean;
+  /** The built file's text, or null when it does not exist. */
+  readFile: (publicPath: string) => string | null;
 }
+
+/** Route handlers, not pages: nothing else in this gate would notice them missing. */
+const REQUIRED_FILES = ["llms.txt", "robots.txt", "sitemap.xml"];
 
 function duplicates(label: string, values: Map<string, string[]>): string[] {
   return [...values.entries()]
@@ -19,7 +24,13 @@ function duplicates(label: string, values: Map<string, string[]>): string[] {
     .map(([value, paths]) => `duplicate ${label} "${value}": ${paths.join(", ")}`);
 }
 
-export function verify({ pages, sitemapXml, siteUrl, fileExists }: VerifyInput): string[] {
+export function verify({
+  pages,
+  sitemapXml,
+  siteUrl,
+  fileExists,
+  readFile,
+}: VerifyInput): string[] {
   const problems: string[] = [];
   const titles = new Map<string, string[]>();
   const descriptions = new Map<string, string[]>();
@@ -71,6 +82,12 @@ export function verify({ pages, sitemapXml, siteUrl, fileExists }: VerifyInput):
   }
   for (const url of inSitemap) {
     if (!built.has(url)) problems.push(`sitemap.xml lists ${url}, which was not built`);
+  }
+
+  for (const file of REQUIRED_FILES) {
+    const text = readFile(`/${file}`);
+    if (text === null) problems.push(`${file}: not built`);
+    else if (!text.trim()) problems.push(`${file}: built empty`);
   }
 
   return problems;
