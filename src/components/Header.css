@@ -72,12 +72,13 @@
 }
 
 @media (max-width: 640px) {
+  /* No vertical padding here: `.container` (index.css) sets the shorthand
+     `padding: 0 …` on this same element at equal specificity, so any
+     padding-top/bottom written here has never applied. */
   .site-header-inner {
     flex-wrap: wrap;
     height: auto;
     row-gap: var(--spacing-xs);
-    padding-top: var(--spacing-xs);
-    padding-bottom: var(--spacing-xs);
   }
 
   .site-header-nav {

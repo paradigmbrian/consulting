@@ -1,5 +1,5 @@
 import { FaPlay } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { workflowDemoPath } from "../../data/workflows";
 
@@ -21,7 +21,7 @@ const WorkflowDemoCta = ({ slug, label, preview }: WorkflowDemoCtaProps) => {
             anything.
           </p>
           {preview && <div className="wf-demo-preview">{preview}</div>}
-          <Link to={workflowDemoPath(slug)} className="wf-demo-btn">
+          <Link href={workflowDemoPath(slug)} className="wf-demo-btn">
             <FaPlay className="wf-demo-btn-icon" />
             Try the interactive demo →
           </Link>

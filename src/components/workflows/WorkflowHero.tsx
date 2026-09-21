@@ -1,5 +1,5 @@
 import { FaCalendarAlt, FaPlay } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { CALENDLY_URL } from "../../data/site";
 import { workflowDemoPath, type Stat } from "../../data/workflows";
@@ -40,7 +40,7 @@ const WorkflowHero = ({
         </a>
         {hasDemo && (
           <Link
-            to={workflowDemoPath(slug)}
+            href={workflowDemoPath(slug)}
             className="wf-hero-btn wf-hero-btn-secondary"
           >
             <FaPlay className="wf-hero-btn-icon" />

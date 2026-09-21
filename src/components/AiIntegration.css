@@ -1,11 +1,14 @@
 /* AI Integration service page — scoped styles.
-   Reuses global utilities, offer-*/steps classes, and the wf-eyebrow label;
+   Reuses global utilities, the offer- and steps- classes, and the wf-eyebrow label;
    only net-new elements are styled here, using the current light theme. */
 
-.ai-hero {
-  padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
-  text-align: center;
-}
+/* NOTE: an `.ai-hero` rule (hero padding plus text-align: center) used to sit
+   here. The header comment above was malformed — it contained a stray comment
+   terminator — so every CSS parser swallowed this first rule's selector and
+   dropped the rule. The shipped page has therefore always rendered with no hero
+   padding and left-aligned hero lines. The comment is now well-formed; the rule
+   is left out so the page keeps rendering exactly as it does today. Restoring
+   it is a design change, not part of this migration. */
 
 .ai-hero-content {
   max-width: 760px;

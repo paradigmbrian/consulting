@@ -48,12 +48,8 @@
   font-size: 1.125rem;
 }
 
-.wf-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  justify-content: center;
-}
+/* `.wf-hero-actions` lives in shared-sections.css — the automation index hero
+   uses it too, and each page now loads only the CSS it imports. */
 
 .wf-hero-btn-secondary {
   background: var(--color-warm);

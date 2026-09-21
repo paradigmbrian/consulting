@@ -1,6 +1,5 @@
-import { Suspense, createElement } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import { getWorkflow } from "../../data/workflows";
+import { createElement } from "react";
+import type { PublishedWorkflow } from "../../data/workflows";
 import { showcaseRegistry } from "../../showcases/registry";
 import ShowcaseFrame from "../../showcases/ShowcaseFrame";
 import WorkflowHero from "./WorkflowHero";
@@ -14,14 +13,11 @@ import AwFinalCta from "./AwFinalCta";
 import "../shared-sections.css";
 import "./WorkflowPage.css";
 
-const WorkflowPage = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const workflow = slug ? getWorkflow(slug) : undefined;
+interface WorkflowPageProps {
+  workflow: PublishedWorkflow;
+}
 
-  if (!workflow || !workflow.published) {
-    return <Navigate to="/" replace />;
-  }
-
+const WorkflowPage = ({ workflow }: WorkflowPageProps) => {
   const tail = (
     <>
       <section className="wf-tail">
@@ -40,9 +36,7 @@ const WorkflowPage = () => {
   const Showcase = showcaseRegistry[workflow.slug];
   const shot = (key: string, layered = false) => (
     <ShowcaseFrame layered={layered}>
-      <Suspense fallback={<div className="wf-shot-skeleton" />}>
-        {createElement(Showcase, { snippet: key })}
-      </Suspense>
+      {createElement(Showcase, { snippet: key })}
     </ShowcaseFrame>
   );
 

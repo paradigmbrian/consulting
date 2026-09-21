@@ -1,24 +1,30 @@
-import { lazy } from "react";
-import type { ComponentType, LazyExoticComponent } from "react";
+import type { ComponentType } from "react";
+import ReviewGeneration from "./reviewGeneration";
+import WinBackCampaign from "./winBackCampaign";
+import MissedCallTextBack from "./missedCallTextBack";
+import JobDispatch from "./jobDispatch";
+import NewCustomerOnboarding from "./newCustomerOnboarding";
+import WeeklyReports from "./weeklyReports";
+import InvoiceReminders from "./invoiceReminders";
+import ToolSync from "./toolSync";
+import AutomatedQuoting from "./automatedQuoting";
 
 /**
- * slug → lazily-imported showcase module. Each module renders ONE static
- * snippet, selected by the `snippet` key. Lazy so a demo's CSS ships only on
- * its own detail page, mirroring `src/demos/registry.ts`. Workflows are added
- * here (with `lazy(() => import("./<dir>"))`) as their detail pages are
- * redesigned (Tasks 3–4).
+ * slug → showcase module. Each module renders ONE static snippet, selected by
+ * the `snippet` key. They are pure markup, so they render on the server and
+ * ship no JavaScript.
  */
 export const showcaseRegistry: Record<
   string,
-  LazyExoticComponent<ComponentType<{ snippet: string }>>
+  ComponentType<{ snippet: string }>
 > = {
-  "review-generation": lazy(() => import("./reviewGeneration")),
-  "win-back-campaigns": lazy(() => import("./winBackCampaign")),
-  "missed-call-text-back": lazy(() => import("./missedCallTextBack")),
-  "job-dispatch": lazy(() => import("./jobDispatch")),
-  "new-customer-onboarding": lazy(() => import("./newCustomerOnboarding")),
-  "weekly-owner-reports": lazy(() => import("./weeklyReports")),
-  "invoice-reminders": lazy(() => import("./invoiceReminders")),
-  "tool-sync": lazy(() => import("./toolSync")),
-  "automated-quoting": lazy(() => import("./automatedQuoting")),
+  "review-generation": ReviewGeneration,
+  "win-back-campaigns": WinBackCampaign,
+  "missed-call-text-back": MissedCallTextBack,
+  "job-dispatch": JobDispatch,
+  "new-customer-onboarding": NewCustomerOnboarding,
+  "weekly-owner-reports": WeeklyReports,
+  "invoice-reminders": InvoiceReminders,
+  "tool-sync": ToolSync,
+  "automated-quoting": AutomatedQuoting,
 };

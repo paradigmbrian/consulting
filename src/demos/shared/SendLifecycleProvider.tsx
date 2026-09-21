@@ -82,7 +82,6 @@ export function SendLifecycleProvider({ children }: { children: ReactNode }) {
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useSendLifecycle(): SendLifecycleValue {
   const ctx = useContext(Ctx);
   if (!ctx) {

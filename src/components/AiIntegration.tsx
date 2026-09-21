@@ -7,6 +7,13 @@ import {
 } from "react-icons/fa";
 import { HiClock, HiCurrencyDollar, HiLightBulb } from "react-icons/hi";
 import { CALENDLY_URL } from "../data/site";
+// This page reuses classes owned by other sections (.wf-eyebrow, .btn*,
+// .offer-*, .step*). Each page now ships only the CSS it imports, so those
+// stylesheets are pulled in explicitly, in the order the cascade expects.
+import "./shared-sections.css";
+import "./Hero.css";
+import "./Offer.css";
+import "./HowItWorks.css";
 import CTA from "./CTA";
 import "./AiIntegration.css";
 

@@ -25,6 +25,13 @@
   text-align: left;
 }
 
+.wf-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
 .wf-hero-copy .wf-hero-actions {
   justify-content: flex-start;
 }

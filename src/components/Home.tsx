@@ -1,5 +1,5 @@
 import { FaCalendarAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CALENDLY_URL } from "../data/site";
 import AwWhyWorkWithMe from "./workflows/AwWhyWorkWithMe";
 import AwHowItWorks from "./workflows/AwHowItWorks";
@@ -73,7 +73,7 @@ const Home = () => {
             {services.map((service) => (
               <Link
                 key={service.to}
-                to={service.to}
+                href={service.to}
                 className={
                   service.accent
                     ? "home-service-card home-service-card-accent"

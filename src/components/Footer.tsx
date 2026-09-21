@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CALENDLY_URL } from "../data/site";
 import "./Footer.css";
 
@@ -8,9 +8,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <nav className="footer-links">
-            <Link to="/services/automated-workflows">Automations</Link>
-            <Link to="/services/ai-integration">AI integration</Link>
-            <Link to="/services/technical-consulting">
+            <Link href="/services/automated-workflows">Automations</Link>
+            <Link href="/services/ai-integration">AI integration</Link>
+            <Link href="/services/technical-consulting">
               Technical consulting
             </Link>
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">

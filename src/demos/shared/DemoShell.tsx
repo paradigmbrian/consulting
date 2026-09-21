@@ -1,6 +1,6 @@
 import { FaCalendarAlt, FaMagic } from "react-icons/fa";
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useDemo } from "./DemoController";
 import FlowMap from "./FlowMap";
 import { CALENDLY_URL } from "../../data/site";
@@ -59,7 +59,7 @@ const DemoShell = ({ eyebrow, title, backTo, renderStage }: DemoShellProps) => {
     <main className="demo">
       <header className="demo-topbar">
         {backTo && (
-          <Link to={backTo} className="demo-back">
+          <Link href={backTo} className="demo-back">
             ← Exit demo
           </Link>
         )}

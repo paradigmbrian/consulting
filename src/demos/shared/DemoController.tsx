@@ -68,7 +68,6 @@ export function DemoProvider({
   return <DemoContext.Provider value={value}>{children}</DemoContext.Provider>;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useDemo(): DemoContextValue {
   const ctx = useContext(DemoContext);
   if (!ctx) {

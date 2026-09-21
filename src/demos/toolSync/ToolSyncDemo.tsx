@@ -1,3 +1,5 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import DemoShell from "../shared/DemoShell";

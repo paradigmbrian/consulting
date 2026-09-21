@@ -1,5 +1,5 @@
 import { FaCalendarAlt, FaPlay } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CALENDLY_URL } from "../data/site";
 import { workflows, workflowPath, workflowDemoPath } from "../data/workflows";
 import HeroMontage from "../showcases/HeroMontage";
@@ -139,7 +139,7 @@ const AutomatedWorkflows = () => {
                 return workflow.published ? (
                   <Link
                     key={workflow.slug}
-                    to={workflowPath(workflow.slug)}
+                    href={workflowPath(workflow.slug)}
                     className="aw-example-card aw-example-card-link"
                   >
                     {inner}
@@ -171,7 +171,7 @@ const AutomatedWorkflows = () => {
               </p>
               <div className="wf-hero-actions">
                 <Link
-                  to={workflowDemoPath("review-generation")}
+                  href={workflowDemoPath("review-generation")}
                   className="aw-hero-btn"
                 >
                   <FaPlay className="aw-hero-btn-icon" />
