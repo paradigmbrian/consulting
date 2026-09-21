@@ -1,18 +1,7 @@
-import { workflows } from "../src/data/workflows";
+import { demoRoutes as demos, pageRoutes as pages } from "../src/lib/routes";
 
-const published = workflows.filter((w) => w.published);
-
-export const pageRoutes: string[] = [
-  "/",
-  "/services/automated-workflows",
-  "/services/ai-integration",
-  "/services/technical-consulting",
-  ...published.map((w) => `/services/automated-workflows/${w.slug}`),
-];
-
-export const demoRoutes: string[] = published
-  .filter((w) => w.hasDemo)
-  .map((w) => `/services/automated-workflows/${w.slug}/demo`);
+export const pageRoutes: string[] = pages();
+export const demoRoutes: string[] = demos();
 
 /** "/services/x/y" → "services--x--y"; "/" → "home". */
 export const snapshotName = (route: string): string =>

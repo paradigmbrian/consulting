@@ -1,43 +1,12 @@
 import { FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import { CALENDLY_URL } from "../data/site";
+import { publishedServices, servicePath } from "../data/services";
 import AwWhyWorkWithMe from "./workflows/AwWhyWorkWithMe";
 import AwHowItWorks from "./workflows/AwHowItWorks";
 import AwFinalCta from "./workflows/AwFinalCta";
 import "./shared-sections.css";
 import "./Home.css";
-
-interface ServiceCard {
-  eyebrow: string;
-  name: string;
-  line: string;
-  to: string;
-  accent: boolean;
-}
-
-const services: ServiceCard[] = [
-  {
-    eyebrow: "For small-business owners",
-    name: "AI Automations",
-    line: "Put AI to work on the busywork — missed calls, quotes, invoices, reviews — on the tools you already use.",
-    to: "/services/automated-workflows",
-    accent: true,
-  },
-  {
-    eyebrow: "For startups & product teams",
-    name: "AI Integration",
-    line: "Embed AI into the product you already have — starting with a fixed-fee roadmap, not a rebuild.",
-    to: "/services/ai-integration",
-    accent: true,
-  },
-  {
-    eyebrow: "For non-technical founders",
-    name: "Technical Consulting",
-    line: "Technical clarity before you build or hire — fixed-scope audits and MVP blueprints.",
-    to: "/services/technical-consulting",
-    accent: false,
-  },
-];
 
 const Home = () => {
   return (
@@ -70,10 +39,10 @@ const Home = () => {
       <section className="home-sorter">
         <div className="container">
           <div className="home-sorter-grid">
-            {services.map((service) => (
+            {publishedServices.map((service) => (
               <Link
-                key={service.to}
-                href={service.to}
+                key={service.slug}
+                href={servicePath(service.slug)}
                 className={
                   service.accent
                     ? "home-service-card home-service-card-accent"
