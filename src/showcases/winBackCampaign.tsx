@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import "../demos/winBackCampaign/winback.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the win-back-campaigns detail page.
  * Reuses the demo's real `.wb-*` classes (styled by winback.css, colored by

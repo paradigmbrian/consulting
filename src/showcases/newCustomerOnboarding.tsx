@@ -8,6 +8,8 @@ import {
 } from "react-icons/fa";
 import "../demos/newCustomerOnboarding/onboarding.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the new-customer-onboarding detail page.
  * Reuses the demo's real `.nco-*` classes (styled by onboarding.css, colored

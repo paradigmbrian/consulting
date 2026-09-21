@@ -1,6 +1,8 @@
 import { FaFileImport, FaSyncAlt, FaCheckCircle } from "react-icons/fa";
 import "../demos/toolSync/sync.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the tool-sync detail page.
  * Reuses the demo's real `.tts-*` classes (styled by sync.css, colored by

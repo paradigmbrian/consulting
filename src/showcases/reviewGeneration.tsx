@@ -1,6 +1,8 @@
 import { FaGoogle, FaStar, FaCheckCircle, FaSpa, FaThumbsUp } from "react-icons/fa";
 import "../demos/reviewGeneration/reviews.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the review-generation detail page.
  * Reuses the demo's real `.rg-*` classes (styled by reviews.css, colored by

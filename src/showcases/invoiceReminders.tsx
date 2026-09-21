@@ -1,6 +1,8 @@
 import { FaFileInvoiceDollar, FaUserClock, FaMoneyBillWave } from "react-icons/fa";
 import "../demos/invoiceReminders/invoices.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the invoice-reminders detail page.
  * Reuses the demo's real `.inv-*` classes (styled by invoices.css, colored by

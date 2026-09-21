@@ -10,6 +10,8 @@ import {
 } from "react-icons/fa";
 import "../demos/missedCallTextBack/missedcall.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the missed-call-text-back detail page.
  * Reuses the demo's real `.mc-*` classes (styled by missedcall.css, colored

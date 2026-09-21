@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import "../demos/automatedQuoting/quoting.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the automated-quoting detail page.
  * Reuses the demo's real `.qt-*` classes (styled by quoting.css, colored by

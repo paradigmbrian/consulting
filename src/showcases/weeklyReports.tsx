@@ -1,6 +1,8 @@
 import { FaCheck, FaExclamationTriangle, FaBolt, FaCheckCircle } from "react-icons/fa";
 import "../demos/weeklyReports/reports.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the weekly-owner-reports detail page.
  * Reuses the demo's real `.wr-*` classes (styled by reports.css, colored by

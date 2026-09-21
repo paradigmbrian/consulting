@@ -1,6 +1,8 @@
 import { FaExclamationTriangle, FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import "../demos/jobDispatch/dispatch.css";
 
+import type { JSX } from "react";
+
 /**
  * Static "product-shot" snippets for the job-dispatch detail page.
  * Reuses the demo's real `.jd-*` classes (styled by dispatch.css, colored by
