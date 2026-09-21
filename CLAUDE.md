@@ -76,6 +76,10 @@ any statistic.
   SPA catch-all; unknown URLs get `out/404.html`. `src/lib/netlify.test.ts` enforces this.
 - **Static export limits.** No middleware, no ISR, no server actions, no `next/image`
   optimizer. Route handlers must be `force-static`.
+- **`e2e/package.json` is `{ "type": "commonjs" }` on purpose.** The root package is
+  `"type": "module"`, so without it Playwright's loader treats `e2e/*.ts` as native ESM,
+  whose resolver rejects the `react-icons/fa` directory import reached via
+  `e2e/routes.ts → src/lib/routes.ts → src/data/workflows.ts`. Don't remove it.
 - **No CMS** — all content is hardcoded in components or `data/`.
 - **Calendly integration** — CTAs link to https://calendly.com/brian-paradigmshiftdev/30min
 - **Responsive** — mobile-first CSS with breakpoints at 768px and 968px

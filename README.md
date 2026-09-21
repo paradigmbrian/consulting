@@ -1,6 +1,8 @@
 # Consulting Website
 
-A modern, responsive React website for the MVP Tech Blueprint consulting service.
+Paradigm Shift Software Development's consulting site: three service lines — AI
+automations for small businesses, AI integration, and technical consulting — with
+nine interactive workflow demos.
 
 ## Tech Stack
 
@@ -13,7 +15,7 @@ A modern, responsive React website for the MVP Tech Blueprint consulting service
 
 ### Prerequisites
 
-- Node.js 18+ and npm
+- Node.js 20.9+ (Node 22 recommended; see `.nvmrc`) and npm
 
 ### Installation
 
@@ -50,6 +52,18 @@ npm run preview
 ```
 
 This serves `out/` at `http://localhost:4173`.
+
+### Checks
+
+```bash
+npm test          # Vitest unit tests
+npm run lint      # ESLint, zero warnings
+npm run typecheck # tsc --noEmit
+npm run e2e       # Playwright: builds, serves out/, runs visual + behaviour specs
+```
+
+**Definition of done:** `npm test` → `npm run lint` → `npm run build` → `npm run e2e`,
+all green. (`npm run build` runs the post-build SEO gate automatically.)
 
 ## Deployment to Netlify
 

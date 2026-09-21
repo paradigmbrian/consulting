@@ -72,9 +72,10 @@
 }
 
 @media (max-width: 640px) {
-  /* No vertical padding here: `.container` (index.css) sets the shorthand
-     `padding: 0 …` on this same element at equal specificity, so any
-     padding-top/bottom written here has never applied. */
+  /* `.container` (index.css) sets the `padding: 0 …` shorthand on this same
+     element at equal specificity, and index.css now loads first, so any
+     padding-top/bottom added here WOULD win and shift the mobile header. The
+     live design has none — adding it is a design change, not a fix. */
   .site-header-inner {
     flex-wrap: wrap;
     height: auto;

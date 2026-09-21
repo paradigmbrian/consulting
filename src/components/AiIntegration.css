@@ -8,7 +8,14 @@
    dropped the rule. The shipped page has therefore always rendered with no hero
    padding and left-aligned hero lines. The comment is now well-formed; the rule
    is left out so the page keeps rendering exactly as it does today. Restoring
-   it is a design change, not part of this migration. */
+   it is a design change, not part of this migration. The dropped declarations,
+   verbatim, so restoring them is an uncomment:
+
+   .ai-hero {
+     padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
+     text-align: center;
+   }
+*/
 
 .ai-hero-content {
   max-width: 760px;

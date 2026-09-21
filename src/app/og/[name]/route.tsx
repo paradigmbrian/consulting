@@ -17,6 +17,10 @@ export async function GET(
   const card = ogCards().find((c) => c.name === name);
   if (!card) return new Response("Not found", { status: 404 });
 
+  // next/og resolves no CSS variables, so these hex values are a hand copy of
+  // src/index.css: --color-primary #2563eb, --color-text #0f172a,
+  // --color-text-light #566072, and the linear-gradient half of --hero-bg.
+  // Change a token there and change it here too.
   return new ImageResponse(
     (
       <div

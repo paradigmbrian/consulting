@@ -1,3 +1,8 @@
+/* Global styles and theme tokens. The root layout imports this file, so under
+   Next it loads FIRST on every route — component stylesheets come after it and
+   win equal-specificity ties against it (the reverse of the old Vite bundle,
+   where index.css came last). */
+
 * {
   margin: 0;
   padding: 0;
