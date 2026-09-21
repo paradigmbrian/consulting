@@ -3,13 +3,6 @@ import { FaCalendarAlt } from "react-icons/fa";
 import "./Hero.css";
 
 const Hero = () => {
-  const scrollToOffer = () => {
-    const offerSection = document.getElementById("offer");
-    if (offerSection) {
-      offerSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="hero">
       <div className="container">
@@ -38,9 +31,9 @@ const Hero = () => {
               <FaCalendarAlt className="btn-icon" />
               Book a 30-minute founder call →
             </a>
-            <button className="btn btn-secondary" onClick={scrollToOffer}>
+            <a href="#offer" className="btn btn-secondary">
               See what's included
-            </button>
+            </a>
           </div>
         </div>
       </div>

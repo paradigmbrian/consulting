@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import { SendLifecycleProvider } from "../shared/SendLifecycleProvider";
 import DemoShell from "../shared/DemoShell";
-import { workflowPath } from "../../data/workflows";
+import { workflowPath } from "../../data/workflowPaths";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import AppointmentStep from "./steps/AppointmentStep";

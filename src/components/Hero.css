@@ -124,6 +124,10 @@
   color: var(--color-text);
   border: 2px solid var(--color-border);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Now rendered as an <a>, which inherits body's line-height (1.6) unlike a
+     <button>, whose UA stylesheet resets it to "normal". Match the button's
+     historical box height so the anchor is pixel-identical to what it replaced. */
+  line-height: normal;
 }
 
 .hero .btn-secondary {

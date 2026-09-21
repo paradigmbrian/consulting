@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { DemoProvider } from "../shared/DemoController";
 import DemoShell from "../shared/DemoShell";
-import { workflowPath } from "../../data/workflows";
+import { workflowPath } from "../../data/workflowPaths";
 import { steps } from "./steps";
 import { scriptedWorkflowProvider } from "./provider";
 import IntakeStep from "./steps/IntakeStep";

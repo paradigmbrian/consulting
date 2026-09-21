@@ -11,10 +11,6 @@ import CTA from "./CTA";
 import "./AiIntegration.css";
 
 const AiIntegration = () => {
-  const scrollToOffer = () => {
-    document.getElementById("ai-offer")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
       <section className="ai-hero">
@@ -42,9 +38,9 @@ const AiIntegration = () => {
                 <FaCalendarAlt className="btn-icon" />
                 Book a 30-minute call →
               </a>
-              <button className="btn btn-secondary" onClick={scrollToOffer}>
+              <a href="#ai-offer" className="btn btn-secondary">
                 See the engagements
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -973,11 +973,7 @@ export const workflows: Workflow[] = [
   },
 ];
 
-export const workflowPath = (slug: string): string =>
-  `/services/automated-workflows/${slug}`;
-
-export const workflowDemoPath = (slug: string): string =>
-  `${workflowPath(slug)}/demo`;
+export { workflowPath, workflowDemoPath } from "./workflowPaths";
 
 export const getWorkflow = (slug: string): Workflow | undefined =>
   workflows.find((workflow) => workflow.slug === slug);
