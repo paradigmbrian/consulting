@@ -1,16 +1,13 @@
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "out"
 
-# The automation index merged into the homepage — send its old URL there.
-# MUST stay above the SPA catch-all: Netlify stops at the first matching rule.
-[[redirects]]
-  from = "/services/automated-workflows"
-  to = "/"
-  status = 301
+[build.environment]
+  NODE_VERSION = "22"
 
-# Old demo URLs → their new home under the service route.
-# MUST stay above the SPA catch-all: Netlify stops at the first matching rule.
+# Legacy demo URLs → their home under the service route. Every other URL is a
+# real file in out/ (Next static export), so there is no SPA catch-all, and
+# unknown URLs get out/404.html automatically.
 [[redirects]]
   from = "/demos/win-back-campaign"
   to = "/services/automated-workflows/win-back-campaigns/demo"
@@ -56,7 +53,3 @@
   to = "/services/automated-workflows/tool-sync/demo"
   status = 301
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
