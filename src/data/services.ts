@@ -63,3 +63,10 @@ export const servicePath = (slug: string): string => `/services/${slug}`;
 
 export const getService = (slug: string): Service | undefined =>
   services.find((s) => s.slug === slug);
+
+/** For call sites where a missing service is a programming error. */
+export const requireService = (slug: string): Service => {
+  const service = getService(slug);
+  if (!service) throw new Error(`Unknown service: ${slug}`);
+  return service;
+};
