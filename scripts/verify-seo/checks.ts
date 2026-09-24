@@ -46,7 +46,12 @@ export function verify({
     const description =
       root.querySelector('meta[name="description"]')?.getAttribute("content")?.trim() ?? "";
     if (!description) problems.push(`${path}: missing meta description`);
-    else descriptions.set(description, [...(descriptions.get(description) ?? []), path]);
+    else {
+      descriptions.set(description, [...(descriptions.get(description) ?? []), path]);
+      if (description.length < 70 || description.length > 160) {
+        problems.push(`${path}: description is ${description.length} chars, expected 70–160`);
+      }
+    }
 
     const canonical = root.querySelector('link[rel="canonical"]')?.getAttribute("href") ?? "";
     if (!canonical) problems.push(`${path}: missing canonical`);

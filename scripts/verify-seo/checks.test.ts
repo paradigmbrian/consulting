@@ -7,7 +7,7 @@ const page = (path: string, overrides: Partial<Record<string, string>> = {}): st
   const url = path === "/" ? SITE : `${SITE}${path}`;
   const parts = {
     title: `<title>Title ${path}</title>`,
-    description: `<meta name="description" content="Description ${path}">`,
+    description: `<meta name="description" content="Description for ${path}: long enough to clear the seventy-character floor that the gate enforces.">`,
     canonical: `<link rel="canonical" href="${url}">`,
     og: `<meta property="og:image" content="${SITE}/og/x.png">`,
     body: `<h1>Heading</h1><script type="application/ld+json">{"@type":"WebSite"}</script>`,
@@ -102,5 +102,22 @@ describe("verify", () => {
     const problems = verify(input([{ path: "/a", html: page("/a") }], ["/b"]));
     expect(problems).toContain("/a: not in sitemap.xml");
     expect(problems).toContain(`sitemap.xml lists ${SITE}/b, which was not built`);
+  });
+
+  it.each([
+    ["a".repeat(69), 69],
+    ["a".repeat(161), 161],
+  ])("reports a description outside 70–160 characters", (text, length) => {
+    const html = page("/a", { description: `<meta name="description" content="${text}">` });
+    expect(verify(input([{ path: "/a", html }]))).toContain(
+      `/a: description is ${length} chars, expected 70–160`,
+    );
+  });
+
+  it("accepts a 70-character and a 160-character description", () => {
+    for (const text of ["b".repeat(70), "c".repeat(160)]) {
+      const html = page("/a", { description: `<meta name="description" content="${text}">` });
+      expect(verify(input([{ path: "/a", html }]))).toEqual([]);
+    }
   });
 });
