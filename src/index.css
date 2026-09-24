@@ -128,8 +128,17 @@ button {
 
 /* Offset in-page anchor targets so the sticky header doesn't cover them. */
 #use-cases,
-#how-it-works {
+#how-it-works,
+#offer,
+#ai-offer {
   scroll-margin-top: 5rem;
+}
+
+/* In-page anchors glide instead of jumping, unless the visitor asked for less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .section-title {
