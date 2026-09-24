@@ -41,6 +41,8 @@ export interface Showcase {
 
 export interface WorkflowContent {
   hero: { headline: string; subhead: string };
+  metaDescription: string; // <meta name="description"> and Service JSON-LD; 70–160 chars
+  demoDescription: string; // the demo page's <meta name="description">; 70–160 chars
   stats: Stat[]; // empty ⇒ section omitted
   painPoints: string[];
   mechanism: { title: string; description: string }[];
@@ -71,6 +73,10 @@ export const workflows: Workflow[] = [
       subhead:
         "You know some of the people in your records are due for work again. You also know that mailing the whole list a discount is a good way to get ignored, or unsubscribed from. This picks out the customers who are actually due, gives each one a reason that fits their last job, and contacts only them.",
     },
+    metaDescription:
+      "Picks out the past customers who are actually due for work, gives each one a reason that fits their last job, and contacts only them. No blast discounts.",
+    demoDescription:
+      "Click through the Win-Back Campaigns automation on a made-up business: who gets picked, what they are sent and why. No signup, nothing to install.",
     stats: [],
     painPoints: [
       "You have years of customers in your invoicing software and no way to tell which of them are due for work again.",
@@ -169,6 +175,10 @@ export const workflows: Workflow[] = [
       subhead:
         "When your phone rings and nobody picks up, some callers leave a voicemail. Others just dial the next company on the list. This texts them back in seconds, answers their questions, and books the job while you're still up a ladder.",
     },
+    metaDescription:
+      "Miss a call and it texts the caller back in seconds, answers their questions and books the job, so leads stop dialing the next company on the list.",
+    demoDescription:
+      "Click through the Missed-Call Text-Back automation on a made-up business: the missed call, the reply and the booking. No signup, nothing to install.",
     stats: [],
     painPoints: [
       "You're on a job, the phone rings, and there's nobody in the office to answer it.",
@@ -268,6 +278,10 @@ export const workflows: Workflow[] = [
       subhead:
         "Plenty of happy customers just get on with their day, and the review never gets written. The unhappy ones are often motivated enough to post without being asked. This asks everyone how it went, points the happy ones at Google, and routes the unhappy ones to you — while there's still a problem you can fix.",
     },
+    metaDescription:
+      "Asks every customer how the job went, points the happy ones at Google and routes the unhappy ones to you while there is still a problem you can fix.",
+    demoDescription:
+      "Click through the Review Generation automation on a made-up business: the ask, the happy path to Google, the unhappy one to you. No signup, no install.",
     stats: [
       {
         value: "97%",
@@ -382,6 +396,10 @@ export const workflows: Workflow[] = [
       subhead:
         "A request comes in during the day, and the pricing gets done after dinner — if it gets done. By the time it's typed up and sent, the customer has had time to go cold or call someone else. This reads the request, builds an itemized quote from your own pricing, and puts it in front of you to approve before it goes anywhere.",
     },
+    metaDescription:
+      "Reads an incoming request, builds an itemized quote from your own pricing and puts it in front of you to approve the same day, not after dinner.",
+    demoDescription:
+      "Click through the Automated Quoting automation on a made-up business: the request, the itemized quote and your approval. No signup, nothing to install.",
     stats: [],
     painPoints: [
       "You're still hand-figuring an estimate at the kitchen table, because the day was full of actual work.",
@@ -480,6 +498,10 @@ export const workflows: Workflow[] = [
       subhead:
         "Once the invoice goes out, remembering it becomes your job. So you either spend an evening working out who still owes you and writing texts you'd rather not send, or you let it ride and hope. This follows up on its own schedule, in a tone you'd be happy to put your name to, and stops the moment they pay.",
     },
+    metaDescription:
+      "Follows up on unpaid invoices on a schedule, in a tone you would put your name to, and stops the moment the customer pays. No more evenings chasing money.",
+    demoDescription:
+      "Click through the Invoice & Payment Reminders automation on a made-up business: each follow-up, and the moment it stops. No signup, nothing to install.",
     stats: [
       {
         value: "39%",
@@ -595,6 +617,10 @@ export const workflows: Workflow[] = [
       subhead:
         "The welcome you meant to send, the agreement you meant to chase, the gate code nobody thought to ask for — it all lands on you at the end of a long day, or it doesn't land at all. This sends the welcome the moment they book, collects the paperwork and the access details in one message, and gets the first visit on the calendar before you've read the notification.",
     },
+    metaDescription:
+      "Sends the welcome the moment a customer books, collects the paperwork and access details in one message, and gets the first visit onto the calendar.",
+    demoDescription:
+      "Click through the New-Customer Onboarding automation on a made-up business: welcome, paperwork, access details and first visit. No signup, nothing to install.",
     stats: [],
     painPoints: [
       "You meant to send a proper welcome the night they signed up. It's Wednesday and it's still sitting in your drafts.",
@@ -694,6 +720,10 @@ export const workflows: Workflow[] = [
       subhead:
         "Calls land overnight, an emergency comes in before you've finished your coffee, and the board gets rearranged until it roughly works. Your techs drive further than they need to, and the customer gets an arrival window wide enough to swallow their morning. This sorts the pile against skills, zones, and the windows you've already promised, routes each van, and tells the customer when to expect someone.",
     },
+    metaDescription:
+      "Sorts incoming jobs against skills, zones and the arrival windows you have already promised, routes each van and tells the customer when to expect someone.",
+    demoDescription:
+      "Click through the Job Scheduling & Dispatch automation on a made-up business: the job pile, the routing, the customer notice. No signup, nothing to install.",
     stats: [],
     painPoints: [
       "You start the morning rearranging the whiteboard, because the calls that landed overnight don't fit the day you'd already worked out.",
@@ -792,6 +822,10 @@ export const workflows: Workflow[] = [
       subhead:
         "The numbers exist — they're just scattered across your job software, your invoicing, and your calendar, and pulling them together is a job nobody has time for. This gathers them every week and puts a short, readable summary in your inbox. What you do about it is still your call.",
     },
+    metaDescription:
+      "Pulls the numbers from your job software, invoicing and calendar every week and puts a short, readable summary in your inbox. What you do next is your call.",
+    demoDescription:
+      "Click through the Weekly Owner Reports automation on a made-up business: scattered numbers in, a readable summary out. No signup, nothing to install.",
     stats: [],
     painPoints: [
       "Your jobs live in one system, your invoices in another, and your calendar somewhere else — none of them talk to each other.",
@@ -890,6 +924,10 @@ export const workflows: Workflow[] = [
       subhead:
         "The job details get typed into the scheduler, then typed again into the invoice, then again into the books. Somewhere along the way a digit changes, a record gets created that already existed, and the tools stop agreeing about what happened. This moves the information between them, so it gets entered in one place and lands wherever it's needed.",
     },
+    metaDescription:
+      "Moves job details between your scheduler, invoicing and books so data is entered once and lands wherever it is needed. No retyping, no records that disagree.",
+    demoDescription:
+      "Click through the Tool-to-Tool Sync automation on a made-up business: one entry in the scheduler, landing in invoicing and books. No signup, no install.",
     stats: [],
     painPoints: [
       "You type the customer's address into the scheduler, then type the same address into the invoice — and one of them ends up with a typo.",

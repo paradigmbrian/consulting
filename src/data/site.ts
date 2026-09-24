@@ -9,4 +9,4 @@ export const COMPANY_LINKEDIN_URL =
 export const HOME_TITLE =
   "AI Automation for Small Business | Paradigm Shift Software Development";
 export const HOME_DESCRIPTION =
-  "AI-powered automation for small and trades businesses — missed-call text-back, review generation, quoting, invoicing, dispatch and more, built on the tools you already use. See nine working demos.";
+  "AI automation for small and trades businesses: missed-call text-back, review requests, quoting, invoice reminders and dispatch, on the tools you already use.";

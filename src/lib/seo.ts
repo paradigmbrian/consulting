@@ -25,16 +25,6 @@ export const ogName = (path: string): string =>
 
 export const ogImagePath = (path: string): string => `/og/${ogName(path)}.png`;
 
-/** Trim to `max` characters on a word boundary. Meta descriptions, not prose. */
-export function clip(text: string, max = 158): string {
-  const clean = text.replace(/\s+/g, " ").trim();
-  if (clean.length <= max) return clean;
-  const cut = clean.slice(0, max);
-  const lastSpace = cut.lastIndexOf(" ");
-  const body = cut.slice(0, lastSpace > 0 ? lastSpace : max);
-  return `${body.replace(/[\s,;:—–-]+$/, "")}…`;
-}
-
 export interface PageMeta {
   title: string;
   description: string;
@@ -76,17 +66,15 @@ export function pageMetadata({
 export const workflowMeta = (
   w: PublishedWorkflow,
 ): { title: string; description: string } => ({
-  title: `${w.label}: ${w.cardSummary}`,
-  description: clip(w.hero.subhead),
+  title: w.label,
+  description: w.metaDescription,
 });
 
 export const demoMeta = (
   w: PublishedWorkflow,
 ): { title: string; description: string } => ({
-  title: `Interactive Demo: ${w.label}`,
-  description: clip(
-    `Click through a working ${w.label} automation on a made-up business, step by step. ${w.cardSummary}. No signup, nothing to install.`,
-  ),
+  title: `${w.label} Demo`,
+  description: w.demoDescription,
 });
 
 export const organizationJsonLd = (): JsonLd => ({
@@ -125,7 +113,7 @@ export const workflowJsonLd = (w: PublishedWorkflow): JsonLd => ({
   "@context": CONTEXT,
   "@type": "Service",
   name: w.label,
-  description: clip(w.hero.subhead),
+  description: w.metaDescription,
   url: absoluteUrl(workflowPath(w.slug)),
   provider: { "@id": ORGANIZATION_ID },
 });

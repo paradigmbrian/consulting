@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { requireService } from "../data/services";
+import { HOME_DESCRIPTION } from "../data/site";
 import { publishedWorkflows } from "./routes";
 import {
   absoluteUrl,
   breadcrumbJsonLd,
-  clip,
   demoBreadcrumb,
   demoMeta,
   faqJsonLd,
@@ -37,22 +37,6 @@ describe("urls", () => {
       "services-automated-workflows-tool-sync-demo",
     );
     expect(ogImagePath("/")).toBe("/og/home.png");
-  });
-});
-
-describe("clip", () => {
-  it("returns short text unchanged, whitespace collapsed", () => {
-    expect(clip("  a  b\n c ")).toBe("a b c");
-  });
-
-  it("cuts on a word boundary, never mid-word, and adds an ellipsis", () => {
-    const out = clip("alpha beta gamma delta", 12);
-    expect(out).toBe("alpha beta…");
-    expect(out.length).toBeLessThanOrEqual(13);
-  });
-
-  it("drops trailing punctuation before the ellipsis", () => {
-    expect(clip("alpha, beta gamma", 8)).toBe("alpha…");
   });
 });
 
@@ -95,21 +79,42 @@ describe("pageMetadata", () => {
 });
 
 describe("workflow and demo meta", () => {
-  it("gives every workflow and demo a unique title and a 70–160 char description", () => {
-    const all = publishedWorkflows().flatMap((w) => [workflowMeta(w), demoMeta(w)]);
+  const all = publishedWorkflows().flatMap((w) => [workflowMeta(w), demoMeta(w)]);
+
+  it("gives every workflow and demo a unique title and description", () => {
     expect(new Set(all.map((m) => m.title)).size).toBe(all.length);
     expect(new Set(all.map((m) => m.description)).size).toBe(all.length);
+  });
+
+  it("keeps every description within 70–160 characters", () => {
     for (const m of all) {
       expect(m.description.length, m.title).toBeGreaterThanOrEqual(70);
       expect(m.description.length, m.title).toBeLessThanOrEqual(160);
     }
   });
 
-  it("titles a workflow by label and summary", () => {
-    expect(workflowMeta(missedCall).title).toBe(
-      `${missedCall.label}: ${missedCall.cardSummary}`,
-    );
-    expect(demoMeta(missedCall).title).toBe(`Interactive Demo: ${missedCall.label}`);
+  it("keeps every title, with the site suffix, within 60 characters", () => {
+    for (const m of all) {
+      expect(`${m.title} | Paradigm Shift`.length, m.title).toBeLessThanOrEqual(60);
+    }
+  });
+
+  it("titles a workflow by its label and a demo by label + Demo", () => {
+    expect(workflowMeta(missedCall).title).toBe(missedCall.label);
+    expect(demoMeta(missedCall).title).toBe(`${missedCall.label} Demo`);
+  });
+
+  it("uses the hand-written descriptions, not the hero copy", () => {
+    expect(workflowMeta(missedCall).description).toBe(missedCall.metaDescription);
+    expect(demoMeta(missedCall).description).toBe(missedCall.demoDescription);
+    expect(workflowJsonLd(missedCall).description).toBe(missedCall.metaDescription);
+  });
+});
+
+describe("site", () => {
+  it("keeps the home description within 70–160 characters", () => {
+    expect(HOME_DESCRIPTION.length).toBeGreaterThanOrEqual(70);
+    expect(HOME_DESCRIPTION.length).toBeLessThanOrEqual(160);
   });
 });
 
