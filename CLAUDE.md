@@ -68,9 +68,12 @@ any statistic.
   smell — prefer an anchor link or CSS.
 - **Every page needs metadata.** A new route exports `metadata` (or `generateMetadata`)
   built with `pageMetadata()` from `lib/seo.ts`, and must be added to `lib/routes.ts`.
-  The build fails otherwise: the gate requires a unique title and description, a
-  self-canonical, a built `og:image`, exactly one `<h1>`, valid JSON-LD, and agreement
-  between `sitemap.xml` and the built pages.
+  Workflow titles are the label alone (`<Label> | Paradigm Shift`; demos `<Label> Demo`);
+  a published workflow must carry hand-written `metaDescription` and `demoDescription`
+  (70–160 chars). The build fails otherwise: the gate requires a unique title and a unique
+  70–160-character description, a self-canonical, a built `og:image`, exactly one `<h1>`,
+  valid JSON-LD, agreement between `sitemap.xml` and the built pages, and the presence of
+  `llms.txt`, `robots.txt`, `sitemap.xml` and `favicon.ico`.
 - **URLs have no trailing slash.** Netlify serves `out/services/x.html` at `/services/x`.
 - **Redirects.** `netlify.toml` holds only the nine legacy `/demos/*` 301s. There is no
   SPA catch-all; unknown URLs get `out/404.html`. `src/lib/netlify.test.ts` enforces this.
@@ -80,6 +83,11 @@ any statistic.
   `"type": "module"`, so without it Playwright's loader treats `e2e/*.ts` as native ESM,
   whose resolver rejects the `react-icons/fa` directory import reached via
   `e2e/routes.ts → src/lib/routes.ts → src/data/workflows.ts`. Don't remove it.
+- **Screenshot baselines are Git LFS.** `e2e/__screenshots__/**/*.png` is tracked in
+  `.gitattributes`; a fresh clone needs `brew install git-lfs && git lfs install` (then
+  `git lfs pull`) before `npm run e2e` can compare against real images.
+- **OG cards render Inter** from `src/app/og/fonts/` (SIL OFL, Latin subset) because
+  `next/og` bundles one regular weight; the hex colours in the route mirror `index.css`.
 - **No CMS** — all content is hardcoded in components or `data/`.
 - **Calendly integration** — CTAs link to https://calendly.com/brian-paradigmshiftdev/30min
 - **Responsive** — mobile-first CSS with breakpoints at 768px and 968px

@@ -16,6 +16,8 @@ nine interactive workflow demos.
 ### Prerequisites
 
 - Node.js 20.9+ (Node 22 recommended; see `.nvmrc`) and npm
+- Git LFS (`brew install git-lfs && git lfs install`) — the Playwright screenshot baselines
+  are LFS objects; without it `npm run e2e` compares against pointer files and fails
 
 ### Installation
 
