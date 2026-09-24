@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description: HOME_DESCRIPTION,
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48 32x32 16x16", type: "image/x-icon" },
       { url: "/favicon/ps-favicon-16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon/ps-favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon/ps-favicon-1024.png", sizes: "1024x1024", type: "image/png" },

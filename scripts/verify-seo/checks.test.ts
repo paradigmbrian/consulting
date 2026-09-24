@@ -82,7 +82,7 @@ describe("verify", () => {
     expect(problems).toContain('duplicate description "Same": /a, /b');
   });
 
-  it.each(["llms.txt", "robots.txt", "sitemap.xml"])("reports a missing %s", (file) => {
+  it.each(["llms.txt", "robots.txt", "sitemap.xml", "favicon.ico"])("reports a missing %s", (file) => {
     const problems = verify({
       ...input([{ path: "/a", html: page("/a") }]),
       readFile: (publicPath) => (publicPath === `/${file}` ? null : "content"),

@@ -15,8 +15,8 @@ export interface VerifyInput {
   readFile: (publicPath: string) => string | null;
 }
 
-/** Route handlers, not pages: nothing else in this gate would notice them missing. */
-const REQUIRED_FILES = ["llms.txt", "robots.txt", "sitemap.xml"];
+/** Route handlers and static assets nothing else in this gate would notice missing. */
+const REQUIRED_FILES = ["llms.txt", "robots.txt", "sitemap.xml", "favicon.ico"];
 
 function duplicates(label: string, values: Map<string, string[]>): string[] {
   return [...values.entries()]
