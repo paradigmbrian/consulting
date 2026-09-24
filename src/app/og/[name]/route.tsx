@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { SITE_NAME } from "@/data/site";
 import { ogCards } from "@/lib/og";
 
@@ -8,6 +10,12 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return ogCards().map((card) => ({ name: card.name }));
 }
+
+// next/og bundles a single regular weight, so bold needs a font file. Inter 4.1
+// (SIL OFL), subset to Latin in src/app/og/fonts/.
+const FONT_DIR = join(process.cwd(), "src/app/og/fonts");
+const interBold = await readFile(join(FONT_DIR, "Inter-Bold.ttf"));
+const interSemiBold = await readFile(join(FONT_DIR, "Inter-SemiBold.ttf"));
 
 export async function GET(
   _request: Request,
@@ -28,6 +36,7 @@ export async function GET(
           display: "flex",
           width: "100%",
           height: "100%",
+          fontFamily: "Inter",
           background: "linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%)",
         }}
       >
@@ -58,10 +67,19 @@ export async function GET(
               {card.title}
             </div>
           </div>
-          <div style={{ display: "flex", fontSize: 30, color: "#566072" }}>{SITE_NAME}</div>
+          <div style={{ display: "flex", fontSize: 30, fontWeight: 600, color: "#566072" }}>
+            {SITE_NAME}
+          </div>
         </div>
       </div>
     ),
-    { width: 1200, height: 630 },
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        { name: "Inter", data: interBold, weight: 700, style: "normal" },
+        { name: "Inter", data: interSemiBold, weight: 600, style: "normal" },
+      ],
+    },
   );
 }
