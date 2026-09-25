@@ -36,7 +36,7 @@ export const services: Service[] = [
     summary:
       "Embed AI into an existing product, starting with a fixed-fee roadmap instead of a rebuild.",
     accent: true,
-    metaTitle: "AI Integration for Startups and Product Teams",
+    metaTitle: "AI Integration for Product Teams",
     metaDescription:
       "Embed AI into the product you already have. Start with a fixed-fee roadmap, not a rebuild, from a senior engineer with 10+ years shipping production software.",
     published: true,
@@ -50,7 +50,7 @@ export const services: Service[] = [
     summary:
       "Fractional CTO guidance, technical audits, and MVP blueprints for non-technical founders making early product decisions.",
     accent: false,
-    metaTitle: "Technical Consulting for Non-Technical Founders",
+    metaTitle: "Technical Consulting for Founders",
     metaDescription:
       "Technical clarity before you build or hire: fixed-scope tech audits, MVP blueprints and fractional CTO guidance for non-technical founders.",
     published: true,

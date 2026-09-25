@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { requireService } from "../data/services";
-import { HOME_DESCRIPTION } from "../data/site";
+import { HOME_DESCRIPTION, SITE_SHORT_NAME } from "../data/site";
 import { publishedWorkflows } from "./routes";
 import {
   absoluteUrl,
@@ -95,7 +95,7 @@ describe("workflow and demo meta", () => {
 
   it("keeps every title, with the site suffix, within 60 characters", () => {
     for (const m of all) {
-      expect(`${m.title} | Paradigm Shift`.length, m.title).toBeLessThanOrEqual(60);
+      expect(`${m.title} | ${SITE_SHORT_NAME}`.length, m.title).toBeLessThanOrEqual(60);
     }
   });
 

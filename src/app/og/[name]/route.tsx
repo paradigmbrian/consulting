@@ -12,7 +12,13 @@ export function generateStaticParams() {
 }
 
 // next/og bundles a single regular weight, so bold needs a font file. Inter 4.1
-// (SIL OFL), subset to Latin in src/app/og/fonts/.
+// (SIL OFL), subset to Latin in src/app/og/fonts/. The subset keeps only
+// U+0020–007E, U+00A0–00FF, U+2013–2014, U+2018–2019, U+201C–201D, U+2026.
+// Passing `fonts` below replaces next/og's bundled face entirely, so a
+// character outside that subset renders blank — re-subset before adding
+// copy that needs one. process.cwd() must be the repo root: true for
+// `npm run build` run from the root, and true on Netlify with no `base`
+// directory configured.
 const FONT_DIR = join(process.cwd(), "src/app/og/fonts");
 const interBold = await readFile(join(FONT_DIR, "Inter-Bold.ttf"));
 const interSemiBold = await readFile(join(FONT_DIR, "Inter-SemiBold.ttf"));

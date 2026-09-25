@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { demoRegistry } from "../demos/registry";
 import { showcaseRegistry } from "../showcases/registry";
 import { getService, publishedServices, servicePath, services } from "./services";
+import { SITE_SHORT_NAME } from "./site";
 import { workflows } from "./workflows";
 
 describe("services", () => {
@@ -26,6 +27,12 @@ describe("services", () => {
     for (const d of descriptions) {
       expect(d.length).toBeGreaterThanOrEqual(70);
       expect(d.length).toBeLessThanOrEqual(160);
+    }
+  });
+
+  it("keeps every meta title, with the site suffix, within 60 characters", () => {
+    for (const s of services) {
+      expect(`${s.metaTitle} | ${SITE_SHORT_NAME}`.length, s.slug).toBeLessThanOrEqual(60);
     }
   });
 

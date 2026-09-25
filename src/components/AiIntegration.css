@@ -1,9 +1,8 @@
 /* AI Integration service page — scoped styles.
    Reuses global utilities, the offer- and steps- classes, and the wf-eyebrow label;
-   only net-new elements are styled here, using the current light theme. */
-
-/* The header comment above must never contain a stray comment terminator —
-   one once swallowed the rule below and the page shipped with no hero padding. */
+   only net-new elements are styled here, using the current light theme. This comment
+   must never contain a stray comment terminator — one once swallowed the rule below
+   and the page shipped with no hero padding. */
 .ai-hero {
   padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-lg);
   text-align: center;
